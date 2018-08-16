@@ -47,26 +47,33 @@
         $("#submitVoucher").click(b =>{
 
 
+
             b.preventDefault();
             b.stopPropagation();
 
-            currentLvl =  parseInt($("#currentLvl").val());
-            targetLvl  =  parseInt($("#targetLvl").val());
-            voucherRun =  parseInt($("#voucherPerRun").val());
-            voucherExp =  parseFloat($("#voucherExp").val());
-            isPremium  =  $("#isPremium").prop('checked');
-            expAim = 0;
-            voucherAmmount = 0;
+            if($("#currentLvl").val() >= $("#targetLvl").val()){
+               alert("Target Level has to be higher than Current Level");
+            }else{
+                currentLvl =  parseInt($("#currentLvl").val());
+                targetLvl  =  parseInt($("#targetLvl").val());
+                voucherRun =  parseInt($("#voucherPerRun").val());
+                voucherExp =  parseFloat($("#voucherExp").val());
+                isPremium  =  $("#isPremium").prop('checked');
+                expAim = 0;
+                voucherAmmount = 0;
 
-            if(isPremium){voucherExp = voucherExp+(voucherExp/2)};
+                if(isPremium){voucherExp = voucherExp+(voucherExp/2)};
 
-            for(i=currentLvl+1; i<=targetLvl; i++){
-                expAim += i*5;
+                for(i=currentLvl+1; i<=targetLvl; i++){
+                    expAim += i*5;
+                }
+                voucherAmmount = expAim/voucherExp;
+
+                $("#voucherAmmount").val(Math.ceil(voucherAmmount));
+                $("#runsAmmount").val(Math.ceil(voucherAmmount/voucherRun));
             }
-            voucherAmmount = expAim/voucherExp;
 
-            $("#voucherAmmount").val(Math.ceil(voucherAmmount));
-            $("#runsAmmount").val(Math.ceil(voucherAmmount/voucherRun));
+
 
         })
 

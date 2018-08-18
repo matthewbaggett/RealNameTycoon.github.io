@@ -118,7 +118,7 @@
 
         $("#targetLvl").on("input", a =>{
 
-            if($("#currentLvl").val() >= $("#targetLvl").val()){
+            if(parseInt($("#currentLvl").val()) >= parseInt($("#targetLvl").val())){
                 $("#targetLvl").css("border-color","red");
             }else{
                 $("#targetLvl").css("border-color","green");

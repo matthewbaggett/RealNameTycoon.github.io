@@ -99,47 +99,6 @@
     $( document ).ready(function() {
 
 
-      $("#currentLvl").keyup(function(e){
-        if(event.keyCode == 9) {
-            $("#currentLvlExp").focus();
-        }
-      });
-
-      $("#currentLvlExp").keyup(function(e){
-        if(event.keyCode == 9) {
-            $("#targetLvl").focus();
-        }
-        if(event.shiftKey && event.keyCode == 9) {
-            $("#currentLvl").focus();
-        }
-      });
-
-      $("#targetLvl").keyup(function(e){
-        if(event.keyCode == 9) {
-            $("#voucherPerRun").focus();
-        }
-        if(event.shiftKey && event.keyCode == 9) {
-            $("#currentLvlExp").focus();
-        }
-      });
-
-      $("#voucherPerRun").keyup(function(e){
-        if(event.keyCode == 9) {
-            $("#isPremium").focus();
-        }
-        if(event.shiftKey && event.keyCode == 9) {
-            $("#targetLvl").focus();
-        }
-      });
-
-      $("#isPremium").keyup(function(e){
-        if(event.shiftKey && event.keyCode == 9) {
-            $("#voucherPerRun").focus();
-        }
-      });
-
-
-
       $(document).keypress(function(e) {
         if(e.which == 13) {
           $("#submitVoucher").trigger("click");

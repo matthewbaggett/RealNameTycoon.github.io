@@ -12,11 +12,11 @@
 
 <div class="singleField">
     <label for="currentLvl">Current Level</label>
-    <input type="number" id="currentLvl" step="1" placeholder="Required" class="text ui-widget-content ui-corner-all">
+    <input tabindex="0" type="number" id="currentLvl" step="1" placeholder="Required" class="text ui-widget-content ui-corner-all">
 </div>
 <div class="singleField"><div class="singleField">
     <label for="currentLvlExp">Current Lvl exp (total exp)<br>Not required but more accurate</label>
-    <input type="number" id="currentLvlExp" step="1" class="text ui-widget-content ui-corner-all">
+    <input tabindex="1"  type="number" id="currentLvlExp" step="1" class="text ui-widget-content ui-corner-all">
 </div>
 
 <div class="singleField">
@@ -74,7 +74,7 @@
 
 
 <div class="singleField">
-    <input type="submit" id="submitVoucher">
+  <button class="ui-button ui-widget ui-corner-all" id="submitVoucher">Calculate</button>
 </div>
 
 </fieldset>
@@ -92,11 +92,59 @@
 
 </fieldset>
 
-<h6 id="lastUpdated">Last updated - 08/18/2018 </h6>
+<h6 id="lastUpdated">ahh</h6>
 
 
 <script>
     $( document ).ready(function() {
+
+
+      $("#currentLvl").keyup(function(e){
+        if(event.keyCode == 9) {
+            $("#currentLvlExp").focus();
+        }
+      });
+
+      $("#currentLvlExp").keyup(function(e){
+        if(event.keyCode == 9) {
+            $("#targetLvl").focus();
+        }
+        if(event.shiftKey && event.keyCode == 9) {
+            $("#currentLvl").focus();
+        }
+      });
+
+      $("#targetLvl").keyup(function(e){
+        if(event.keyCode == 9) {
+            $("#voucherPerRun").focus();
+        }
+        if(event.shiftKey && event.keyCode == 9) {
+            $("#currentLvlExp").focus();
+        }
+      });
+
+      $("#voucherPerRun").keyup(function(e){
+        if(event.keyCode == 9) {
+            $("#isPremium").focus();
+        }
+        if(event.shiftKey && event.keyCode == 9) {
+            $("#targetLvl").focus();
+        }
+      });
+
+      $("#isPremium").keyup(function(e){
+        if(event.shiftKey && event.keyCode == 9) {
+            $("#voucherPerRun").focus();
+        }
+      });
+
+
+
+      $(document).keypress(function(e) {
+        if(e.which == 13) {
+          $("#submitVoucher").trigger("click");
+        }
+      });
 
       $( "#submitVoucher" ).button();
       $( "#voucherTypeNoPremium" ).selectmenu();
@@ -125,13 +173,12 @@
             b.preventDefault();
             b.stopPropagation();
 
-            tempCurrentLvl = parseInt($("#currentLvl").val());
-            tempTargetLvl  = parseInt($("#targetLvl").val());
 
-            if(tempCurrentLvl == 0 || tempCurrentLvl == null
-                || tempTargetLvl == 0 || tempTargetLvl == null){
+
+            if($("#currentLvl").val() == 0 || $("#currentLvl").val() == null
+                || $("#targetLvl").val() == 0 || $("#targetLvl").val() == null){
               alert("Please fill all required fields")
-            }else if(tempCurrentLvl >= tempTargetLvl){
+            }else if(parseInt($("#currentLvl").val()) >= parseInt($("#targetLvl").val())){
                alert("Target Level has to be higher than Current Level");
             }else{
                 currentLvl =  parseInt($("#currentLvl").val());

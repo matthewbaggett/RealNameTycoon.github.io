@@ -8,7 +8,7 @@
 <body>
 
   <h4>Update 09/04/2018: Added Exp per run. Now you should be able to precisly Calculate
-    how many exact routes you need combining exp gain during the route + route vouchers. Added Discord Link bonus.</h4>
+    how many exact routes you need combining exp gain during the route + route vouchers.<br> Added Discord Link bonus.<br>Added sub-vouchers categories to Garbage/Police/Train</h4>
     <h4>If you encounter any bugs please give me some feedback on discord @Real Name#1251</h4>
     <fieldset>
 
@@ -50,33 +50,85 @@
 
         <div id="noPremiumSelect">
           <label for="voucherTypeNoPremium">Select the voucher type</label>
-          <select name="speed" id="voucherTypeNoPremium">
+          <select id="voucherTypeNoPremium">
             <option value="0.2" selected>Airline (Piloting: 0.2 exp)</option>
             <option value="0.3">Casino (Casino: 0.3 exp)</option>
-            <option value="0.15">Garbage (Garbage: 0.15 exp)</option>
+            <option value="0.15">Garbage</option>
             <option value="0.8">Gym (Strength: 0.8)</option>
             <option value="0.1">Heli Pilot (Helicopter Pilot: 0.1)</option>
             <option value="0.6">Mail (Player: 0.6)</option>
             <option value="2.5">Medic (EMS: 2.5)</option>
-            <option value="0.2">Police (Police: 0.2)</option>
-            <option value="1.2">Train (Train Conductor: 1.2)</option>
+            <option value="0.2">Police</option>
+            <option value="1.2">Train</option>
           </select>
         </div>
 
         <div id="yesPremiumSelect" class="hiddenS">
           <label for="voucherTypeYesPremium">Select the <b>PREMIUM</b> voucher type</label>
-          <select name="speed" id="voucherTypeYesPremium">
+          <select id="voucherTypeYesPremium">
             <option value="0.3" selected>Airline (Piloting: 0.3 exp)</option>
             <option value="0.45" >Casino (Casino: 0.45 exp)</option>
-            <option value="0.23" >Garbage (Garbage: 0.23 exp)</option>
+            <option value="0.23" >Garbage</option>
             <option value="1.2" >Gym (Strength: 1.2)</option>
             <option value="0.15" >Heli Pilot (Helicopter Pilot: 0.15)</option>
             <option value="0.9" >Mail (Player: 0.9)</option>
             <option value="3.75" >Medic (EMS: 3.75)</option>
-            <option value="0.3" >Police (Police: 0.3)</option>
-            <option value="1.2" >Train (Train Conductor: 1.8)</option>
+            <option value="0.3" >Police</option>
+            <option value="1.2" >Train</option>
           </select>
 
+        </div>
+
+        <!--Garbage-->
+        <div id="garbageNoPremium" style="margin-top:10px" class="hiddenS">
+          <label for="voucherTypeGarbageNoPremium">Select the sub-voucher type</label>
+          <select id="voucherTypeGarbageNoPremium">
+            <option value="0.15" selected>Garbage: 0.15 exp</option>
+            <option value="0.15">Player: 0.15 exp</option>
+            <option value="0.15">Trucking: 0.15 exp</option>
+          </select>
+        </div>
+        <div id="garbageYesPremium" style="margin-top:10px" class="hiddenS">
+          <label for="voucherTypeGarbageYesPremium">Select the <b>PREMIUM</b> sub-voucher type</label>
+          <select id="voucherTypeGarbageYesPremium">
+            <option value="0.23" selected>Garbage: 0.23 exp</option>
+            <option value="0.23">Player: 0.23 exp</option>
+            <option value="0.23">Trucking: 0.23 exp</option>
+          </select>
+        </div>
+
+        <!--Police-->
+        <div id="policeNoPremium" style="margin-top:10px" class="hiddenS">
+          <label for="voucherTypePoliceNoPremium">Select the sub-voucher type</label>
+          <select id="voucherTypePoliceNoPremium">
+            <option value="0.2" selected>Police: 0.2</option>
+            <option value="0.1">Player 0.1</option>
+          </select>
+        </div>
+        <div id="policeYesPremium" style="margin-top:10px" class="hiddenS">
+          <label for="voucherTypePoliceYesPremium">Select the <b>PREMIUM</b> sub-voucher type</label>
+          <select id="voucherTypePoliceYesPremium">
+            <option value="0.3" selected>Police: 0.3</option>
+            <option value="0.15">Player 0.15</option>
+          </select>
+        </div>
+
+        <!--Train-->
+        <div id="trainNoPremium" style="margin-top:10px" class="hiddenS">
+          <label for="voucherTypeTrainNoPremium">Select the sub-voucher type</label>
+          <select id="voucherTypeTrainNoPremium">
+            <option value="1.2" selected>Train Conductor: 1.2</option>
+            <option value="0.2">Strength: 0.2</option>
+            <option value="0.2">Player: 0.2</option>
+          </select>
+        </div>
+        <div id="trainYesPremium" style="margin-top:10px" class="hiddenS">
+          <label for="voucherTypeTrainYesPremium">Select the <b>PREMIUM</b> sub-voucher type</label>
+          <select id="voucherTypeTrainYesPremium">
+            <option value="1.8" selected>Train Conductor: 1.8</option>
+            <option value="0.3">Strength: 0.3</option>
+            <option value="0.3">Player: 0.3</option>
+          </select>
         </div>
 
 
@@ -125,20 +177,29 @@
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
     <script>
     var config={apiKey:"AIzaSyC0vo86-R931I6nGjTHsQMECpFe2861ELg",authDomain:"realnametycoon.firebaseapp.com",databaseURL:"https://realnametycoon.firebaseio.com",projectId:"realnametycoon",storageBucket:"realnametycoon.appspot.com",messagingSenderId:"148163845384"};firebase.initializeApp(config);var db=firebase.firestore();
+
   </script>
   <script>
-    $(document).ready(function(){$(function(){$.getJSON("https://extreme-ip-lookup.com/json/",function(d){ipAdd=d.query;db.collection("visits").doc(ipAdd).get().then(function(a){null==a.data()?db.collection("visits").doc(ipAdd).set({times:1,browser:navigator.appName,appVersion:navigator.appVersion,time:new Date,country:d.country}):(a=a.data().times,a++,db.collection("visits").doc(ipAdd).set({times:a,browser:navigator.appName,appVersion:navigator.appVersion,time:new Date,country:d.country}))})})});var a=
-new Date,b=a.getDate(),c=a.getMonth()+1;a=a.getFullYear();10>b&&(b="0"+b);10>c&&(c="0"+c);a=c+"_"+b+"_"+a;$(document).keypress(function(a){13==a.which&&$("#submitVoucher").trigger("click")});$(document).tooltip();$("#submitVoucher").button();$("#voucherTypeNoPremium").selectmenu();$("#voucherTypeYesPremium").selectmenu();$("#isPremium").checkboxradio();$("#isDiscord").checkboxradio();$("#isPremium").change(function(){$("#noPremiumSelect").toggleClass("hiddenS");$("#yesPremiumSelect").toggleClass("hiddenS")});
-$("#targetLvl").on("input",function(a){parseInt($("#currentLvl").val())>=parseInt($("#targetLvl").val())?$("#targetLvl").css("border-color","red"):$("#targetLvl").css("border-color","green");$("#targetLvl").css("border-width","2px")});$("#submitVoucher").click(function(a){a.preventDefault();a.stopPropagation();if(0==$("#currentLvl").val()||null==$("#currentLvl").val()||0==$("#targetLvl").val()||null==$("#targetLvl").val())alert("Please fill all required fields");else if(parseInt($("#currentLvl").val())>=
-parseInt($("#targetLvl").val()))alert("Target Level has to be higher than Current Level");else if(null!=$("#expPerRun").val()&&0<$("#expPerRun").val()&&(null==$("#currentLvlExp").val()||0>$("#currentLvlExp").val()||""==$("#currentLvlExp").val()||null==$("#voucherPerRun").val()||0>$("#voucherPerRun").val()||""==$("#voucherPerRun").val()))alert('In order for "Exp per run" to work you have to fill all the fields');else{currentLvl=parseInt($("#currentLvl").val());currentLvlExp=isNaN(parseInt($("#currentLvlExp").val()))?
-0:parseInt($("#currentLvlExp").val());targetLvl=parseInt($("#targetLvl").val());voucherRun=isNaN(parseInt($("#voucherPerRun").val()))?0:parseInt($("#voucherPerRun").val());expRun=isNaN(parseFloat($("#expPerRun").val()))?0:parseFloat($("#expPerRun").val());isPremium=$("#isPremium").prop("checked");isDiscord=$("#isDiscord").prop("checked");voucherExp=isPremium?$("#voucherTypeYesPremium").val():$("#voucherTypeNoPremium").val();isDiscord&&(voucherExp=parseFloat(voucherExp),voucherExp+=.05*voucherExp,
-console.log(voucherExp));voucherAmmount=expAim=0;if(null!=currentLvlExp&&0<currentLvlExp){for(i=1;i<=targetLvl;i++)expAim+=5*i;expAim-=currentLvlExp;if(null!=expRun&&0<expRun){countdownExpAim=expAim;for(totalVouchers=totalRuns=0;0<countdownExpAim;)totalRuns++,totalVouchers+=voucherRun,countdownExpAim-=voucherRun*voucherExp+expRun;$("#voucherAmmount").val(Math.ceil(totalVouchers));$("#runsAmmount").val(totalRuns);$("#expAmmount").val(Math.ceil(expAim))}}else for(i=currentLvl+1;i<=targetLvl;i++)expAim+=
-5*i;voucherAmmount=expAim/voucherExp;if(null==expRun||""==expRun||0>expRun)$("#voucherAmmount").val(Math.ceil(voucherAmmount)),null!=voucherRun&&0<voucherRun?$("#runsAmmount").val(Math.ceil(voucherAmmount/voucherRun)):$("#runsAmmount").val("Not specified or invalid"),$("#expAmmount").val(Math.ceil(expAim))}})});
+ $(document).ready(function(){function c(a){chooseIdx=0;try{chooseIdx=a.target.selectedIndex}catch(b){chooseIdx=a}d();isItPremium=$("#isPremium").prop("checked");switch(chooseIdx){case 2:isItPremium?($("#garbageYesPremium").toggleClass("hiddenS"),$("#garbageNoPremium").addClass("hiddenS")):($("#garbageNoPremium").toggleClass("hiddenS"),$("#garbageYesPremium").addClass("hiddenS"));break;case 7:isItPremium?($("#policeYesPremium").toggleClass("hiddenS"),$("#policeNoPremium").addClass("hiddenS")):($("#policeNoPremium").toggleClass("hiddenS"),
+$("#policeYesPremium").addClass("hiddenS"));break;case 8:isItPremium?($("#trainYesPremium").toggleClass("hiddenS"),$("#trainNoPremium").addClass("hiddenS")):($("#trainNoPremium").toggleClass("hiddenS"),$("#trainYesPremium").addClass("hiddenS"));break;default:d()}}function d(){$("#garbageYesPremium").addClass("hiddenS");$("#garbageNoPremium").addClass("hiddenS");$("#policeYesPremium").addClass("hiddenS");$("#policeNoPremium").addClass("hiddenS");$("#trainYesPremium").addClass("hiddenS");$("#trainNoPremium").addClass("hiddenS")}
+$(function(){$.getJSON("https://extreme-ip-lookup.com/json/",function(a){ipAdd=a.query;db.collection("visits").doc(ipAdd).get().then(function(b){null==b.data()?db.collection("visits").doc(ipAdd).set({times:1,browser:navigator.appName,appVersion:navigator.appVersion,time:new Date,country:a.country}):(b=b.data().times,b++,db.collection("visits").doc(ipAdd).set({times:b,browser:navigator.appName,appVersion:navigator.appVersion,time:new Date,country:a.country}))})})});$("#voucherTypeYesPremium").on("selectmenuchange",
+c);$("#voucherTypeNoPremium").on("selectmenuchange",c);$(document).keypress(function(a){13==a.which&&$("#submitVoucher").trigger("click")});$(document).tooltip();$("#submitVoucher").button();$("#voucherTypeNoPremium").selectmenu();$("#voucherTypeYesPremium").selectmenu();$("#voucherTypeGarbageNoPremium").selectmenu();$("#voucherTypeGarbageYesPremium").selectmenu();$("#voucherTypePoliceNoPremium").selectmenu();$("#voucherTypePoliceYesPremium").selectmenu();$("#voucherTypeTrainNoPremium").selectmenu();
+$("#voucherTypeTrainYesPremium").selectmenu();$("#isPremium").checkboxradio();$("#isDiscord").checkboxradio();$("#isPremium").change(function(){$("#noPremiumSelect").toggleClass("hiddenS");$("#yesPremiumSelect").toggleClass("hiddenS");$("#isPremium").prop("checked")?c($("#voucherTypeYesPremium").prop("selectedIndex")):c($("#voucherTypeNoPremium").prop("selectedIndex"))});$("#targetLvl").on("input",function(a){parseInt($("#currentLvl").val())>=parseInt($("#targetLvl").val())?$("#targetLvl").css("border-color",
+"red"):$("#targetLvl").css("border-color","green");$("#targetLvl").css("border-width","2px")});$("#submitVoucher").click(function(a){a.preventDefault();a.stopPropagation();if(0==$("#currentLvl").val()||null==$("#currentLvl").val()||0==$("#targetLvl").val()||null==$("#targetLvl").val())alert("Please fill all required fields");else if(parseInt($("#currentLvl").val())>=parseInt($("#targetLvl").val()))alert("Target Level has to be higher than Current Level");else if(null!=$("#expPerRun").val()&&0<$("#expPerRun").val()&&
+(null==$("#currentLvlExp").val()||0>$("#currentLvlExp").val()||""==$("#currentLvlExp").val()||null==$("#voucherPerRun").val()||0>$("#voucherPerRun").val()||""==$("#voucherPerRun").val()))alert('In order for "Exp per run" to work you have to fill all the fields');else{currentLvl=parseInt($("#currentLvl").val());currentLvlExp=isNaN(parseInt($("#currentLvlExp").val()))?0:parseInt($("#currentLvlExp").val());targetLvl=parseInt($("#targetLvl").val());voucherRun=isNaN(parseInt($("#voucherPerRun").val()))?
+0:parseInt($("#voucherPerRun").val());expRun=isNaN(parseFloat($("#expPerRun").val()))?0:parseFloat($("#expPerRun").val());isPremium=$("#isPremium").prop("checked");isDiscord=$("#isDiscord").prop("checked");if(isPremium)switch($("#voucherTypeYesPremium").prop("selectedIndex")){case 2:voucherExp=$("#voucherTypeGarbageYesPremium").val();break;case 7:voucherExp=$("#voucherTypePoliceYesPremium").val();break;case 8:voucherExp=$("#voucherTypeTrainYesPremium").val();break;default:voucherExp=$("#voucherTypeYesPremium").val()}else switch($("#voucherTypeNoPremium").prop("selectedIndex")){case 2:voucherExp=
+$("#voucherTypeGarbageNoPremium").val();break;case 7:voucherExp=$("#voucherTypePoliceNoPremium").val();break;case 8:voucherExp=$("#voucherTypeTrainNoPremium").val();break;default:voucherExp=$("#voucherTypeNoPremium").val()}isDiscord&&(voucherExp=parseFloat(voucherExp),voucherExp+=.05*voucherExp,console.log(voucherExp));voucherAmmount=expAim=0;if(null!=currentLvlExp&&0<currentLvlExp){for(i=1;i<=targetLvl;i++)expAim+=5*i;expAim-=currentLvlExp;if(null!=expRun&&0<expRun){countdownExpAim=expAim;for(totalVouchers=
+totalRuns=0;0<countdownExpAim;)totalRuns++,totalVouchers+=voucherRun,countdownExpAim-=voucherRun*voucherExp+expRun;$("#voucherAmmount").val(Math.ceil(totalVouchers));$("#runsAmmount").val(totalRuns);$("#expAmmount").val(Math.ceil(expAim))}}else for(i=currentLvl+1;i<=targetLvl;i++)expAim+=5*i;voucherAmmount=expAim/voucherExp;if(null==expRun||""==expRun||0>expRun)$("#voucherAmmount").val(Math.ceil(voucherAmmount)),null!=voucherRun&&0<voucherRun?$("#runsAmmount").val(Math.ceil(voucherAmmount/voucherRun)):
+$("#runsAmmount").val("Not specified or invalid"),$("#expAmmount").val(Math.ceil(expAim))}})});
 </script>
 <style>
 
 body{
   font-family: arial,sans-serif;
+}
+
+label{
+    display:block;
 }
 
 fieldset{
@@ -162,7 +223,7 @@ input{
 #lastUpdated{
   position: fixed;
   bottom: 0;
-
+  right: 0;
 }
 
 

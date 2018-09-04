@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Real Name Tycoon</title>
-  <link rel="shortcut icon" type="image/png" href="img/favicon.png">
   <link rel="stylesheet" href="https://code.jquery.com/ui/jquery-ui-git.css">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
 </head>
 <body>
 
-
+  <h4>Update 09/04/2018: Added Exp per run. Now you should be able to precisly Calculate
+  how many exact routes you need combining exp gain during the route + route vouchers.</h4>
+  <h4>If you encounter any bugs please give me some feedback on discord @Real Name#1251</h4>
   <fieldset>
-
+    
     <legend>Tycoon Calculator</legend>
     <p></p>
-
+    
     <div class="singleField">
       <label for="currentLvl">Current Level</label>
       <input tabindex="0" type="number" id="currentLvl" step="1" placeholder="Required" class="text ui-widget-content ui-corner-all">
@@ -23,24 +23,29 @@
       <label for="currentLvlExp">Current Lvl exp (total exp)<br>Not required but more accurate</label>
       <input tabindex="1"  type="number" id="currentLvlExp" step="1" class="text ui-widget-content ui-corner-all">
     </div>
-
+    
     <div class="singleField">
       <label for="targetLvl">Target Level</label>
       <input type="number" id="targetLvl" step="1" placeholder="Required" class="text ui-widget-content ui-corner-all">
     </div>
-
+    
     <div class="singleField">
       <label for="voucherPerRun">Vouchers per run</label>
       <input type="number" id="voucherPerRun" step="1" class="text ui-widget-content ui-corner-all">
     </div>
-
+    
+    <div class="singleField">
+      <label for="expPerRun">Exp per run</label>
+      <input title="By filling this box it will combine the exp and vouchers gained during routes. For this option to work you have to fill the Current Lvl exp as well." type="number" id="expPerRun" step="1" class="text ui-widget-content ui-corner-all">
+    </div>
+    
     <div class="singleField">
       <label for="isPremium">Premium</label>
       <input type="checkbox" id="isPremium">
     </div>
-
+    
     <div class="singleField">
-
+      
       <div id="noPremiumSelect">
         <label for="voucherTypeNoPremium">Select the voucher type</label>
         <select name="speed" id="voucherTypeNoPremium">
@@ -55,7 +60,7 @@
           <option value="1.2">Train (Train Conductor: 1.2)</option>
         </select>
       </div>
-
+      
       <div id="yesPremiumSelect" class="hiddenS">
         <label for="voucherTypeYesPremium">Select the <b>PREMIUM</b> voucher type</label>
         <select name="speed" id="voucherTypeYesPremium">
@@ -69,21 +74,21 @@
           <option value="0.3" >Police (Police: 0.3)</option>
           <option value="1.2" >Train (Train Conductor: 1.8)</option>
         </select>
-
+        
       </div>
-
-
+      
+      
     </div>
-
-
-
-
+    
+    
+    
+    
     <div class="singleField">
       <button class="ui-button ui-widget ui-corner-all" id="submitVoucher">Calculate</button>
     </div>
-
+    
   </fieldset>
-
+  
   <fieldset>
     <legend>Result</legend>
     <p></p>
@@ -91,19 +96,18 @@
     <input type="text" id="voucherAmmount" class="text ui-widget-content ui-corner-all" disabled>
     <label for="expAmmount">Exp needed</label>
     <input type="text" id="expAmmount" class="text ui-widget-content ui-corner-all" disabled>
-    <label for="runsAmmount">Number of runs*</label>
+    <label for="runsAmmount">Number of runs</label>
     <input type="text" id="runsAmmount" class="text ui-widget-content ui-corner-all" disabled>
-    <h5 style="margin: 0;">*does not take into account the exp gained doing the routes</h5>
-
-
+    
+    
   </fieldset>
   <fieldset>
     <legend>Links</legend>
     <a href="/icons">Icons</a>
   </fieldset>
-
-  <h3 id="lastUpdated" style="color:red">Last updated - 09/03/2018</h3>
-
+  
+  <h4 id="lastUpdated" style="color:red">Last updated - 09/04/2018</h4>
+  
   <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
@@ -111,11 +115,13 @@
   var config={apiKey:"AIzaSyC0vo86-R931I6nGjTHsQMECpFe2861ELg",authDomain:"realnametycoon.firebaseapp.com",databaseURL:"https://realnametycoon.firebaseio.com",projectId:"realnametycoon",storageBucket:"realnametycoon.appspot.com",messagingSenderId:"148163845384"};firebase.initializeApp(config);var db=firebase.firestore();
 </script>
 <script>
-$(document).ready(function(){$(function(){$.getJSON("https://extreme-ip-lookup.com/json/",function(d){ipAdd=d.query;db.collection("visits").doc(ipAdd).get().then(function(a){null==a.data()?db.collection("visits").doc(ipAdd).set({times:1,browser:navigator.appName,appVersion:navigator.appVersion,time:new Date,country:d.country}):(a=a.data().times,a++,db.collection("visits").doc(ipAdd).set({times:a,browser:navigator.appName,appVersion:navigator.appVersion,time:new Date,country:d.country}))})})});
-var a=new Date,b=a.getDate(),c=a.getMonth()+1;a=a.getFullYear();10>b&&(b="0"+b);10>c&&(c="0"+c);a=c+"_"+b+"_"+a;$(document).keypress(function(a){13==a.which&&$("#submitVoucher").trigger("click")});$("#submitVoucher").button();$("#voucherTypeNoPremium").selectmenu();$("#voucherTypeYesPremium").selectmenu();$("#isPremium").checkboxradio();$("#isPremium").change(function(){$("#noPremiumSelect").toggleClass("hiddenS");$("#yesPremiumSelect").toggleClass("hiddenS")});$("#targetLvl").on("input",function(a){parseInt($("#currentLvl").val())>=
-parseInt($("#targetLvl").val())?$("#targetLvl").css("border-color","red"):$("#targetLvl").css("border-color","green")});$("#submitVoucher").click(function(a){a.preventDefault();a.stopPropagation();if(0==$("#currentLvl").val()||null==$("#currentLvl").val()||0==$("#targetLvl").val()||null==$("#targetLvl").val())alert("Please fill all required fields");else if(parseInt($("#currentLvl").val())>=parseInt($("#targetLvl").val()))alert("Target Level has to be higher than Current Level");else{currentLvl=parseInt($("#currentLvl").val());
-currentLvlExp=isNaN(parseInt($("#currentLvlExp").val()))?0:parseInt($("#currentLvlExp").val());targetLvl=parseInt($("#targetLvl").val());voucherRun=isNaN(parseInt($("#voucherPerRun").val()))?0:parseInt($("#voucherPerRun").val());voucherExp=(isPremium=$("#isPremium").prop("checked"))?$("#voucherTypeYesPremium").val():$("#voucherTypeNoPremium").val();voucherAmmount=expAim=0;if(null!=currentLvlExp&&0<currentLvlExp){for(i=1;i<=targetLvl;i++)expAim+=5*i;expAim-=currentLvlExp}else for(i=currentLvl+1;i<=
-targetLvl;i++)expAim+=5*i;voucherAmmount=expAim/voucherExp;$("#voucherAmmount").val(Math.ceil(voucherAmmount));null!=voucherRun&&0<voucherRun?$("#runsAmmount").val(Math.ceil(voucherAmmount/voucherRun)):$("#runsAmmount").val("Not specified or invalid");$("#expAmmount").val(Math.ceil(expAim))}})});
+$(document).ready(function(){$(function(){$.getJSON("https://extreme-ip-lookup.com/json/",function(d){ipAdd=d.query;db.collection("visits").doc(ipAdd).get().then(function(a){null==a.data()?db.collection("visits").doc(ipAdd).set({times:1,browser:navigator.appName,appVersion:navigator.appVersion,time:new Date,country:d.country}):(a=a.data().times,a++,db.collection("visits").doc(ipAdd).set({times:a,browser:navigator.appName,appVersion:navigator.appVersion,time:new Date,country:d.country}))})})});var a=
+new Date,b=a.getDate(),c=a.getMonth()+1;a=a.getFullYear();10>b&&(b="0"+b);10>c&&(c="0"+c);a=c+"_"+b+"_"+a;$(document).keypress(function(a){13==a.which&&$("#submitVoucher").trigger("click")});$(document).tooltip();$("#submitVoucher").button();$("#voucherTypeNoPremium").selectmenu();$("#voucherTypeYesPremium").selectmenu();$("#isPremium").checkboxradio();$("#isPremium").change(function(){$("#noPremiumSelect").toggleClass("hiddenS");$("#yesPremiumSelect").toggleClass("hiddenS")});$("#targetLvl").on("input",
+function(a){parseInt($("#currentLvl").val())>=parseInt($("#targetLvl").val())?$("#targetLvl").css("border-color","red"):$("#targetLvl").css("border-color","green")});$("#submitVoucher").click(function(a){a.preventDefault();a.stopPropagation();if(0==$("#currentLvl").val()||null==$("#currentLvl").val()||0==$("#targetLvl").val()||null==$("#targetLvl").val())alert("Please fill all required fields");else if(parseInt($("#currentLvl").val())>=parseInt($("#targetLvl").val()))alert("Target Level has to be higher than Current Level");
+else if(null!=$("#expPerRun").val()&&0<$("#expPerRun").val()&&(null==$("#currentLvlExp").val()||0>$("#currentLvlExp").val()||""==$("#currentLvlExp").val()||null==$("#voucherPerRun").val()||0>$("#voucherPerRun").val()||""==$("#voucherPerRun").val()))alert('In order for "Exp per run" to work you have to fill all the fields');else{currentLvl=parseInt($("#currentLvl").val());currentLvlExp=isNaN(parseInt($("#currentLvlExp").val()))?0:parseInt($("#currentLvlExp").val());targetLvl=parseInt($("#targetLvl").val());
+voucherRun=isNaN(parseInt($("#voucherPerRun").val()))?0:parseInt($("#voucherPerRun").val());expRun=isNaN(parseInt($("#expPerRun").val()))?0:parseInt($("#expPerRun").val());voucherExp=(isPremium=$("#isPremium").prop("checked"))?$("#voucherTypeYesPremium").val():$("#voucherTypeNoPremium").val();voucherAmmount=expAim=0;if(null!=currentLvlExp&&0<currentLvlExp){for(i=1;i<=targetLvl;i++)expAim+=5*i;expAim-=currentLvlExp;if(null!=expRun&&0<expRun){countdownExpAim=expAim;for(totalVouchers=totalRuns=0;0<countdownExpAim;)totalRuns++,
+totalVouchers+=voucherRun,countdownExpAim-=voucherRun*voucherExp+expRun;$("#voucherAmmount").val(Math.ceil(totalVouchers));$("#runsAmmount").val(totalRuns);$("#expAmmount").val(Math.ceil(expAim))}}else for(i=currentLvl+1;i<=targetLvl;i++)expAim+=5*i;voucherAmmount=expAim/voucherExp;if(null==expRun||""==expRun||0>expRun)$("#voucherAmmount").val(Math.ceil(voucherAmmount)),null!=voucherRun&&0<voucherRun?$("#runsAmmount").val(Math.ceil(voucherAmmount/voucherRun)):$("#runsAmmount").val("Not specified or invalid"),
+$("#expAmmount").val(Math.ceil(expAim))}})});
 </script>
 <style>
 
@@ -124,7 +130,7 @@ body{
 }
 
 fieldset{
-
+  
   float: left;
   width: 300px;
   height: auto;
@@ -144,7 +150,7 @@ input{
 #lastUpdated{
   position: fixed;
   bottom: 0;
-
+  
 }
 
 

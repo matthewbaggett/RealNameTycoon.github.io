@@ -6,107 +6,116 @@
   <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
 </head>
 <body>
-
-  <h4>Update 09/04/2018: Added Exp per run. Now you should be able to precisely Calculate
-  how many exact routes you need combining exp gain during the route + route vouchers.</h4>
-  <h4>If you encounter any bugs please give me some feedback on discord @Real Name#1251</h4>
-  <fieldset>
-    
-    <legend>Tycoon Calculator</legend>
-    <p></p>
-    
-    <div class="singleField">
-      <label for="currentLvl">Current Level</label>
-      <input tabindex="0" type="number" id="currentLvl" step="1" placeholder="Required" class="text ui-widget-content ui-corner-all">
-    </div>
-    <div class="singleField"><div class="singleField">
-      <label for="currentLvlExp">Current Lvl exp (total exp)<br>Not required but more accurate</label>
-      <input tabindex="1"  type="number" id="currentLvlExp" step="1" class="text ui-widget-content ui-corner-all">
-    </div>
-    
-    <div class="singleField">
-      <label for="targetLvl">Target Level</label>
-      <input type="number" id="targetLvl" step="1" placeholder="Required" class="text ui-widget-content ui-corner-all">
-    </div>
-    
-    <div class="singleField">
-      <label for="voucherPerRun">Vouchers per run</label>
-      <input type="number" id="voucherPerRun" step="1" class="text ui-widget-content ui-corner-all">
-    </div>
-    
-    <div class="singleField">
-      <label for="expPerRun">Exp per run</label>
-      <input title="By filling this box it will combine the exp and vouchers gained during routes. For this option to work you have to fill the Current Lvl exp as well." type="number" id="expPerRun" step="1" class="text ui-widget-content ui-corner-all">
-    </div>
-    
-    <div class="singleField">
-      <label for="isPremium">Premium</label>
-      <input type="checkbox" id="isPremium">
-    </div>
-    
-    <div class="singleField">
+  
+  <h4>Update 09/04/2018: Added Exp per run. Now you should be able to precisly Calculate
+    how many exact routes you need combining exp gain during the route + route vouchers.</h4>
+    <h4>If you encounter any bugs please give me some feedback on discord @Real Name#1251</h4>
+    <fieldset>
       
-      <div id="noPremiumSelect">
-        <label for="voucherTypeNoPremium">Select the voucher type</label>
-        <select name="speed" id="voucherTypeNoPremium">
-          <option value="0.2" selected>Airline (Piloting: 0.2 exp)</option>
-          <option value="0.3">Casino (Casino: 0.3 exp)</option>
-          <option value="0.15">Garbage (Garbage: 0.15 exp)</option>
-          <option value="0.8">Gym (Strength: 0.8)</option>
-          <option value="0.1">Heli Pilot (Helicopter Pilot: 0.1)</option>
-          <option value="0.6">Mail (Player: 0.6)</option>
-          <option value="2.5">Medic (EMS: 2.5)</option>
-          <option value="0.2">Police (Police: 0.2)</option>
-          <option value="1.2">Train (Train Conductor: 1.2)</option>
-        </select>
+      <legend>Tycoon Calculator</legend>
+      <p></p>
+      
+      <div class="singleField">
+        <label for="currentLvl">Current Level</label>
+        <input tabindex="0" type="number" id="currentLvl" step="1" placeholder="Required" class="text ui-widget-content ui-corner-all">
+      </div>
+      <div class="singleField"><div class="singleField">
+        <label for="currentLvlExp">Current Level Exp</label>
+        <input tabindex="1"  type="number" id="currentLvlExp" step="1" class="text ui-widget-content ui-corner-all">
       </div>
       
-      <div id="yesPremiumSelect" class="hiddenS">
-        <label for="voucherTypeYesPremium">Select the <b>PREMIUM</b> voucher type</label>
-        <select name="speed" id="voucherTypeYesPremium">
-          <option value="0.3" selected>Airline (Piloting: 0.3 exp)</option>
-          <option value="0.45" >Casino (Casino: 0.45 exp)</option>
-          <option value="0.23" >Garbage (Garbage: 0.23 exp)</option>
-          <option value="1.2" >Gym (Strength: 1.2)</option>
-          <option value="0.15" >Heli Pilot (Helicopter Pilot: 0.15)</option>
-          <option value="0.9" >Mail (Player: 0.9)</option>
-          <option value="3.75" >Medic (EMS: 3.75)</option>
-          <option value="0.3" >Police (Police: 0.3)</option>
-          <option value="1.2" >Train (Train Conductor: 1.8)</option>
-        </select>
+      <div class="singleField">
+        <label for="targetLvl">Target Level</label>
+        <input type="number" id="targetLvl" step="1" placeholder="Required" class="text ui-widget-content ui-corner-all">
+      </div>
+      
+      <div class="singleField">
+        <label for="voucherPerRun">Vouchers per run</label>
+        <input type="number" id="voucherPerRun" step="1" class="text ui-widget-content ui-corner-all">
+      </div>
+      
+      <div class="singleField">
+        <label for="expPerRun">Exp per run</label>
+        <input title="By filling this box it will combine the exp and vouchers gained during routes. For this option to work you have to fill the Current Lvl exp as well." type="number" id="expPerRun" step="1" class="text ui-widget-content ui-corner-all">
+      </div>
+      
+      <div class="singleField">
+        <label for="isPremium">Premium</label>
+        <input type="checkbox" id="isPremium">
+      </div>
+      
+      <div class="singleField">
+        
+        <div id="noPremiumSelect">
+          <label for="voucherTypeNoPremium">Select the voucher type</label>
+          <select name="speed" id="voucherTypeNoPremium">
+            <option value="0.2" selected>Airline (Piloting: 0.2 exp)</option>
+            <option value="0.3">Casino (Casino: 0.3 exp)</option>
+            <option value="0.15">Garbage (Garbage: 0.15 exp)</option>
+            <option value="0.8">Gym (Strength: 0.8)</option>
+            <option value="0.1">Heli Pilot (Helicopter Pilot: 0.1)</option>
+            <option value="0.6">Mail (Player: 0.6)</option>
+            <option value="2.5">Medic (EMS: 2.5)</option>
+            <option value="0.2">Police (Police: 0.2)</option>
+            <option value="1.2">Train (Train Conductor: 1.2)</option>
+          </select>
+        </div>
+        
+        <div id="yesPremiumSelect" class="hiddenS">
+          <label for="voucherTypeYesPremium">Select the <b>PREMIUM</b> voucher type</label>
+          <select name="speed" id="voucherTypeYesPremium">
+            <option value="0.3" selected>Airline (Piloting: 0.3 exp)</option>
+            <option value="0.45" >Casino (Casino: 0.45 exp)</option>
+            <option value="0.23" >Garbage (Garbage: 0.23 exp)</option>
+            <option value="1.2" >Gym (Strength: 1.2)</option>
+            <option value="0.15" >Heli Pilot (Helicopter Pilot: 0.15)</option>
+            <option value="0.9" >Mail (Player: 0.9)</option>
+            <option value="3.75" >Medic (EMS: 3.75)</option>
+            <option value="0.3" >Police (Police: 0.3)</option>
+            <option value="1.2" >Train (Train Conductor: 1.8)</option>
+          </select>
+          
+        </div>
+        
         
       </div>
       
       
-    </div>
+      
+      
+      <div class="singleField">
+        <button class="ui-button ui-widget ui-corner-all" id="submitVoucher">Calculate</button>
+      </div>
+      
+    </fieldset>
+
     
+    <fieldset>
+      <legend>Result</legend>
+      <p></p>
+      <label for="voucherAmmount">Vouchers needed</label>
+      <input type="text" id="voucherAmmount" class="text ui-widget-content ui-corner-all" disabled>
+      <label for="expAmmount">Exp needed</label>
+      <input type="text" id="expAmmount" class="text ui-widget-content ui-corner-all" disabled>
+      <label for="runsAmmount">Number of runs</label>
+      <input type="text" id="runsAmmount" class="text ui-widget-content ui-corner-all" disabled>
+    <hr style="height: 10px; border:0; box-shadow: 0 8px 8px -10px #8c8b8b inset; margin-top:20px">
+      <legend>How to use</legend>
+      <p><b>Current Level: </b>Current level on the job to level up.</p>
+      <p><b>Current Level Exp: </b>The exact exp on the job to level up. Not required but much more accurate.</p>
+      <p><b>Target Level: </b>The job level you want to achieve.</p>
+      <p><b>Vouchers per run: </b>You need to make a route and add up how many vouchers you get.</p>
+      <p><b>Exp per run: </b>Same as the vouchers per run, you'll need to add up the total exp gained in a run. Note this only works if all fields are completed.</p>
+      <p><b>Premium: </b>Are you premium? If yes tick the box.</p>
+      <p><b>Vucher type: </b>Pretty self explanatory.</p>
+    </fieldset>
     
+    <fieldset>
+      <legend>Links</legend>
+      <a href="/icons">Icons</a>
+    </fieldset>
     
-    
-    <div class="singleField">
-      <button class="ui-button ui-widget ui-corner-all" id="submitVoucher">Calculate</button>
-    </div>
-    
-  </fieldset>
-  
-  <fieldset>
-    <legend>Result</legend>
-    <p></p>
-    <label for="voucherAmmount">Vouchers needed</label>
-    <input type="text" id="voucherAmmount" class="text ui-widget-content ui-corner-all" disabled>
-    <label for="expAmmount">Exp needed</label>
-    <input type="text" id="expAmmount" class="text ui-widget-content ui-corner-all" disabled>
-    <label for="runsAmmount">Number of runs</label>
-    <input type="text" id="runsAmmount" class="text ui-widget-content ui-corner-all" disabled>
-    
-    
-  </fieldset>
-  <fieldset>
-    <legend>Links</legend>
-    <a href="/icons">Icons</a>
-  </fieldset>
-  
-  <h4 id="lastUpdated" style="color:red">Last updated - 09/04/2018</h4>
+    <h4 id="lastUpdated" style="color:red">Last updated - 09/04/2018</h4>
   
   <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>

@@ -190,57 +190,11 @@
 
       <h4 id="lastUpdated" style="color:red">Last updated - 09/04/2018</h4>
 
-      <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
-      <script>
-      var config = {
-        apiKey: "AIzaSyC0vo86-R931I6nGjTHsQMECpFe2861ELg",
-        authDomain: "realnametycoon.firebaseapp.com",
-        databaseURL: "https://realnametycoon.firebaseio.com",
-        projectId: "realnametycoon",
-        storageBucket: "realnametycoon.appspot.com",
-        messagingSenderId: "148163845384"
-      };
-      firebase.initializeApp(config);
-      const db = firebase.firestore();
-      </script>
+
       <script>
       $( document ).ready(function() {
 
-        $(function() {
-          $.getJSON("https://extreme-ip-lookup.com/json/",
-          function(json) {
-            ipAdd = json.query;
-            db.collection('visits').doc(ipAdd).get().then(snapshot => {
-              if(snapshot.data() == null){
-                db.collection('visits').doc(ipAdd).set({
-                  times:1,
-                  appVersion: navigator.appVersion,
-                  time: new Date(),
-                  country: json.country
-                })
-              }else{
-                var times = snapshot.data().times;
-                times++;
-                db.collection('visits').doc(ipAdd).set({
-                  times:times,
-                  appVersion: navigator.appVersion,
-                  time: new Date(),
-                  country: json.country
-                })
-              }
-            });
 
-            db.collection('lastVisit').doc('last').set({
-              ip:ipAdd,
-              time: new Date(),
-              country: json.country
-            });
-
-          }
-        );
-      });
 
       $("#voucherTypeYesPremium").on('selectmenuchange', hideOrNotFunction);
       $("#voucherTypeNoPremium").on('selectmenuchange', hideOrNotFunction);

@@ -2,19 +2,28 @@
 <html lang="en">
 <head>
   <title>Real Name Tycoon</title>
-  <link rel="shortcut icon" type="image/png" href="img/favicon.png">
-  <link rel="stylesheet" href="https://code.jquery.com/ui/jquery-ui-git.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125357957-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125357957-1');
+</script>
+
+<link rel="shortcut icon" type="image/png" href="img/favicon.png">
+<link rel="stylesheet" href="https://code.jquery.com/ui/jquery-ui-git.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
 </head>
 <body>
-  
-  
+
+
   <fieldset>
-    
+
     <legend>Tycoon Calculator</legend>
     <p></p>
-    
+
     <div class="singleField">
       <label for="currentLvl">Current Level</label>
       <input tabindex="0" type="number" id="currentLvl" step="1" placeholder="Required" class="text ui-widget-content ui-corner-all">
@@ -23,31 +32,31 @@
       <label for="currentLvlExp">Current Level Exp</label>
       <input tabindex="1"  type="number" id="currentLvlExp" step="1" class="text ui-widget-content ui-corner-all">
     </div>
-    
+
     <div class="singleField">
       <label for="targetLvl">Target Level</label>
       <input type="number" id="targetLvl" step="1" placeholder="Required" class="text ui-widget-content ui-corner-all">
     </div>
-    
+
     <div class="singleField">
       <label for="voucherPerRun">Vouchers per run</label>
       <input type="number" id="voucherPerRun" step="1" class="text ui-widget-content ui-corner-all">
     </div>
-    
+
     <div class="singleField">
       <label for="expPerRun">Exp per run</label>
       <input title="By filling this box it will combine the exp and vouchers gained during routes. For this option to work you have to fill the Current Lvl exp as well." type="number" id="expPerRun" step="0.1" class="text ui-widget-content ui-corner-all">
     </div>
-    
+
     <div class="singleField">
       <label for="isPremium">Premium</label>
       <input type="checkbox" id="isPremium">
       <label for="isDiscord">Discord Linked</label>
       <input type="checkbox" id="isDiscord">
     </div>
-    
+
     <div class="singleField">
-      
+
       <div id="noPremiumSelect">
         <label for="voucherTypeNoPremium">Select the voucher type</label>
         <select id="voucherTypeNoPremium">
@@ -62,7 +71,7 @@
           <option value="1.2">Train</option>
         </select>
       </div>
-      
+
       <div id="yesPremiumSelect" class="hiddenS">
         <label for="voucherTypeYesPremium">Select the <b>PREMIUM</b> voucher type</label>
         <select id="voucherTypeYesPremium">
@@ -76,9 +85,9 @@
           <option value="0.3" >Police</option>
           <option value="1.2" >Train</option>
         </select>
-        
+
       </div>
-      
+
       <!--Garbage-->
       <div id="garbageNoPremium" style="margin-top:10px" class="hiddenS">
         <label for="voucherTypeGarbageNoPremium">Select the sub-voucher type</label>
@@ -96,7 +105,7 @@
           <option value="0.23">Trucking: 0.23 exp</option>
         </select>
       </div>
-      
+
       <!--Police-->
       <div id="policeNoPremium" style="margin-top:10px" class="hiddenS">
         <label for="voucherTypePoliceNoPremium">Select the sub-voucher type</label>
@@ -112,7 +121,7 @@
           <option value="0.15">Player 0.15</option>
         </select>
       </div>
-      
+
       <!--Train-->
       <div id="trainNoPremium" style="margin-top:10px" class="hiddenS">
         <label for="voucherTypeTrainNoPremium">Select the sub-voucher type</label>
@@ -130,20 +139,20 @@
           <option value="0.3">Player: 0.3</option>
         </select>
       </div>
-      
-      
+
+
     </div>
-    
-    
-    
-    
+
+
+
+
     <div class="singleField">
       <button class="ui-button ui-widget ui-corner-all" id="submitVoucher">Calculate</button>
     </div>
-    
+
   </fieldset>
-  
-  
+
+
   <fieldset>
     <legend>Result</legend>
     <p></p>
@@ -165,53 +174,324 @@
     <p><b>Voucher type: </b>Pretty self explanatory.</p>
     <p><b>Sub-Voucher type: </b>Some vouchers (Garbage/Police/Train) give multiple exp categories at once, select the one you want to calculate.</p>
   </fieldset>
-  
+
   <fieldset>
     <legend>Links</legend>
     <p><a href="/icons">Icons</a></p>
     <p><a href="https://docs.google.com/spreadsheets/d/1M9HoC-Ts4xsgPlY_GHOs0A7a8eXel6M0SNq1KxPaXDU/edit#gid=0">Routes by berni1212</a></p>
   </fieldset>
-  
+
   <fieldset>
     <legend>Updates</legend>
     <p><h4>09/04/2018:</h4> Added Exp per run. Now you should be able to precisely Calculate
       how many exact routes you need combining exp gain during the route + route vouchers.<br> Added Discord Link bonus.<br>Added sub-vouchers categories to Garbage/Police/Train</h4>
       <h4>If you encounter any bugs or want to give some feedback please reach me on discord @Real Name#1251</p>
       </fieldset>
-      
+
       <h4 id="lastUpdated" style="color:red">Last updated - 09/04/2018</h4>
-      
+
       <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase-app.js"></script>
       <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
       <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
       <script>
-      var config={apiKey:"AIzaSyC0vo86-R931I6nGjTHsQMECpFe2861ELg",authDomain:"realnametycoon.firebaseapp.com",databaseURL:"https://realnametycoon.firebaseio.com",projectId:"realnametycoon",storageBucket:"realnametycoon.appspot.com",messagingSenderId:"148163845384"};firebase.initializeApp(config);var db=firebase.firestore();
+      var config = {
+        apiKey: "AIzaSyC0vo86-R931I6nGjTHsQMECpFe2861ELg",
+        authDomain: "realnametycoon.firebaseapp.com",
+        databaseURL: "https://realnametycoon.firebaseio.com",
+        projectId: "realnametycoon",
+        storageBucket: "realnametycoon.appspot.com",
+        messagingSenderId: "148163845384"
+      };
+      firebase.initializeApp(config);
+      const db = firebase.firestore();
       </script>
       <script>
-      $(document).ready(function(){function c(a){chooseIdx=0;try{chooseIdx=a.target.selectedIndex}catch(b){chooseIdx=a}d();isItPremium=$("#isPremium").prop("checked");switch(chooseIdx){case 2:isItPremium?($("#garbageYesPremium").toggleClass("hiddenS"),$("#garbageNoPremium").addClass("hiddenS")):($("#garbageNoPremium").toggleClass("hiddenS"),$("#garbageYesPremium").addClass("hiddenS"));break;case 7:isItPremium?($("#policeYesPremium").toggleClass("hiddenS"),$("#policeNoPremium").addClass("hiddenS")):($("#policeNoPremium").toggleClass("hiddenS"),
-$("#policeYesPremium").addClass("hiddenS"));break;case 8:isItPremium?($("#trainYesPremium").toggleClass("hiddenS"),$("#trainNoPremium").addClass("hiddenS")):($("#trainNoPremium").toggleClass("hiddenS"),$("#trainYesPremium").addClass("hiddenS"));break;default:d()}}function d(){$("#garbageYesPremium").addClass("hiddenS");$("#garbageNoPremium").addClass("hiddenS");$("#policeYesPremium").addClass("hiddenS");$("#policeNoPremium").addClass("hiddenS");$("#trainYesPremium").addClass("hiddenS");$("#trainNoPremium").addClass("hiddenS")}
-$(function(){$.getJSON("https://extreme-ip-lookup.com/json/",function(a){ipAdd=a.query;db.collection("visits").doc(ipAdd).get().then(function(b){null==b.data()?db.collection("visits").doc(ipAdd).set({times:1,appVersion:navigator.appVersion,time:new Date,country:a.country}):(b=b.data().times,b++,db.collection("visits").doc(ipAdd).set({times:b,appVersion:navigator.appVersion,time:new Date,country:a.country}))});db.collection("lastVisit").doc("last").set({ip:ipAdd,time:new Date,country:a.country})})});
-$("#voucherTypeYesPremium").on("selectmenuchange",c);$("#voucherTypeNoPremium").on("selectmenuchange",c);$(document).keypress(function(a){13==a.which&&$("#submitVoucher").trigger("click")});$(document).tooltip();$("#submitVoucher").button();$("#voucherTypeNoPremium").selectmenu();$("#voucherTypeYesPremium").selectmenu();$("#voucherTypeGarbageNoPremium").selectmenu();$("#voucherTypeGarbageYesPremium").selectmenu();$("#voucherTypePoliceNoPremium").selectmenu();$("#voucherTypePoliceYesPremium").selectmenu();
-$("#voucherTypeTrainNoPremium").selectmenu();$("#voucherTypeTrainYesPremium").selectmenu();$("#isPremium").checkboxradio();$("#isDiscord").checkboxradio();$("#isPremium").change(function(){$("#noPremiumSelect").toggleClass("hiddenS");$("#yesPremiumSelect").toggleClass("hiddenS");$("#isPremium").prop("checked")?c($("#voucherTypeYesPremium").prop("selectedIndex")):c($("#voucherTypeNoPremium").prop("selectedIndex"))});$("#targetLvl").on("input",function(a){parseInt($("#currentLvl").val())>=parseInt($("#targetLvl").val())?
-$("#targetLvl").css("border-color","red"):$("#targetLvl").css("border-color","green");$("#targetLvl").css("border-width","2px")});$("#submitVoucher").click(function(a){a.preventDefault();a.stopPropagation();if(0==$("#currentLvl").val()||null==$("#currentLvl").val()||0==$("#targetLvl").val()||null==$("#targetLvl").val())alert("Please fill all required fields");else if(parseInt($("#currentLvl").val())>=parseInt($("#targetLvl").val()))alert("Target Level has to be higher than Current Level");else if(null!=
-$("#expPerRun").val()&&0<$("#expPerRun").val()&&(null==$("#currentLvlExp").val()||0>$("#currentLvlExp").val()||""==$("#currentLvlExp").val()||null==$("#voucherPerRun").val()||0>$("#voucherPerRun").val()||""==$("#voucherPerRun").val()))alert('In order for "Exp per run" to work you have to fill all the fields');else{currentLvl=parseInt($("#currentLvl").val());currentLvlExp=isNaN(parseInt($("#currentLvlExp").val()))?0:parseInt($("#currentLvlExp").val());targetLvl=parseInt($("#targetLvl").val());voucherRun=
-isNaN(parseInt($("#voucherPerRun").val()))?0:parseInt($("#voucherPerRun").val());expRun=isNaN(parseFloat($("#expPerRun").val()))?0:parseFloat($("#expPerRun").val());isPremium=$("#isPremium").prop("checked");isDiscord=$("#isDiscord").prop("checked");if(isPremium)switch($("#voucherTypeYesPremium").prop("selectedIndex")){case 2:voucherExp=$("#voucherTypeGarbageYesPremium").val();break;case 7:voucherExp=$("#voucherTypePoliceYesPremium").val();break;case 8:voucherExp=$("#voucherTypeTrainYesPremium").val();
-break;default:voucherExp=$("#voucherTypeYesPremium").val()}else switch($("#voucherTypeNoPremium").prop("selectedIndex")){case 2:voucherExp=$("#voucherTypeGarbageNoPremium").val();break;case 7:voucherExp=$("#voucherTypePoliceNoPremium").val();break;case 8:voucherExp=$("#voucherTypeTrainNoPremium").val();break;default:voucherExp=$("#voucherTypeNoPremium").val()}isDiscord&&(voucherExp=parseFloat(voucherExp),voucherExp+=.05*voucherExp,console.log(voucherExp));voucherAmmount=expAim=0;if(null!=currentLvlExp&&
-0<currentLvlExp){for(i=1;i<=targetLvl;i++)expAim+=5*i;expAim-=currentLvlExp;if(null!=expRun&&0<expRun){countdownExpAim=expAim;for(totalVouchers=totalRuns=0;0<countdownExpAim;)totalRuns++,totalVouchers+=voucherRun,countdownExpAim-=voucherRun*voucherExp+expRun;$("#voucherAmmount").val(Math.ceil(totalVouchers));$("#runsAmmount").val(totalRuns);$("#expAmmount").val(Math.ceil(expAim))}}else for(i=currentLvl+1;i<=targetLvl;i++)expAim+=5*i;voucherAmmount=expAim/voucherExp;if(null==expRun||""==expRun||0>
-expRun)$("#voucherAmmount").val(Math.ceil(voucherAmmount)),null!=voucherRun&&0<voucherRun?$("#runsAmmount").val(Math.ceil(voucherAmmount/voucherRun)):$("#runsAmmount").val("Not specified or invalid"),$("#expAmmount").val(Math.ceil(expAim))}})});
+      $( document ).ready(function() {
+
+        $(function() {
+          $.getJSON("https://extreme-ip-lookup.com/json/",
+          function(json) {
+            ipAdd = json.query;
+            db.collection('visits').doc(ipAdd).get().then(snapshot => {
+              if(snapshot.data() == null){
+                db.collection('visits').doc(ipAdd).set({
+                  times:1,
+                  appVersion: navigator.appVersion,
+                  time: new Date(),
+                  country: json.country
+                })
+              }else{
+                var times = snapshot.data().times;
+                times++;
+                db.collection('visits').doc(ipAdd).set({
+                  times:times,
+                  appVersion: navigator.appVersion,
+                  time: new Date(),
+                  country: json.country
+                })
+              }
+            });
+
+            db.collection('lastVisit').doc('last').set({
+              ip:ipAdd,
+              time: new Date(),
+              country: json.country
+            });
+
+          }
+        );
+      });
+
+      $("#voucherTypeYesPremium").on('selectmenuchange', hideOrNotFunction);
+      $("#voucherTypeNoPremium").on('selectmenuchange', hideOrNotFunction);
+
+      function hideOrNotFunction(a){
+        //console.log(a.target.selectedIndex);
+        //console.log(this.selectedIndex);
+        chooseIdx = 0;
+        try{
+          chooseIdx = a.target.selectedIndex;
+
+        }catch(e){
+          chooseIdx = a;
+        }
+        hideAll();
+        isItPremium = $("#isPremium").prop('checked');
+        switch (chooseIdx) {
+          case 2:{
+            //GARBAGE
+            if(isItPremium){
+              $("#garbageYesPremium").toggleClass("hiddenS");
+              $("#garbageNoPremium").addClass("hiddenS");
+            }else{
+              $("#garbageNoPremium").toggleClass("hiddenS");
+              $("#garbageYesPremium").addClass("hiddenS");
+            }
+          }break;
+          case 7:{
+            //POLICE
+            if(isItPremium){
+              $("#policeYesPremium").toggleClass("hiddenS");
+              $("#policeNoPremium").addClass("hiddenS");
+            }else{
+              $("#policeNoPremium").toggleClass("hiddenS");
+              $("#policeYesPremium").addClass("hiddenS");
+            }
+          }break;
+          case 8:{
+            //TRAIN
+            if(isItPremium){
+              $("#trainYesPremium").toggleClass("hiddenS");
+              $("#trainNoPremium").addClass("hiddenS");
+            }else{
+              $("#trainNoPremium").toggleClass("hiddenS");
+              $("#trainYesPremium").addClass("hiddenS");
+            }
+          }break;
+          default:{
+            hideAll();
+          }
+
+        }
+      }
+
+      function hideAll(){
+        $("#garbageYesPremium").addClass("hiddenS");
+        $("#garbageNoPremium").addClass("hiddenS");
+        $("#policeYesPremium").addClass("hiddenS");
+        $("#policeNoPremium").addClass("hiddenS");
+        $("#trainYesPremium").addClass("hiddenS");
+        $("#trainNoPremium").addClass("hiddenS");
+      }
+
+
+
+      $(document).keypress(function(e) {
+        if(e.which == 13) {
+          $("#submitVoucher").trigger("click");
+        }
+      });
+
+      $( document ).tooltip();
+      $( "#submitVoucher" ).button();
+      $( "#voucherTypeNoPremium" ).selectmenu();
+      $( "#voucherTypeYesPremium" ).selectmenu();
+      $( "#voucherTypeGarbageNoPremium" ).selectmenu();
+      $( "#voucherTypeGarbageYesPremium" ).selectmenu();
+      $( "#voucherTypePoliceNoPremium" ).selectmenu();
+      $( "#voucherTypePoliceYesPremium" ).selectmenu();
+      $( "#voucherTypeTrainNoPremium" ).selectmenu();
+      $( "#voucherTypeTrainYesPremium" ).selectmenu();
+
+      $("#isPremium").checkboxradio();
+      $("#isDiscord").checkboxradio();
+
+      $("#isPremium").change(function() {
+        $("#noPremiumSelect").toggleClass("hiddenS");
+        $("#yesPremiumSelect").toggleClass("hiddenS");
+
+        if($("#isPremium").prop('checked')){
+          hideOrNotFunction($("#voucherTypeYesPremium").prop('selectedIndex'));
+        }else{
+          hideOrNotFunction($("#voucherTypeNoPremium").prop('selectedIndex'));
+        }
+
+      });
+
+      $("#targetLvl").on("input", a =>{
+
+        if(parseInt($("#currentLvl").val()) >= parseInt($("#targetLvl").val())){
+          $("#targetLvl").css("border-color","red");
+          $("#targetLvl").css("border-width","2px");
+        }else{
+          $("#targetLvl").css("border-color","green");
+          $("#targetLvl").css("border-width","2px");
+        }
+      });
+
+      $("#submitVoucher").click(b =>{
+
+
+
+        b.preventDefault();
+        b.stopPropagation();
+
+
+
+        if($("#currentLvl").val() == 0 || $("#currentLvl").val() == null
+        || $("#targetLvl").val() == 0 || $("#targetLvl").val() == null){
+          alert("Please fill all required fields")
+        }else if(parseInt($("#currentLvl").val()) >= parseInt($("#targetLvl").val())){
+          alert("Target Level has to be higher than Current Level");
+        }else if(($("#expPerRun").val() != null && $("#expPerRun").val() > 0)
+        &&(($("#currentLvlExp").val() == null || $("#currentLvlExp").val() < 0 || $("#currentLvlExp").val() == "")||($("#voucherPerRun").val() == null || $("#voucherPerRun").val() < 0 || $("#voucherPerRun").val() == ""  ))){
+          alert('In order for "Exp per run" to work you have to fill all the fields')
+        }else{
+          currentLvl =  parseInt($("#currentLvl").val());
+          currentLvlExp = isNaN(parseInt($("#currentLvlExp").val()))?0:parseInt($("#currentLvlExp").val()) ;
+          targetLvl  =  parseInt($("#targetLvl").val());
+          voucherRun =  isNaN(parseInt($("#voucherPerRun").val()))?0:parseInt($("#voucherPerRun").val()) ;
+          expRun = isNaN(parseFloat($("#expPerRun").val()))?0:parseFloat($("#expPerRun").val()) ;
+          isPremium  =  $("#isPremium").prop('checked');
+          isDiscord = $("#isDiscord").prop('checked');
+
+          if(isPremium){
+
+
+            switch ($( "#voucherTypeYesPremium" ).prop("selectedIndex")) {
+              case 2:{
+                voucherExp = $( "#voucherTypeGarbageYesPremium" ).val();
+              }break;
+              case 7:{
+                voucherExp = $( "#voucherTypePoliceYesPremium" ).val();
+              }break;
+              case 8:{
+                voucherExp = $( "#voucherTypeTrainYesPremium" ).val();
+              }break;
+              default:{
+                voucherExp =  $( "#voucherTypeYesPremium" ).val();
+              }
+
+            }
+
+          }else{
+
+            switch ($( "#voucherTypeNoPremium" ).prop("selectedIndex")) {
+              case 2:{
+                voucherExp = $( "#voucherTypeGarbageNoPremium" ).val();
+              }break;
+              case 7:{
+                voucherExp = $( "#voucherTypePoliceNoPremium" ).val();
+              }break;
+              case 8:{
+                voucherExp = $( "#voucherTypeTrainNoPremium" ).val();
+              }break;
+              default:{
+                voucherExp =  $( "#voucherTypeNoPremium" ).val();
+              }
+
+            }
+          }
+
+          if(isDiscord){
+            voucherExp = parseFloat(voucherExp);
+            voucherExp = voucherExp + (voucherExp*0.05);
+            console.log(voucherExp);
+          }
+
+
+
+          expAim = 0;
+          voucherAmmount = 0;
+
+          if(currentLvlExp != null && currentLvlExp > 0){
+            for(i=1; i<=targetLvl; i++){
+              expAim += i*5;
+            }
+            expAim = expAim - currentLvlExp;
+
+            if(expRun != null && expRun > 0){
+              countdownExpAim = expAim;
+              totalRuns = 0;
+              totalVouchers = 0;
+              while(countdownExpAim > 0){
+                totalRuns++;
+                totalVouchers+=voucherRun;
+                countdownExpAim = countdownExpAim - (voucherRun*voucherExp + expRun);
+              }
+              $("#voucherAmmount").val(Math.ceil(totalVouchers));
+              $("#runsAmmount").val(totalRuns);
+              $("#expAmmount").val(Math.ceil(expAim));
+            }
+
+          }else {
+            for(i=currentLvl+1; i<=targetLvl; i++){
+              expAim += i*5;
+            }
+          }
+
+          voucherAmmount = expAim/voucherExp;
+
+          if(expRun == null || expRun == "" || expRun <0){
+            $("#voucherAmmount").val(Math.ceil(voucherAmmount));
+            if(voucherRun!= null && voucherRun >0){
+              $("#runsAmmount").val(Math.ceil(voucherAmmount/voucherRun));
+            }else{
+              $("#runsAmmount").val("Not specified or invalid")
+            }
+            $("#expAmmount").val(Math.ceil(expAim));
+          }
+
+
+
+
+          /*    console.log("currentLvl->",currentLvl);
+          console.log("targetLvl->",targetLvl);
+          console.log("expAim->",expAim);
+          console.log("voucherExp->",voucherExp);
+          console.log("voucherRun->",voucherRun);
+          */
+        }
+
+
+
+      })
+
+    });
+
     </script>
     <style>
-    
+
     body{
       font-family: arial,sans-serif;
     }
-    
+
     label{
       display:block;
     }
-    
+
     fieldset{
-      
+
       float: left;
       width: 300px;
       height: auto;
@@ -224,11 +504,11 @@ expRun)$("#voucherAmmount").val(Math.ceil(voucherAmmount)),null!=voucherRun&&0<v
     .singleField{
       margin-bottom: 15px;
     }
-    
+
     .notAllowed {
       cursor: not-allowed;
     }
-    
+
     .hiddenS{
       display: none;
     }
@@ -237,8 +517,8 @@ expRun)$("#voucherAmmount").val(Math.ceil(voucherAmmount)),null!=voucherRun&&0<v
       bottom: 0;
       right: 0;
     }
-    
-    
+
+
     </style>
     </body>
     </html>

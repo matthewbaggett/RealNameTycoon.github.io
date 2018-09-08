@@ -1,2 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body{
+    margin: 0;
+}
+
+mat-card{
+    float: left;
+}
+
+.toolBarText{
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.matListSpaces > mat-list-item{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.cardHowTo{
+    float: left;
+    width: 35%;
+    height: auto;
+}
+
+.fillRemainingSpace {
+    flex: 1 1 auto;
+}
+
+.toolBarTitle{
+    margin-left: 15px;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.calculatorForm {
+    width: 100%;
+}
+
+.cardCalculator{
+    width: 25%;
+}
+
+
+.calculatorForm > mat-form-field{
+    display: block;
+}
+
+.full-width {
+    width: 50%;
+}

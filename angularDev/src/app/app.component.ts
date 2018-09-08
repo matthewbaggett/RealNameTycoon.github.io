@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-export interface Food {
+export interface VoucherTypes {
     value: string;
     viewValue: string;
 }
@@ -11,9 +11,18 @@ export interface Food {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    foods: Food[] = [
-        {value: 'steak-0', viewValue: 'Steak'},
-        {value: 'pizza-1', viewValue: 'Pizza'},
-        {value: 'tacos-2', viewValue: 'Tacos'}
+    mainVoucherTypes: VoucherTypes[] = [
+        {value: '0.2', viewValue: 'Airline'},
+        {value: '0.3', viewValue: 'Casino'},
+        {value: 'garbage', viewValue: 'Garbage'},
+        {value: '0.8', viewValue: 'Gym'},
+        {value: '0.1', viewValue: 'Heli Pilot'},
+        {value: '0.6', viewValue: 'Mail'},
+        {value: '2.5', viewValue: 'Medic'},
+        {value: 'police', viewValue: 'Police'},
+        {value: 'train', viewValue: 'Train'},
+
     ];
+
+    defaultVoucherSelected = '0.2';
 }

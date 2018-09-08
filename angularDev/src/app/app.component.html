@@ -1,8 +1,13 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-<mat-toolbar color="primary" fxLayout="row" fxLayout.xs="column">
+<mat-toolbar color="primary" fxLayout="row" fxShow.xs="false" fxShow.gt-sx="true">
     <span fxFlex="80" class="toolBarTitle">Real Name Tycoon</span>
     <button fxFlex="20" mat-button ><b class="toolBarText">Updated 09/08/2018</b></button>
+</mat-toolbar>
+
+<mat-toolbar color="primary" fxLayout="row"  fxShow.xs="true" fxShow.gt-xs="false">
+    <span fxFlex="50" class="toolBarTitle">Real Name Tycoon</span>
+    <button fxFlex="50" mat-button ><b class="toolBarText">Updated 09/08/2018</b></button>
 </mat-toolbar>
 
 
@@ -11,11 +16,11 @@
         <mat-card>
             <form class="calculatorForm">
                 <mat-form-field>
-                    <input required matInput type="number" placeholder="Current Level" min="1">
+                    <input autocomplete="off"  required matInput type="number" placeholder="Current Level" min="1">
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input matInput type="number" placeholder="Current Level Exp" min="10">
+                    <input autocomplete="off"  matInput type="number" placeholder="Current Level Exp" min="10">
                 </mat-form-field>
 
                 <mat-form-field>
@@ -23,11 +28,11 @@
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input matInput type="number" placeholder="Vouchers Per Run">
+                    <input autocomplete="off"  matInput type="number" placeholder="Vouchers Per Run">
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input matInput type="number" placeholder="Exp Per Run">
+                    <input autocomplete="off"  matInput type="number" placeholder="Exp Per Run">
                 </mat-form-field>
 
                 <mat-form-field>

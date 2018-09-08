@@ -9,7 +9,7 @@
 <div fxLayout="row" fxLayout.xs="column">
     <div fxFlex="100">
         <mat-card>
-            <form class="calculatorForm" autocomplete="off">
+            <form class="calculatorForm">
                 <mat-form-field>
                     <input required matInput type="number" placeholder="Current Level" min="1">
                 </mat-form-field>
@@ -19,7 +19,7 @@
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input required matInput type="number" placeholder="Target Level">
+                    <input autocomplete="off" required matInput type="number" placeholder="Target Level">
                 </mat-form-field>
 
                 <mat-form-field>

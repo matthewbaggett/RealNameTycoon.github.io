@@ -30,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+              <caret line="9" column="89" lean-forward="true" selection-start-line="9" selection-start-column="89" selection-end-line="9" selection-end-column="89" />
               <folding>
                 <element signature="n#style#0;n#mat-checkbox#1;n#div#0;n#form#0;n#mat-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#mat-tab-group#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -248,12 +248,12 @@
       <workItem from="1536339146622" duration="1659000" />
       <workItem from="1536341797693" duration="17000" />
       <workItem from="1536346259098" duration="7611000" />
-      <workItem from="1536423441938" duration="15435000" />
+      <workItem from="1536423441938" duration="15599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30866000" />
+    <option name="totallyTimeSpent" value="31030000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -423,7 +423,7 @@
     <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+          <caret line="9" column="89" lean-forward="true" selection-start-line="9" selection-start-column="89" selection-end-line="9" selection-end-column="89" />
           <folding>
             <element signature="n#style#0;n#mat-checkbox#1;n#div#0;n#form#0;n#mat-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#mat-tab-group#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#!!top" expanded="true" />

@@ -14,6 +14,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatFormFieldModule} from "@angular/material";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 import {Component, NgModule} from '@angular/core';
 
@@ -40,7 +41,8 @@ import { AppComponent } from './app.component';
     MatTooltipModule,
       MatFormFieldModule,
       FormsModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      FlexLayoutModule
 
   ],
   providers: [],

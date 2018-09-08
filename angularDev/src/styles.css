@@ -7,7 +7,7 @@ body{
 }
 
 mat-card{
-    float: left;
+    /*float: left;*/
 }
 
 .toolBarText{
@@ -23,8 +23,8 @@ mat-card{
 
 
 .cardHowTo{
-    float: left;
-    width: 35%;
+    /*float: left;
+    width: 35%;*/
     height: auto;
 }
 
@@ -40,11 +40,11 @@ mat-card{
 }
 
 .calculatorForm {
-    width: 100%;
+  /*  width: 100%;*/
 }
 
 .cardCalculator{
-    width: 25%;
+    /*width: 25%;*/
 }
 
 
@@ -53,5 +53,5 @@ mat-card{
 }
 
 .full-width {
-    width: 50%;
+   /* width: 50%;*/
 }

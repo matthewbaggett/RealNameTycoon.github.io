@@ -1,15 +1,14 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-<mat-toolbar color="primary">
-    <span class="toolBarTitle">Real Name Tycoon</span>
-    <span class="fillRemainingSpace"></span>
-    <button mat-button ><b class="toolBarText">Updated 09/08/2018</b></button>
+<mat-toolbar color="primary" fxLayout="row" fxLayout.xs="column">
+    <span fxFlex="80" class="toolBarTitle">Real Name Tycoon</span>
+    <button fxFlex="20" mat-button ><b class="toolBarText">Updated 09/08/2018</b></button>
 </mat-toolbar>
 
 
 <div fxLayout="row" fxLayout.xs="column">
     <div fxFlex="100">
-        <mat-card class="cardCalculator">
+        <mat-card>
             <form class="calculatorForm">
                 <mat-form-field>
                     <input required matInput type="number" placeholder="Current Level" min="1">
@@ -48,7 +47,7 @@
         </mat-card>
     </div>
     <div fxFlex="100">
-        <mat-accordion class="cardHowTo">
+        <mat-accordion>
 
             <mat-expansion-panel [expanded]="true">
                 <mat-expansion-panel-header>

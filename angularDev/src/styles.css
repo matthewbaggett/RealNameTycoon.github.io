@@ -6,9 +6,7 @@ body{
     margin: 0;
 }
 
-mat-card{
-    /*float: left;*/
-}
+
 
 .toolBarText{
     font-family: Roboto,"Helvetica Neue",sans-serif;
@@ -22,11 +20,7 @@ mat-card{
 }
 
 
-.cardHowTo{
-    /*float: left;
-    width: 35%;*/
-    height: auto;
-}
+
 
 .fillRemainingSpace {
     flex: 1 1 auto;
@@ -39,19 +33,8 @@ mat-card{
     font-weight: 500;
 }
 
-.calculatorForm {
-  /*  width: 100%;*/
-}
-
-.cardCalculator{
-    /*width: 25%;*/
-}
 
 
 .calculatorForm > mat-form-field{
     display: block;
-}
-
-.full-width {
-   /* width: 50%;*/
 }

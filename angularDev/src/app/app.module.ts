@@ -15,14 +15,17 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatFormFieldModule} from "@angular/material";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {MatDialogModule} from '@angular/material/dialog';
 
 import {Component, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { UpdatesDialogComponent } from './updates-dialog/updates-dialog.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UpdatesDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,8 +45,12 @@ import { AppComponent } from './app.component';
       MatFormFieldModule,
       FormsModule,
       ReactiveFormsModule,
-      FlexLayoutModule
+      FlexLayoutModule,
+      MatDialogModule
 
+  ],
+  entryComponents: [
+      UpdatesDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

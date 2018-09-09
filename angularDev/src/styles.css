@@ -20,6 +20,11 @@ body{
 }
 
 
+.discordImage{
+     background-image: url('assets/img/discordRealName.gif');
+     background-size: cover;
+     margin-right: 10px;
+}
 
 
 .fillRemainingSpace {

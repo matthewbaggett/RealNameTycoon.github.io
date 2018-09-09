@@ -1,8 +1,7 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <mat-toolbar color="primary" fxLayout="row" fxShow.xs="false" fxShow.sm="false" fxShow.md="true" fxShow.lg="true" fxShow.xl="true">
     <span fxFlex="50" class="toolBarTitle">Real Name Tycoon</span>
-    <div fxLayoutAlign="end stretch"  fxFlex="50" ><button mat-button ><b class="toolBarText">Updated 09/08/2018</b></button></div>
+    <div fxLayoutAlign="end stretch"  fxFlex="50" ><button mat-button (click)="openUpdateDialog()"><b class="toolBarText">Updated 09/08/2018</b></button></div>
 
 </mat-toolbar>
 
@@ -46,8 +45,8 @@
                 </mat-form-field>
 
                 <div class="premiumDiscordCheckboxes">
-                    <mat-checkbox>Premium</mat-checkbox>
-                    <mat-checkbox style="margin-left: 20px">Discord Link</mat-checkbox>
+                    <mat-checkbox fxFlex="50">Premium</mat-checkbox>
+                    <mat-checkbox fxFlex="50">Discord Link</mat-checkbox>
                 </div>
 
             </form>

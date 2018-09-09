@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {MatDialog} from "@angular/material";
+import {UpdatesDialogComponent} from "./updates-dialog/updates-dialog.component";
 
 export interface VoucherTypes {
     value: string;
@@ -23,6 +25,16 @@ export class AppComponent {
         {value: 'train', viewValue: 'Train'},
 
     ];
+
+    constructor(public dialog: MatDialog) {}
+
+    openUpdateDialog(): void {
+        const dialogRef = this.dialog.open(UpdatesDialogComponent, {
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+        });
+    }
 
     defaultVoucherSelected = '0.2';
 }

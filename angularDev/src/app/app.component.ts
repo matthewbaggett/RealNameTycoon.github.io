@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {MatDialog, MatSnackBar} from "@angular/material";
 import {UpdatesDialogComponent} from "./updates-dialog/updates-dialog.component";
-import {FormControl, Validators} from "@angular/forms";
 
 
 export interface Vouchers {

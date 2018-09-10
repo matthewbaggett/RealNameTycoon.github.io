@@ -2,13 +2,20 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <mat-toolbar color="primary" fxLayout="row" fxShow.xs="false" fxShow.sm="false" fxShow.md="true" fxShow.lg="true" fxShow.xl="true">
     <span fxFlex="50" class="toolBarTitle">Real Name Tycoon</span>
-    <div fxLayoutAlign="end stretch"  fxFlex="50" ><button mat-button (click)="openUpdateDialog()"><b class="toolBarText">Updated 09/08/2018</b></button></div>
+    <div fxLayoutAlign="end stretch"  fxFlex="50" >
+        <a style="margin-right: 15px" mat-raised-button href="https://realnametycoon.github.io/old/">OLD LOOK</a>
+        <button mat-stroked-button (click)="openUpdateDialog()">
+            <b class="toolBarText">
+            Updated 09/08/2018
+            </b>
+        </button>
+    </div>
 
 </mat-toolbar>
 
 <mat-toolbar color="primary" fxLayout="row"  fxShow.xs="true" fxShow.sm="true" fxShow.md="false" fxShow.lg="false" fxShow.xl="false">
     <span fxFlex="50"  class="toolBarTitle">Real Name Tycoon</span>
-    <div fxFlex="50" fxLayoutAlign="end stretch"><button  mat-button (click)="openUpdateDialog()"><b class="toolBarText">Updates</b></button></div>
+    <div fxFlex="50" fxLayoutAlign="end stretch"><button  mat-stroked-button (click)="openUpdateDialog()"><b class="toolBarText">Updates</b></button></div>
 
 </mat-toolbar>
 
@@ -128,7 +135,7 @@
 
 
                         <h4>Current Level Exp</h4>
-                        <p>Min: 5</p>
+                        <p>Min: 10</p>
                         <p>Exact current job level. This number can be found in the skills menu inside the blue bar of the desired category.</p>
 
 

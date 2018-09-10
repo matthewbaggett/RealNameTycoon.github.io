@@ -74,8 +74,6 @@ export class AppComponent {
     premiumValue = 1;
     discordValue = 1;
 
-    isExpPerRunNaN = false;
-
     currentLevel = null;
     currentLevelExp = null;
     targetLevel = null;
@@ -83,26 +81,8 @@ export class AppComponent {
     expPerRun = null;
 
     expNeeded = null;
-
-    onPremiumChange(event){
-        if(event.checked){
-            this.premiumValue = 1.5;
-        }else{
-            this.premiumValue = 1;
-        }
-        console.log(this.premiumValue);
-    }
-
-    onDiscordChange(event){
-        if(event.checked){
-            this.discordValue = 1.05;
-        }else{
-            this.discordValue = 1;
-        }
-
-        //let a = (<HTMLInputElement>document.getElementById("currentLevel")).value;
-
-    }
+    vouchersNeeded = null;
+    numberOfRuns = null;
 
     currentLevelValueOnInput(event){
         if(isNaN(event.target.valueAsNumber)){
@@ -111,11 +91,19 @@ export class AppComponent {
             this.currentLevel = event.target.valueAsNumber;
             if(this.currentLevel >= this.targetLevel){
                 this.targetLevel = this.currentLevel + 1;
-                this.calculateLevelFromTo(this.currentLevel,this.targetLevel);
-            }else{
-                this.calculateLevelFromTo(this.currentLevel,this.targetLevel);
             }
+
         }
+        this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel);
+    }
+
+    currentLevelExpOnInput(event){
+        if(isNaN(event.target.valueAsNumber)){
+            this.currentLevelExp = null;
+        }else{
+            this.currentLevelExp = event.target.valueAsNumber;
+        }
+        this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel);
     }
 
     targetLevelOnInput(event){
@@ -127,13 +115,14 @@ export class AppComponent {
                 this.currentLevel = 1;
             }else if(this.targetLevel <= this.currentLevel){
                 this.currentLevel = this.targetLevel -1;
-                this.calculateLevelFromTo(this.currentLevel,this.targetLevel);
-            }else{
-                this.calculateLevelFromTo(this.currentLevel,this.targetLevel);
             }
         }
+        this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel);
 
-        console.log(this.currentLevel, this.targetLevel);
+
+    }
+
+    vouchersPerRunOnInput(event){
 
     }
 
@@ -141,25 +130,42 @@ export class AppComponent {
 
         if(isNaN(event.target.valueAsNumber)){
             this.expPerRun = null;
-            this.isExpPerRunNaN = true;
         }else {
-            this.isExpPerRunNaN = false;
             this.expPerRun = event.target.valueAsNumber;
         }
 
+
     }
 
-    calculateLevelFromTo(from,to){
+    onPremiumChange(event){
+        if(event.checked){
+            this.premiumValue = 1.5;
+        }else{
+            this.premiumValue = 1;
+        }
+    }
+
+    onDiscordChange(event){
+        if(event.checked){
+            this.discordValue = 1.05;
+        }else{
+            this.discordValue = 1;
+        }
+    }
+
+    calculateFinal(from, fromExp, to){
         let expTotal = 0;
+
         for(let i = from+1; i<=to; i++){
             expTotal += i*5
         }
 
-       /* for(i=1; i<=targetLvl; i++){
-            expAim += i*5;
-        }
-        expAim = expAim - currentLvlExp;*/
+        expTotal = expTotal - fromExp;
         this.expNeeded = expTotal;
+
+        if(from <1 || to <2){
+            this.expNeeded = null;
+        }
 
     }
 

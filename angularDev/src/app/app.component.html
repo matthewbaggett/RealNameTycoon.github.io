@@ -21,7 +21,7 @@
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input id="currentLevelExp" [(value)]="currentLevelExp" autocomplete="off"  matInput type="number" placeholder="Current Level Exp" min="10">
+                    <input (input)="currentLevelExpOnInput($event)" id="currentLevelExp" [(value)]="currentLevelExp" autocomplete="off"  matInput type="number" placeholder="Current Level Exp" min="10">
                 </mat-form-field>
 
                 <mat-form-field>
@@ -29,7 +29,7 @@
                 </mat-form-field>
 
                 <mat-form-field>
-                    <input id="vouchersPerRun" [(value)]="vouchersPerRun" autocomplete="off"  matInput type="number" placeholder="Vouchers Per Run">
+                    <input (input)="vouchersPerRunOnInput($event)" id="vouchersPerRun" [(value)]="vouchersPerRun" autocomplete="off"  matInput type="number" placeholder="Vouchers Per Run">
                 </mat-form-field>
 
                 <mat-form-field>
@@ -65,18 +65,16 @@
                     </mat-panel-title>
                 </mat-expansion-panel-header>
                 <form class="calculatorForm">
-                    <mat-form-field *ngIf="expPerRun == null || expPerRun <= 0 || isItNaN">
-                        <input disabled matInput type="number" placeholder="Vouchers Needed" value="{{expNeeded/(defaultVoucherSelected * premiumValue * discordValue) | number:'1.0-0'}}">
+                    <mat-form-field>
+                        <input disabled matInput type="number" placeholder="Vouchers Needed" value="{{(vouchersNeeded)}}">
                     </mat-form-field>
-
-                    <!-- TODO matform field que aparece quando o exp per run esta ativado de modo a juntar os vouchers e o expp -->
 
                     <mat-form-field>
                         <input disabled matInput type="number" placeholder="Exp Needed" value="{{expNeeded}}">
                     </mat-form-field>
 
                     <mat-form-field>
-                        <input disabled matInput type="number" placeholder="Number of Runs">
+                        <input disabled matInput type="number" placeholder="Number of Runs" value="{{numberOfRuns}}">
                     </mat-form-field>
 
                     <mat-form-field>
@@ -145,5 +143,8 @@
 
 
         </mat-accordion>
+        Target Level: {{targetLevel}}
+        Current Level: {{currentLevel}}
+        Exp Needed: {{expNeeded}}
     </div>
 </div>

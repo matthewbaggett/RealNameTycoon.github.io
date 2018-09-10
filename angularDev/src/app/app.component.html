@@ -1,3 +1,11 @@
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125357957-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-125357957-1');
+</script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <mat-toolbar color="primary" fxLayout="row" fxShow.xs="false" fxShow.sm="false" fxShow.md="true" fxShow.lg="true" fxShow.xl="true">
     <span fxFlex="50" class="toolBarTitle">Real Name Tycoon</span>
@@ -37,7 +45,7 @@
                 </mat-form-field>
 
                 <mat-form-field>
-                    <mat-select required placeholder="Voucher Type" [(value)]="defaultVoucherSelected">
+                    <mat-select required (valueChange)="runCalculator($event)" placeholder="Voucher Type" [(value)]="defaultVoucherSelected">
                         <mat-optgroup *ngFor="let group of voucherGroups" [label]="group.name"
                                       [disabled]="group.disabled">
                             <mat-option *ngFor="let voucher of group.vouchers" [value]="voucher.value">
@@ -124,7 +132,7 @@
 
 
                         <h4>Current Level Exp</h4>
-                        <p>Min: 10</p>
+                        <p>Min: 5</p>
                         <p>Exact current job level. This number can be found in the skills menu inside the blue bar of the desired category.</p>
 
 
@@ -134,7 +142,7 @@
 
                         <h4>Exp per Run</h4>
                         <p>All fields required for it to work.</p>
-                        <p>With this option filled it will calculate, together with Vouchers per Run, how many runs it take to get to the target level, assuming you'll end up consuming the vouchers.</p>
+                        <p>With this option filled it will calculate, together with Vouchers per Run, how many runs it take to get to the target level, <b>assuming you'll end up consuming the vouchers.</b></p>
 
                     </mat-tab>
                 </mat-tab-group>
@@ -146,8 +154,5 @@
 
 
         </mat-accordion>
-        Target Level: {{targetLevel}}
-        Current Level: {{currentLevel}}
-        Exp Needed: {{expNeeded}}
     </div>
 </div>

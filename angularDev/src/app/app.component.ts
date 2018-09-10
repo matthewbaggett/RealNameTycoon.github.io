@@ -20,7 +20,11 @@ export interface VoucherTypesGroup {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent {
+
+
     voucherGroups: VoucherTypesGroup[] = [
 
         {
@@ -63,6 +67,7 @@ export class AppComponent {
 
     openUpdateDialog(): void {
         const dialogRef = this.dialog.open(UpdatesDialogComponent, {
+            width: '80%'
         });
 
         dialogRef.afterClosed().subscribe(result => {
@@ -83,6 +88,7 @@ export class AppComponent {
     expNeeded = null;
     vouchersNeeded = null;
     numberOfRuns = null;
+
 
     currentLevelValueOnInput(event){
         if(isNaN(event.target.valueAsNumber)){
@@ -142,12 +148,18 @@ export class AppComponent {
 
     }
 
+    delay(ms: number) {
+        return new Promise( resolve => setTimeout(resolve, ms) );
+    }
+
     onPremiumChange(event){
         if(event.checked){
             this.premiumValue = 1.5;
         }else{
             this.premiumValue = 1;
         }
+        this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel, this.vouchersPerRun, this.expPerRun);
+
     }
 
     onDiscordChange(event){
@@ -156,6 +168,7 @@ export class AppComponent {
         }else{
             this.discordValue = 1;
         }
+        this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel, this.vouchersPerRun, this.expPerRun);
     }
 
     calculateFinal(from, fromExp, to, voucherRun, expRun){
@@ -164,7 +177,7 @@ export class AppComponent {
         this.vouchersNeeded = null;
         this.numberOfRuns = null;
 
-        if(expRun >0 && (from == null || from <1 || fromExp == null || fromExp < 10 || to == null
+        if(expRun >0 && (from == null || from <1 || fromExp == null || fromExp < 5 || to == null
         || to < 2 || voucherRun == null || voucherRun < 0)){
             this.expNeeded = "All field required when using Exp per Run";
             this.vouchersNeeded = "All field required when using Exp per Run";
@@ -172,12 +185,42 @@ export class AppComponent {
         }else{
             let expTotal = 0;
 
-            for(let i = from+1; i<=to; i++){
-                expTotal += i*5
+            if(fromExp > 0){
+                for(let i = from; i<=to; i++){
+                    expTotal += i*5
+                }
+            }else{
+                for(let i = from+1; i<=to; i++){
+                    expTotal += i*5
+                }
             }
 
             expTotal = expTotal - fromExp;
             this.expNeeded = expTotal;
+            let voucherWorth = this.defaultVoucherSelected * this.premiumValue * this.discordValue;
+
+            if(expRun > 0 && expRun != null){
+                let expRunVouchersNeeded = 0;
+                let expRunNumberOfRuns = 0;
+                while(expTotal >0){
+
+                    expRunVouchersNeeded += voucherRun;
+                    expRunNumberOfRuns++;
+                    expTotal = expTotal - (voucherRun*voucherWorth + expRun);
+                }
+                this.vouchersNeeded = Math.ceil(expRunVouchersNeeded);
+                this.numberOfRuns = Math.ceil(expRunNumberOfRuns);
+            }else if(voucherRun > 0 && voucherRun != null){
+
+                this.vouchersNeeded = Math.ceil(expTotal/voucherWorth);
+                this.numberOfRuns = Math.ceil((expTotal/voucherWorth)/voucherRun);
+
+            }else{
+                this.vouchersNeeded = Math.ceil(expTotal/voucherWorth);
+                this.numberOfRuns = "Vouchers Per Run not specified";
+            }
+
+
 
             if(from <1 || to <2){
                 this.expNeeded = null;
@@ -186,6 +229,11 @@ export class AppComponent {
 
 
 
+    }
+
+    runCalculator(event){
+        this.defaultVoucherSelected = event;
+        this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel, this.vouchersPerRun, this.expPerRun);
     }
 
 }

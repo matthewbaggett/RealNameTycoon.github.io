@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MatDialog} from "@angular/material";
+import {MatDialog, MatSnackBar} from "@angular/material";
 import {UpdatesDialogComponent} from "./updates-dialog/updates-dialog.component";
 import {FormControl, Validators} from "@angular/forms";
 
@@ -63,7 +63,7 @@ export class AppComponent {
         }
     ];
 
-    constructor(public dialog: MatDialog) {}
+    constructor(public dialog: MatDialog,public snackBar: MatSnackBar) {}
 
     openUpdateDialog(): void {
         const dialogRef = this.dialog.open(UpdatesDialogComponent, {
@@ -177,11 +177,15 @@ export class AppComponent {
         this.vouchersNeeded = null;
         this.numberOfRuns = null;
 
-        if(expRun >0 && (from == null || from <1 || fromExp == null || fromExp < 5 || to == null
+        if(expRun >0 && (from == null || from <1 || fromExp == null || fromExp < 10 || to == null
         || to < 2 || voucherRun == null || voucherRun < 0)){
             this.expNeeded = "All field required when using Exp per Run";
             this.vouchersNeeded = "All field required when using Exp per Run";
             this.numberOfRuns = "All field required when using Exp per Run";
+        }else if(from < 1 || from == null || from > to || to < 2 || to == null){
+            this.expNeeded = "Something's wrong. Read how to use guide.";
+            this.vouchersNeeded = "Something's wrong. Read how to use guide.";
+            this.numberOfRuns = "Something's wrong. Read how to use guide.";
         }else{
             let expTotal = 0;
 
@@ -190,9 +194,10 @@ export class AppComponent {
                     expTotal += i*5
                 }
             }else{
-                for(let i = from+1; i<=to; i++){
-                    expTotal += i*5
+                for(let i = from; i<=to; i++){
+                    expTotal += i*5;
                 }
+                expTotal-=10;
             }
 
             expTotal = expTotal - fromExp;
@@ -231,9 +236,32 @@ export class AppComponent {
 
     }
 
+    copyToClipboardVouchersNeeded(){
+        let selBox = document.createElement('textarea');
+        selBox.style.position = 'fixed';
+        selBox.style.left = '0';
+        selBox.style.top = '0';
+        selBox.style.opacity = '0';
+        selBox.value = this.vouchersNeeded;
+        document.body.appendChild(selBox);
+        selBox.focus();
+        selBox.select();
+        document.execCommand('copy');
+        document.body.removeChild(selBox);
+        this.openSnackBar("Copied to clipboard","");
+    }
+
     runCalculator(event){
         this.defaultVoucherSelected = event;
         this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel, this.vouchersPerRun, this.expPerRun);
+    }
+
+
+
+    openSnackBar(message: string, action: string) {
+        this.snackBar.open(message, action, {
+            duration: 1000,
+        });
     }
 
 }

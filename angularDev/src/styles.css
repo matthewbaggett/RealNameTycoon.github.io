@@ -7,7 +7,9 @@ body{
     background-color: #EEEEEE;
 }
 
-
+.copyToClipboardMouseOnHove{
+    cursor: pointer;
+}
 
 .toolBarText{
     font-family: Roboto,"Helvetica Neue",sans-serif;

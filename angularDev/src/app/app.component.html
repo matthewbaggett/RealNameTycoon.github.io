@@ -74,7 +74,10 @@
                 </mat-expansion-panel-header>
                 <form class="calculatorForm">
                     <mat-form-field>
-                        <input disabled matInput type="text" placeholder="Vouchers Needed" value="{{(vouchersNeeded)}}">
+                        <div matTooltip="Copy to clipboard" matTooltipPosition="left" (click)="copyToClipboardVouchersNeeded()">
+                            <input matTooltip="Click to copy to clipboard" class="copyToClipboardMouseOnHove" disabled matInput type="text" placeholder="Vouchers Needed" value="{{(vouchersNeeded)}}">
+                        </div>
+
                     </mat-form-field>
 
                     <mat-form-field>

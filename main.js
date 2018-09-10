@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-125357957-1\"></script>\r\n<script>\r\n    window.dataLayer = window.dataLayer || [];\r\n    function gtag(){dataLayer.push(arguments);}\r\n    gtag('js', new Date());\r\n\r\n    gtag('config', 'UA-125357957-1');\r\n</script>\r\n<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\r\n<mat-toolbar color=\"primary\" fxLayout=\"row\" fxShow.xs=\"false\" fxShow.sm=\"false\" fxShow.md=\"true\" fxShow.lg=\"true\" fxShow.xl=\"true\">\r\n    <span fxFlex=\"50\" class=\"toolBarTitle\">Real Name Tycoon</span>\r\n    <div fxLayoutAlign=\"end stretch\"  fxFlex=\"50\" ><button mat-button (click)=\"openUpdateDialog()\"><b class=\"toolBarText\">Updated 09/08/2018</b></button></div>\r\n\r\n</mat-toolbar>\r\n\r\n<mat-toolbar color=\"primary\" fxLayout=\"row\"  fxShow.xs=\"true\" fxShow.sm=\"true\" fxShow.md=\"false\" fxShow.lg=\"false\" fxShow.xl=\"false\">\r\n    <span fxFlex=\"50\"  class=\"toolBarTitle\">Real Name Tycoon</span>\r\n    <div fxFlex=\"50\" fxLayoutAlign=\"end stretch\"><button  mat-button (click)=\"openUpdateDialog()\"><b class=\"toolBarText\">Updates</b></button></div>\r\n\r\n</mat-toolbar>\r\n\r\n\r\n<div fxLayout=\"row\" fxLayout.xs=\"column\">\r\n    <div fxFlex=\"100\">\r\n        <mat-card>\r\n            <form class=\"calculatorForm\">\r\n                <mat-form-field>\r\n                    <input (input)=\"currentLevelValueOnInput($event)\" id=\"currentLevel\" [(value)]=\"currentLevel\" autocomplete=\"off\" required matInput type=\"number\" placeholder=\"Current Level\" min=\"1\">\r\n                </mat-form-field>\r\n\r\n                <mat-form-field>\r\n                    <input (input)=\"currentLevelExpOnInput($event)\" id=\"currentLevelExp\" [(value)]=\"currentLevelExp\" autocomplete=\"off\"  matInput type=\"number\" placeholder=\"Current Level Exp\" min=\"10\">\r\n                </mat-form-field>\r\n\r\n                <mat-form-field>\r\n                    <input (input)=\"targetLevelOnInput($event)\" id=\"targetLevel\" [(value)]=\"targetLevel\" autocomplete=\"off\" required matInput type=\"number\" placeholder=\"Target Level\" min=\"2\">\r\n                </mat-form-field>\r\n\r\n                <mat-form-field>\r\n                    <input (input)=\"vouchersPerRunOnInput($event)\" id=\"vouchersPerRun\" [(value)]=\"vouchersPerRun\" autocomplete=\"off\"  matInput type=\"number\" placeholder=\"Vouchers Per Run\">\r\n                </mat-form-field>\r\n\r\n                <mat-form-field>\r\n                    <input (input)=\"expPerRunOnInput($event)\" id=\"expPerRun\" [(value)]=\"expPerRun\" autocomplete=\"off\"  matInput type=\"number\" placeholder=\"Exp Per Run\">\r\n                </mat-form-field>\r\n\r\n                <mat-form-field>\r\n                    <mat-select required (valueChange)=\"runCalculator($event)\" placeholder=\"Voucher Type\" [(value)]=\"defaultVoucherSelected\">\r\n                        <mat-optgroup *ngFor=\"let group of voucherGroups\" [label]=\"group.name\"\r\n                                      [disabled]=\"group.disabled\">\r\n                            <mat-option *ngFor=\"let voucher of group.vouchers\" [value]=\"voucher.value\">\r\n                                {{voucher.viewValue}}\r\n                            </mat-option>\r\n                        </mat-optgroup>\r\n                    </mat-select>\r\n                </mat-form-field>\r\n\r\n                <div class=\"premiumDiscordCheckboxes\">\r\n                    <mat-checkbox [(value)]=\"premiumValue\" (change)=\"onPremiumChange($event)\" fxFlex=\"50\">Premium</mat-checkbox>\r\n                    <mat-checkbox [(value)]=\"discordValue\" (change)=\"onDiscordChange($event)\" fxFlex=\"50\">Discord Link</mat-checkbox>\r\n                </div>\r\n\r\n            </form>\r\n        </mat-card>\r\n    </div>\r\n    <div fxFlex=\"100\">\r\n        <mat-accordion>\r\n\r\n            <mat-expansion-panel [expanded]=\"true\">\r\n                <mat-expansion-panel-header>\r\n                    <mat-panel-title>\r\n                        Result\r\n                    </mat-panel-title>\r\n                </mat-expansion-panel-header>\r\n                <form class=\"calculatorForm\">\r\n                    <mat-form-field>\r\n                        <input disabled matInput type=\"text\" placeholder=\"Vouchers Needed\" value=\"{{(vouchersNeeded)}}\">\r\n                    </mat-form-field>\r\n\r\n                    <mat-form-field>\r\n                        <input disabled matInput type=\"text\" placeholder=\"Exp Needed\" value=\"{{expNeeded}}\">\r\n                    </mat-form-field>\r\n\r\n                    <mat-form-field>\r\n                        <input disabled matInput type=\"text\" placeholder=\"Number of Runs\" value=\"{{numberOfRuns}}\">\r\n                    </mat-form-field>\r\n\r\n                    <mat-form-field>\r\n                        <input disabled matInput type=\"text\" placeholder=\"Voucher Worth\" value=\"{{defaultVoucherSelected * premiumValue * discordValue | number}}\">\r\n                    </mat-form-field>\r\n\r\n\r\n                </form>\r\n            </mat-expansion-panel>\r\n\r\n            <mat-expansion-panel>\r\n                <mat-expansion-panel-header>\r\n                    <mat-panel-title>\r\n                        How to use\r\n                    </mat-panel-title>\r\n                </mat-expansion-panel-header>\r\n\r\n                <div>\r\n                <mat-tab-group style=\"display: flex;\">\r\n                    <mat-tab label=\"Simple Use\">\r\n                        <mat-list style=\"overflow: hidden\">\r\n                            <mat-list-item>\r\n                                <h4 style=\"flex: 25\">Current Level</h4>\r\n                                <h3 style=\"flex: 90\" matSubheader>Current job level. (min: 1)</h3>\r\n                            </mat-list-item>\r\n                            <mat-list-item>\r\n                                <h4 style=\"flex: 25\">Target Level</h4>\r\n                                <h3 style=\"flex: 90\" matSubheader>The level you want to achieve. (min:2)</h3>\r\n                            </mat-list-item>\r\n                            <mat-list-item>\r\n                                <h4 style=\"flex: 25\">Voucher Type</h4>\r\n                                <h3 style=\"flex: 90\" matSubheader>Some vouchers like Train have \"sub-voucher\" categories.</h3>\r\n                            </mat-list-item>\r\n                            <mat-list-item>\r\n                                <h4 style=\"flex: 25\">Premium</h4>\r\n                                <h3 style=\"flex: 90\" matSubheader>Toggle this if you're premium.</h3>\r\n                            </mat-list-item>\r\n                            <mat-list-item>\r\n                                <h4 style=\"flex: 25\">Discord Link</h4>\r\n                                <h3 style=\"flex: 90\" matSubheader>Toggle this if you have your discord linked with the server.</h3>\r\n                            </mat-list-item>\r\n                        </mat-list>\r\n                    </mat-tab>\r\n\r\n\r\n                    <mat-tab label=\"Advanced Use\">\r\n\r\n\r\n                        <h4>Current Level Exp</h4>\r\n                        <p>Min: 5</p>\r\n                        <p>Exact current job level. This number can be found in the skills menu inside the blue bar of the desired category.</p>\r\n\r\n\r\n                        <h4>Vouchers per Run</h4>\r\n                        <p>Filling this will enable you to see how many runs it will take you to get the necessary vouchers for leveling up to the target Level.</p>\r\n\r\n\r\n                        <h4>Exp per Run</h4>\r\n                        <p>All fields required for it to work.</p>\r\n                        <p>With this option filled it will calculate, together with Vouchers per Run, how many runs it take to get to the target level, <b>assuming you'll end up consuming the vouchers.</b></p>\r\n\r\n                    </mat-tab>\r\n                </mat-tab-group>\r\n                </div>\r\n\r\n\r\n            </mat-expansion-panel>\r\n\r\n\r\n\r\n        </mat-accordion>\r\n    </div>\r\n</div>"
+module.exports = "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-125357957-1\"></script>\r\n<script>\r\n    window.dataLayer = window.dataLayer || [];\r\n    function gtag(){dataLayer.push(arguments);}\r\n    gtag('js', new Date());\r\n\r\n    gtag('config', 'UA-125357957-1');\r\n</script>\r\n<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\r\n<mat-toolbar color=\"primary\" fxLayout=\"row\" fxShow.xs=\"false\" fxShow.sm=\"false\" fxShow.md=\"true\" fxShow.lg=\"true\" fxShow.xl=\"true\">\r\n    <span fxFlex=\"50\" class=\"toolBarTitle\">Real Name Tycoon</span>\r\n    <div fxLayoutAlign=\"end stretch\"  fxFlex=\"50\" ><button mat-button (click)=\"openUpdateDialog()\"><b class=\"toolBarText\">Updated 09/08/2018</b></button></div>\r\n\r\n</mat-toolbar>\r\n\r\n<mat-toolbar color=\"primary\" fxLayout=\"row\"  fxShow.xs=\"true\" fxShow.sm=\"true\" fxShow.md=\"false\" fxShow.lg=\"false\" fxShow.xl=\"false\">\r\n    <span fxFlex=\"50\"  class=\"toolBarTitle\">Real Name Tycoon</span>\r\n    <div fxFlex=\"50\" fxLayoutAlign=\"end stretch\"><button  mat-button (click)=\"openUpdateDialog()\"><b class=\"toolBarText\">Updates</b></button></div>\r\n\r\n</mat-toolbar>\r\n\r\n\r\n<div fxLayout=\"row\" fxLayout.xs=\"column\">\r\n    <div fxFlex=\"100\">\r\n        <mat-card>\r\n            <form class=\"calculatorForm\">\r\n                <mat-form-field>\r\n                    <input (input)=\"currentLevelValueOnInput($event)\" id=\"currentLevel\" [(value)]=\"currentLevel\" autocomplete=\"off\" required matInput type=\"number\" placeholder=\"Current Level\" min=\"1\">\r\n                </mat-form-field>\r\n\r\n                <mat-form-field>\r\n                    <input (input)=\"currentLevelExpOnInput($event)\" id=\"currentLevelExp\" [(value)]=\"currentLevelExp\" autocomplete=\"off\"  matInput type=\"number\" placeholder=\"Current Level Exp\" min=\"10\">\r\n                </mat-form-field>\r\n\r\n                <mat-form-field>\r\n                    <input (input)=\"targetLevelOnInput($event)\" id=\"targetLevel\" [(value)]=\"targetLevel\" autocomplete=\"off\" required matInput type=\"number\" placeholder=\"Target Level\" min=\"2\">\r\n                </mat-form-field>\r\n\r\n                <mat-form-field>\r\n                    <input (input)=\"vouchersPerRunOnInput($event)\" id=\"vouchersPerRun\" [(value)]=\"vouchersPerRun\" autocomplete=\"off\"  matInput type=\"number\" placeholder=\"Vouchers Per Run\">\r\n                </mat-form-field>\r\n\r\n                <mat-form-field>\r\n                    <input (input)=\"expPerRunOnInput($event)\" id=\"expPerRun\" [(value)]=\"expPerRun\" autocomplete=\"off\"  matInput type=\"number\" placeholder=\"Exp Per Run\">\r\n                </mat-form-field>\r\n\r\n                <mat-form-field>\r\n                    <mat-select required (valueChange)=\"runCalculator($event)\" placeholder=\"Voucher Type\" [(value)]=\"defaultVoucherSelected\">\r\n                        <mat-optgroup *ngFor=\"let group of voucherGroups\" [label]=\"group.name\"\r\n                                      [disabled]=\"group.disabled\">\r\n                            <mat-option *ngFor=\"let voucher of group.vouchers\" [value]=\"voucher.value\">\r\n                                {{voucher.viewValue}}\r\n                            </mat-option>\r\n                        </mat-optgroup>\r\n                    </mat-select>\r\n                </mat-form-field>\r\n\r\n                <div class=\"premiumDiscordCheckboxes\">\r\n                    <mat-checkbox [(value)]=\"premiumValue\" (change)=\"onPremiumChange($event)\" fxFlex=\"50\">Premium</mat-checkbox>\r\n                    <mat-checkbox [(value)]=\"discordValue\" (change)=\"onDiscordChange($event)\" fxFlex=\"50\">Discord Link</mat-checkbox>\r\n                </div>\r\n\r\n            </form>\r\n        </mat-card>\r\n    </div>\r\n    <div fxFlex=\"100\">\r\n        <mat-accordion>\r\n\r\n            <mat-expansion-panel [expanded]=\"true\">\r\n                <mat-expansion-panel-header>\r\n                    <mat-panel-title>\r\n                        Result\r\n                    </mat-panel-title>\r\n                </mat-expansion-panel-header>\r\n                <form class=\"calculatorForm\">\r\n                    <mat-form-field>\r\n                        <div matTooltip=\"Copy to clipboard\" matTooltipPosition=\"left\" (click)=\"copyToClipboardVouchersNeeded()\">\r\n                            <input matTooltip=\"Click to copy to clipboard\" class=\"copyToClipboardMouseOnHove\" disabled matInput type=\"text\" placeholder=\"Vouchers Needed\" value=\"{{(vouchersNeeded)}}\">\r\n                        </div>\r\n\r\n                    </mat-form-field>\r\n\r\n                    <mat-form-field>\r\n                        <input disabled matInput type=\"text\" placeholder=\"Exp Needed\" value=\"{{expNeeded}}\">\r\n                    </mat-form-field>\r\n\r\n                    <mat-form-field>\r\n                        <input disabled matInput type=\"text\" placeholder=\"Number of Runs\" value=\"{{numberOfRuns}}\">\r\n                    </mat-form-field>\r\n\r\n                    <mat-form-field>\r\n                        <input disabled matInput type=\"text\" placeholder=\"Voucher Worth\" value=\"{{defaultVoucherSelected * premiumValue * discordValue | number}}\">\r\n                    </mat-form-field>\r\n\r\n\r\n                </form>\r\n            </mat-expansion-panel>\r\n\r\n            <mat-expansion-panel>\r\n                <mat-expansion-panel-header>\r\n                    <mat-panel-title>\r\n                        How to use\r\n                    </mat-panel-title>\r\n                </mat-expansion-panel-header>\r\n\r\n                <div>\r\n                <mat-tab-group style=\"display: flex;\">\r\n                    <mat-tab label=\"Simple Use\">\r\n                        <mat-list style=\"overflow: hidden\">\r\n                            <mat-list-item>\r\n                                <h4 style=\"flex: 25\">Current Level</h4>\r\n                                <h3 style=\"flex: 90\" matSubheader>Current job level. (min: 1)</h3>\r\n                            </mat-list-item>\r\n                            <mat-list-item>\r\n                                <h4 style=\"flex: 25\">Target Level</h4>\r\n                                <h3 style=\"flex: 90\" matSubheader>The level you want to achieve. (min:2)</h3>\r\n                            </mat-list-item>\r\n                            <mat-list-item>\r\n                                <h4 style=\"flex: 25\">Voucher Type</h4>\r\n                                <h3 style=\"flex: 90\" matSubheader>Some vouchers like Train have \"sub-voucher\" categories.</h3>\r\n                            </mat-list-item>\r\n                            <mat-list-item>\r\n                                <h4 style=\"flex: 25\">Premium</h4>\r\n                                <h3 style=\"flex: 90\" matSubheader>Toggle this if you're premium.</h3>\r\n                            </mat-list-item>\r\n                            <mat-list-item>\r\n                                <h4 style=\"flex: 25\">Discord Link</h4>\r\n                                <h3 style=\"flex: 90\" matSubheader>Toggle this if you have your discord linked with the server.</h3>\r\n                            </mat-list-item>\r\n                        </mat-list>\r\n                    </mat-tab>\r\n\r\n\r\n                    <mat-tab label=\"Advanced Use\">\r\n\r\n\r\n                        <h4>Current Level Exp</h4>\r\n                        <p>Min: 5</p>\r\n                        <p>Exact current job level. This number can be found in the skills menu inside the blue bar of the desired category.</p>\r\n\r\n\r\n                        <h4>Vouchers per Run</h4>\r\n                        <p>Filling this will enable you to see how many runs it will take you to get the necessary vouchers for leveling up to the target Level.</p>\r\n\r\n\r\n                        <h4>Exp per Run</h4>\r\n                        <p>All fields required for it to work.</p>\r\n                        <p>With this option filled it will calculate, together with Vouchers per Run, how many runs it take to get to the target level, <b>assuming you'll end up consuming the vouchers.</b></p>\r\n\r\n                    </mat-tab>\r\n                </mat-tab-group>\r\n                </div>\r\n\r\n\r\n            </mat-expansion-panel>\r\n\r\n\r\n\r\n        </mat-accordion>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -71,8 +71,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(dialog) {
+    function AppComponent(dialog, snackBar) {
         this.dialog = dialog;
+        this.snackBar = snackBar;
         this.voucherGroups = [
             {
                 name: 'Unique',
@@ -207,11 +208,16 @@ var AppComponent = /** @class */ (function () {
         this.expNeeded = null;
         this.vouchersNeeded = null;
         this.numberOfRuns = null;
-        if (expRun > 0 && (from == null || from < 1 || fromExp == null || fromExp < 5 || to == null
+        if (expRun > 0 && (from == null || from < 1 || fromExp == null || fromExp < 10 || to == null
             || to < 2 || voucherRun == null || voucherRun < 0)) {
             this.expNeeded = "All field required when using Exp per Run";
             this.vouchersNeeded = "All field required when using Exp per Run";
             this.numberOfRuns = "All field required when using Exp per Run";
+        }
+        else if (from < 1 || from == null || from > to || to < 2 || to == null) {
+            this.expNeeded = "Something's wrong. Read how to use guide.";
+            this.vouchersNeeded = "Something's wrong. Read how to use guide.";
+            this.numberOfRuns = "Something's wrong. Read how to use guide.";
         }
         else {
             var expTotal = 0;
@@ -221,9 +227,10 @@ var AppComponent = /** @class */ (function () {
                 }
             }
             else {
-                for (var i = from + 1; i <= to; i++) {
+                for (var i = from; i <= to; i++) {
                     expTotal += i * 5;
                 }
+                expTotal -= 10;
             }
             expTotal = expTotal - fromExp;
             this.expNeeded = expTotal;
@@ -252,9 +259,28 @@ var AppComponent = /** @class */ (function () {
             }
         }
     };
+    AppComponent.prototype.copyToClipboardVouchersNeeded = function () {
+        var selBox = document.createElement('textarea');
+        selBox.style.position = 'fixed';
+        selBox.style.left = '0';
+        selBox.style.top = '0';
+        selBox.style.opacity = '0';
+        selBox.value = this.vouchersNeeded;
+        document.body.appendChild(selBox);
+        selBox.focus();
+        selBox.select();
+        document.execCommand('copy');
+        document.body.removeChild(selBox);
+        this.openSnackBar("Copied to clipboard", "");
+    };
     AppComponent.prototype.runCalculator = function (event) {
         this.defaultVoucherSelected = event;
         this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel, this.vouchersPerRun, this.expPerRun);
+    };
+    AppComponent.prototype.openSnackBar = function (message, action) {
+        this.snackBar.open(message, action, {
+            duration: 1000,
+        });
     };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -262,7 +288,7 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"]])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"], _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSnackBar"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -299,9 +325,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _updates_dialog_updates_dialog_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./updates-dialog/updates-dialog.component */ "./src/app/updates-dialog/updates-dialog.component.ts");
+/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/esm5/snack-bar.es5.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _updates_dialog_updates_dialog_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./updates-dialog/updates-dialog.component */ "./src/app/updates-dialog/updates-dialog.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -329,14 +356,15 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_18__["NgModule"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_19__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_19__["AppComponent"],
-                _updates_dialog_updates_dialog_component__WEBPACK_IMPORTED_MODULE_20__["UpdatesDialogComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_20__["AppComponent"],
+                _updates_dialog_updates_dialog_component__WEBPACK_IMPORTED_MODULE_21__["UpdatesDialogComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -357,13 +385,14 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_15__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_15__["ReactiveFormsModule"],
                 _angular_flex_layout__WEBPACK_IMPORTED_MODULE_16__["FlexLayoutModule"],
-                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__["MatDialogModule"]
+                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__["MatDialogModule"],
+                _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_18__["MatSnackBarModule"]
             ],
             entryComponents: [
-                _updates_dialog_updates_dialog_component__WEBPACK_IMPORTED_MODULE_20__["UpdatesDialogComponent"]
+                _updates_dialog_updates_dialog_component__WEBPACK_IMPORTED_MODULE_21__["UpdatesDialogComponent"]
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_19__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_20__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;

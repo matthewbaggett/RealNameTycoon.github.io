@@ -94,7 +94,7 @@ export class AppComponent {
             }
 
         }
-        this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel);
+        this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel, this.vouchersPerRun, this.expPerRun);
     }
 
     currentLevelExpOnInput(event){
@@ -103,7 +103,7 @@ export class AppComponent {
         }else{
             this.currentLevelExp = event.target.valueAsNumber;
         }
-        this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel);
+        this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel, this.vouchersPerRun, this.expPerRun);
     }
 
     targetLevelOnInput(event){
@@ -117,13 +117,18 @@ export class AppComponent {
                 this.currentLevel = this.targetLevel -1;
             }
         }
-        this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel);
+        this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel, this.vouchersPerRun, this.expPerRun);
 
 
     }
 
     vouchersPerRunOnInput(event){
-
+        if(isNaN(event.target.valueAsNumber)){
+            this.vouchersPerRun = null;
+        }else{
+            this.vouchersPerRun = event.target.valueAsNumber;
+        }
+        this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel, this.vouchersPerRun, this.expPerRun);
     }
 
     expPerRunOnInput(event){
@@ -133,7 +138,7 @@ export class AppComponent {
         }else {
             this.expPerRun = event.target.valueAsNumber;
         }
-
+        this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel, this.vouchersPerRun, this.expPerRun);
 
     }
 
@@ -153,19 +158,33 @@ export class AppComponent {
         }
     }
 
-    calculateFinal(from, fromExp, to){
-        let expTotal = 0;
+    calculateFinal(from, fromExp, to, voucherRun, expRun){
 
-        for(let i = from+1; i<=to; i++){
-            expTotal += i*5
+        this.expNeeded = null;
+        this.vouchersNeeded = null;
+        this.numberOfRuns = null;
+
+        if(expRun >0 && (from == null || from <1 || fromExp == null || fromExp < 10 || to == null
+        || to < 2 || voucherRun == null || voucherRun < 0)){
+            this.expNeeded = "All field required when using Exp per Run";
+            this.vouchersNeeded = "All field required when using Exp per Run";
+            this.numberOfRuns = "All field required when using Exp per Run";
+        }else{
+            let expTotal = 0;
+
+            for(let i = from+1; i<=to; i++){
+                expTotal += i*5
+            }
+
+            expTotal = expTotal - fromExp;
+            this.expNeeded = expTotal;
+
+            if(from <1 || to <2){
+                this.expNeeded = null;
+            }
         }
 
-        expTotal = expTotal - fromExp;
-        this.expNeeded = expTotal;
 
-        if(from <1 || to <2){
-            this.expNeeded = null;
-        }
 
     }
 

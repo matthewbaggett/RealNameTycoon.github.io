@@ -66,19 +66,19 @@
                 </mat-expansion-panel-header>
                 <form class="calculatorForm">
                     <mat-form-field>
-                        <input disabled matInput type="number" placeholder="Vouchers Needed" value="{{(vouchersNeeded)}}">
+                        <input disabled matInput type="text" placeholder="Vouchers Needed" value="{{(vouchersNeeded)}}">
                     </mat-form-field>
 
                     <mat-form-field>
-                        <input disabled matInput type="number" placeholder="Exp Needed" value="{{expNeeded}}">
+                        <input disabled matInput type="text" placeholder="Exp Needed" value="{{expNeeded}}">
                     </mat-form-field>
 
                     <mat-form-field>
-                        <input disabled matInput type="number" placeholder="Number of Runs" value="{{numberOfRuns}}">
+                        <input disabled matInput type="text" placeholder="Number of Runs" value="{{numberOfRuns}}">
                     </mat-form-field>
 
                     <mat-form-field>
-                        <input disabled matInput type="number" placeholder="Voucher Worth" value="{{defaultVoucherSelected * premiumValue * discordValue | number}}">
+                        <input disabled matInput type="text" placeholder="Voucher Worth" value="{{defaultVoucherSelected * premiumValue * discordValue | number}}">
                     </mat-form-field>
 
 
@@ -92,16 +92,17 @@
                     </mat-panel-title>
                 </mat-expansion-panel-header>
 
+                <div>
                 <mat-tab-group style="display: flex;">
                     <mat-tab label="Simple Use">
                         <mat-list style="overflow: hidden">
                             <mat-list-item>
                                 <h4 style="flex: 25">Current Level</h4>
-                                <h3 style="flex: 90" matSubheader>Current job level.</h3>
+                                <h3 style="flex: 90" matSubheader>Current job level. (min: 1)</h3>
                             </mat-list-item>
                             <mat-list-item>
-                                <h4 style="flex: 25">Current Level</h4>
-                                <h3 style="flex: 90" matSubheader>The level you want to achieve.</h3>
+                                <h4 style="flex: 25">Target Level</h4>
+                                <h3 style="flex: 90" matSubheader>The level you want to achieve. (min:2)</h3>
                             </mat-list-item>
                             <mat-list-item>
                                 <h4 style="flex: 25">Voucher Type</h4>
@@ -123,6 +124,7 @@
 
 
                         <h4>Current Level Exp</h4>
+                        <p>Min: 10</p>
                         <p>Exact current job level. This number can be found in the skills menu inside the blue bar of the desired category.</p>
 
 
@@ -131,11 +133,12 @@
 
 
                         <h4>Exp per Run</h4>
+                        <p>All fields required for it to work.</p>
                         <p>With this option filled it will calculate, together with Vouchers per Run, how many runs it take to get to the target level, assuming you'll end up consuming the vouchers.</p>
 
                     </mat-tab>
                 </mat-tab-group>
-
+                </div>
 
 
             </mat-expansion-panel>

@@ -226,7 +226,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"mat-h2\"><b>Changelog</b></h2>\n<mat-dialog-content class=\"mat-typography\">\n  <h2 mat-dialog-title>09/04/2018</h2>\n  <mat-divider></mat-divider>\n  <p>Added Exp per run. Now you should be able to precisely Calculate how many exact routes you need combining exp gain during the route + route vouchers.</p>\n  <p>Added Discord Link bonus.</p>\n  <p>Added sub-vouchers categories to Garbage/Police/Train.</p>\n  <mat-divider></mat-divider>\n  <p></p>\n\n  <div fxLayout=\"row\">\n  <div mat-card-avatar class=\"discordImage\"></div>\n  <span fxFlexAlign=\"center\">For feedback on errors or suggestions reach me @Real Name#1251</span>\n  </div>\n</mat-dialog-content>"
+module.exports = "<h2 class=\"mat-h2\"><b>Changelog</b></h2>\n<mat-dialog-content class=\"mat-typography\">\n  <h2 mat-dialog-title>09/04/2018</h2>\n  <p>Added Exp per run. Now you should be able to precisely Calculate how many exact routes you need combining exp gain during the route + route vouchers.</p>\n  <p>Added Discord Link bonus.</p>\n  <p>Added sub-vouchers categories to Garbage/Police/Train.</p>\n  <mat-divider></mat-divider>\n  <p></p>\n\n  <div fxLayout=\"row\">\n  <div mat-card-avatar class=\"discordImage\"></div>\n  <span fxFlexAlign=\"center\">For feedback on errors or suggestions reach me @Real Name#1251</span>\n  </div>\n</mat-dialog-content>"
 
 /***/ }),
 

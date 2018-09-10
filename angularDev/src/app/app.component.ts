@@ -189,7 +189,7 @@ export class AppComponent {
             let expTotal = 0;
 
             if(fromExp > 0){
-                for(let i = from; i<=to; i++){
+                for(let i = 1; i<=to; i++){
                     expTotal += i*5
                 }
             }else{

@@ -29,12 +29,17 @@ export class AppComponent {
         {
             name: 'Unique',
             vouchers: [
-                {value: 0.2, viewValue: 'Airline'},
                 {value: 0.3, viewValue: 'Casino'},
                 {value: 0.8, viewValue: 'Gym'},
                 {value: 0.2, viewValue: 'Heli Pilot'},
-                {value: 0.6, viewValue: 'Mail'},
-                {value: 2.5, viewValue: 'Medic'}
+                {value: 2.5, viewValue: 'EMS'}
+            ]
+        },
+        {
+            name: 'Airline',
+            vouchers: [
+                {value: 0.2, viewValue: 'Airline: Piloting'},
+                {value: 0.1, viewValue: 'Airline: Player'}
             ]
         },
         {
@@ -46,10 +51,17 @@ export class AppComponent {
             ]
         },
         {
+            name: 'Mail',
+            vouchers: [
+                {value: 0.4, viewValue: 'Mail: PostOP'},
+                {value: 0.6, viewValue: 'Mail: Player'}
+            ]
+        },
+        {
             name: 'Police',
             vouchers: [
-                {value: 0.15, viewValue: 'Police: Police'},
-                {value: 0.15, viewValue: 'Police: Player'}
+                {value: 0.2, viewValue: 'Police: Police'},
+                {value: 0.1, viewValue: 'Police: Player'}
             ]
         },
         {
@@ -74,7 +86,7 @@ export class AppComponent {
     }
 
 
-    defaultVoucherSelected = 0.2;
+    defaultVoucherSelected = null;
     premiumValue = 1;
     discordValue = 1;
 
@@ -90,7 +102,7 @@ export class AppComponent {
 
 
     currentLevelValueOnInput(event){
-        if(isNaN(event.target.valueAsNumber)){
+        if(isNaN(event.target.valueAsNumber) || event.target.valueAsNumber > 1000000){
             this.currentLevel = null;
         }else{
             this.currentLevel = event.target.valueAsNumber;
@@ -103,7 +115,7 @@ export class AppComponent {
     }
 
     currentLevelExpOnInput(event){
-        if(isNaN(event.target.valueAsNumber)){
+        if(isNaN(event.target.valueAsNumber) || event.target.valueAsNumber > 1000000){
             this.currentLevelExp = null;
         }else{
             this.currentLevelExp = event.target.valueAsNumber;
@@ -112,7 +124,7 @@ export class AppComponent {
     }
 
     targetLevelOnInput(event){
-        if(isNaN(event.target.valueAsNumber)){
+        if(isNaN(event.target.valueAsNumber) || event.target.valueAsNumber > 1000000){
             this.targetLevel = null;
         }else{
             this.targetLevel = event.target.valueAsNumber;
@@ -128,7 +140,7 @@ export class AppComponent {
     }
 
     vouchersPerRunOnInput(event){
-        if(isNaN(event.target.valueAsNumber)){
+        if(isNaN(event.target.valueAsNumber) || event.target.valueAsNumber > 1000000){
             this.vouchersPerRun = null;
         }else{
             this.vouchersPerRun = event.target.valueAsNumber;
@@ -137,8 +149,8 @@ export class AppComponent {
     }
 
     expPerRunOnInput(event){
-
-        if(isNaN(event.target.valueAsNumber)){
+        console.log(event.target.valueAsNumber, "expPerRun_>  " + this.expPerRun);
+        if(isNaN(event.target.valueAsNumber) || event.target.valueAsNumber > 1000000){
             this.expPerRun = null;
         }else {
             this.expPerRun = event.target.valueAsNumber;

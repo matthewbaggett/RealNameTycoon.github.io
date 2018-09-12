@@ -1,7 +1,11 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125357957-1"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<mat-toolbar color="primary" fxLayout="row" fxShow.xs="false" fxShow.sm="false" fxShow.md="true" fxShow.lg="true" fxShow.xl="true">
-    <span fxFlex="50" class="toolBarTitle">Real Name Tycoon</span>
+
+
+<div fxLayout="column" fxFlexFill>
+<div>
+<mat-toolbar color="primary" fxLayout="row" fxShow.xs="false" fxShow.sm="false" fxShow.md="true" fxShow.lg="true" fxShow.xl="true" style="height: 64px !important;">
+    <span fxFlex="50" class="toolBarTitle">Tycoon Utilities</span>
     <div fxLayoutAlign="end stretch"  fxFlex="50" >
         <a style="margin-right: 15px" mat-raised-button href="https://realnametycoon.github.io/old/">OLD LOOK</a>
         <button mat-stroked-button (click)="openUpdateDialog()">
@@ -13,149 +17,177 @@
 
 </mat-toolbar>
 
-<mat-toolbar color="primary" fxLayout="row"  fxShow.xs="true" fxShow.sm="true" fxShow.md="false" fxShow.lg="false" fxShow.xl="false">
-    <span fxFlex="50"  class="toolBarTitle">Real Name Tycoon</span>
-    <div fxFlex="50" fxLayoutAlign="end stretch"><button  mat-stroked-button (click)="openUpdateDialog()"><b class="toolBarText">Updates</b></button></div>
+<mat-toolbar color="primary" fxLayout="row"  fxShow.xs="true" fxShow.sm="true" fxShow.md="false" fxShow.lg="false" fxShow.xl="false" style="height: 64px !important;">
+    <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+    <span fxFlex="100"  class="toolBarTitle">Tycoon Utilities</span>
 
 </mat-toolbar>
+</div>
 
 
-<div fxLayout="row" fxLayout.xs="column">
-    <div fxFlex="100">
-        <mat-card>
-            <form class="calculatorForm">
-                <mat-form-field>
-                    <input (input)="currentLevelValueOnInput($event)" id="currentLevel" [(value)]="currentLevel" autocomplete="off" required matInput type="number" placeholder="Current Level" min="1">
-                </mat-form-field>
 
-                <mat-form-field>
-                    <input (input)="currentLevelExpOnInput($event)" id="currentLevelExp" [(value)]="currentLevelExp" autocomplete="off"  matInput type="number" placeholder="Current Level Exp" min="10">
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input (input)="targetLevelOnInput($event)" id="targetLevel" [(value)]="targetLevel" autocomplete="off" required matInput type="number" placeholder="Target Level" min="2">
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input (input)="vouchersPerRunOnInput($event)" id="vouchersPerRun" [(value)]="vouchersPerRun" autocomplete="off"  matInput type="number" placeholder="Vouchers Per Run">
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input (input)="expPerRunOnInput($event)" id="expPerRun" [(value)]="expPerRun" autocomplete="off"  matInput type="number" placeholder="Exp Per Run">
-                </mat-form-field>
-
-                <mat-form-field>
-                    <mat-select required (valueChange)="runCalculator($event)" placeholder="Voucher Type" [(value)]="defaultVoucherSelected">
-                        <mat-optgroup *ngFor="let group of voucherGroups" [label]="group.name"
-                                      [disabled]="group.disabled">
-                            <mat-option *ngFor="let voucher of group.vouchers" [value]="voucher.value">
-                                {{voucher.viewValue}}
-                            </mat-option>
-                        </mat-optgroup>
-                    </mat-select>
-                </mat-form-field>
-
-                <div class="premiumDiscordCheckboxes">
-                    <mat-checkbox [(value)]="premiumValue" (change)="onPremiumChange($event)" fxFlex="50">Premium</mat-checkbox>
-                    <mat-checkbox [(value)]="discordValue" (change)="onDiscordChange($event)" fxFlex="50">Discord Link</mat-checkbox>
+<div fxFlex="100">
+    <mat-sidenav-container fxFlex hasBackdrop fullscreen style="top: 64px !important;" autosize >
+        <mat-sidenav #sidenav mode="over" class="sideNavCss">
+            <div fxLayout="column" fxFlex>
+                <div fxFlex="8" fxLayout="row" style="margin-top: 15px">
+                    <div fxFlex="50"></div>
+                    <button mat-icon-button (click)="sidenav.toggle()"><div matCardAvatar class="sidenavImage"></div></button>
+                    <div fxFlex="50"></div>
                 </div>
-
-            </form>
-        </mat-card>
-    </div>
-    <div fxFlex="100">
-        <mat-accordion>
-
-            <mat-expansion-panel [expanded]="true">
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        Result
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <form class="calculatorForm">
-                    <mat-form-field>
-                        <div matTooltip="Copy to clipboard" matTooltipPosition="left" (click)="copyToClipboardVouchersNeeded()">
-                            <input matTooltip="Click to copy to clipboard" class="copyToClipboardMouseOnHove" disabled matInput type="text" placeholder="Vouchers Needed" value="{{(vouchersNeeded)}}">
-                        </div>
-
-                    </mat-form-field>
-
-                    <mat-form-field>
-                        <input disabled matInput type="text" placeholder="Exp Needed" value="{{expNeeded}}">
-                    </mat-form-field>
-
-                    <mat-form-field>
-                        <input disabled matInput type="text" placeholder="Number of Runs" value="{{numberOfRuns}}">
-                    </mat-form-field>
-
-                    <mat-form-field>
-                        <input disabled matInput type="text" placeholder="Voucher Worth" value="{{defaultVoucherSelected * premiumValue * discordValue | number}}">
-                    </mat-form-field>
-
-
-                </form>
-            </mat-expansion-panel>
-
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        How to use
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-
-                <div>
-                <mat-tab-group style="display: flex;" dynamicHeight>
-                    <mat-tab label="Simple Use">
-                        <mat-list style="overflow: hidden">
-                            <mat-list-item>
-                                <h4 style="flex: 25">Current Level</h4>
-                                <h3 style="flex: 90" matSubheader>Current job level. (min: 1)</h3>
-                            </mat-list-item>
-                            <mat-list-item>
-                                <h4 style="flex: 25">Target Level</h4>
-                                <h3 style="flex: 90" matSubheader>The level you want to achieve. (min:2)</h3>
-                            </mat-list-item>
-                            <mat-list-item>
-                                <h4 style="flex: 25">Voucher Type</h4>
-                                <h3 style="flex: 90" matSubheader>Some vouchers like Train have "sub-voucher" categories.</h3>
-                            </mat-list-item>
-                            <mat-list-item>
-                                <h4 style="flex: 25">Premium</h4>
-                                <h3 style="flex: 90" matSubheader>Toggle this if you're premium.</h3>
-                            </mat-list-item>
-                            <mat-list-item>
-                                <h4 style="flex: 25">Discord Link</h4>
-                                <h3 style="flex: 90" matSubheader>Toggle this if you have your discord linked with the server.</h3>
-                            </mat-list-item>
-                        </mat-list>
-                    </mat-tab>
-
-
-                    <mat-tab label="Advanced Use">
-
-
-                        <h4>Current Level Exp</h4>
-                        <p>Min: 10</p>
-                        <p>Exact current job level. This number can be found in the skills menu inside the blue bar of the desired category.</p>
-
-
-                        <h4>Vouchers per Run</h4>
-                        <p>Filling this will enable you to see how many runs it will take you to get the necessary vouchers for leveling up to the target Level.</p>
-
-
-                        <h4>Exp per Run</h4>
-                        <p>All fields required for it to work.</p>
-                        <p>With this option filled it will calculate, together with Vouchers per Run, how many runs it take to get to the target level, <b>assuming you'll end up consuming the vouchers.</b></p>
-
-                    </mat-tab>
-                </mat-tab-group>
+                <mat-divider></mat-divider>
+                <div fxFlex="87" class="sideNavLinks" fxLayout="column">
+                    <button mat-flat-button (click)="openUpdateDialog()">CHANGELOG</button>
                 </div>
+                <a href="https://realnametycoon.github.io/old/" style="margin: 8px" fxFlex="5" mat-raised-button>OLD LOOK</a>
+
+            </div>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div fxLayout="row" fxLayout.xs="column">
+                <div fxFlex="100">
+                    <mat-card>
+                        <form class="calculatorForm">
+                            <mat-form-field>
+                                <input (input)="currentLevelValueOnInput($event)" id="currentLevel" [(value)]="currentLevel" autocomplete="off" required matInput type="number" placeholder="Current Level" min="1">
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <input (input)="currentLevelExpOnInput($event)" id="currentLevelExp" [(value)]="currentLevelExp" autocomplete="off"  matInput type="number" placeholder="Current Level Exp" min="10">
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <input (input)="targetLevelOnInput($event)" id="targetLevel" [(value)]="targetLevel" autocomplete="off" required matInput type="number" placeholder="Target Level" min="2">
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <input (input)="vouchersPerRunOnInput($event)" id="vouchersPerRun" [(value)]="vouchersPerRun" autocomplete="off"  matInput type="number" placeholder="Vouchers Per Run">
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <input (input)="expPerRunOnInput($event)" id="expPerRun" [(value)]="expPerRun" autocomplete="off"  matInput type="number" placeholder="Exp Per Run">
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <mat-select required (valueChange)="runCalculator($event)" placeholder="Voucher Type" [(value)]="defaultVoucherSelected">
+                                    <mat-optgroup *ngFor="let group of voucherGroups" [label]="group.name"
+                                                  [disabled]="group.disabled">
+                                        <mat-option *ngFor="let voucher of group.vouchers" [value]="voucher.value">
+                                            {{voucher.viewValue}}
+                                        </mat-option>
+                                    </mat-optgroup>
+                                </mat-select>
+                            </mat-form-field>
+
+                            <div class="premiumDiscordCheckboxes">
+                                <mat-checkbox [(value)]="premiumValue" (change)="onPremiumChange($event)" fxFlex="50">Premium</mat-checkbox>
+                                <mat-checkbox [(value)]="discordValue" (change)="onDiscordChange($event)" fxFlex="50">Discord Link</mat-checkbox>
+                            </div>
+
+                        </form>
+                    </mat-card>
+                </div>
+                <div fxFlex="100">
+                    <mat-accordion>
+
+                        <mat-expansion-panel [expanded]="true">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Result
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <form class="calculatorForm">
+                                <mat-form-field>
+                                    <div matTooltip="Copy to clipboard" matTooltipPosition="left" (click)="copyToClipboardVouchersNeeded()">
+                                        <input matTooltip="Click to copy to clipboard" class="copyToClipboardMouseOnHove" disabled matInput type="text" placeholder="Vouchers Needed" value="{{(vouchersNeeded)}}">
+                                    </div>
+
+                                </mat-form-field>
+
+                                <mat-form-field>
+                                    <input disabled matInput type="text" placeholder="Exp Needed" value="{{expNeeded}}">
+                                </mat-form-field>
+
+                                <mat-form-field>
+                                    <input disabled matInput type="text" placeholder="Number of Runs" value="{{numberOfRuns}}">
+                                </mat-form-field>
+
+                                <mat-form-field>
+                                    <input disabled matInput type="text" placeholder="Voucher Worth" value="{{defaultVoucherSelected * premiumValue * discordValue | number}}">
+                                </mat-form-field>
 
 
-            </mat-expansion-panel>
+                            </form>
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    How to use
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+
+                            <div>
+                                <mat-tab-group style="display: flex;" dynamicHeight>
+                                    <mat-tab label="Simple Use">
+                                        <mat-list style="overflow: hidden">
+                                            <mat-list-item>
+                                                <h4 style="flex: 25">Current Level</h4>
+                                                <h3 style="flex: 90" matSubheader>Current job level. (min: 1)</h3>
+                                            </mat-list-item>
+                                            <mat-list-item>
+                                                <h4 style="flex: 25">Target Level</h4>
+                                                <h3 style="flex: 90" matSubheader>The level you want to achieve. (min: 2)</h3>
+                                            </mat-list-item>
+                                            <mat-list-item>
+                                                <h4 style="flex: 25">Voucher Type</h4>
+                                                <h3 style="flex: 90" matSubheader>Some vouchers like Train have "sub-voucher" categories.</h3>
+                                            </mat-list-item>
+                                            <mat-list-item>
+                                                <h4 style="flex: 25">Premium</h4>
+                                                <h3 style="flex: 90" matSubheader>Toggle this if you're premium.</h3>
+                                            </mat-list-item>
+                                            <mat-list-item>
+                                                <h4 style="flex: 25">Discord Link</h4>
+                                                <h3 style="flex: 90" matSubheader>Toggle this if you have your discord linked with the server.</h3>
+                                            </mat-list-item>
+                                        </mat-list>
+                                    </mat-tab>
+
+
+                                    <mat-tab label="Advanced Use">
+
+
+                                        <h4>Current Level Exp</h4>
+                                        <p>Min: 10</p>
+                                        <p>Exact current job level. This number can be found in the skills menu inside the blue bar of the desired category.</p>
+
+
+                                        <h4>Vouchers per Run</h4>
+                                        <p>Filling this will enable you to see how many runs it will take you to get the necessary vouchers for leveling up to the target Level.</p>
+
+
+                                        <h4>Exp per Run</h4>
+                                        <p>All fields required for it to work.</p>
+                                        <p>With this option filled it will calculate, together with Vouchers per Run, how many runs it take to get to the target level, <b>assuming you'll end up consuming the vouchers.</b></p>
+
+                                    </mat-tab>
+                                </mat-tab-group>
+                            </div>
+
+
+                        </mat-expansion-panel>
 
 
 
-        </mat-accordion>
-    </div>
+                    </mat-accordion>
+                </div>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+
+</div>
+
 </div>

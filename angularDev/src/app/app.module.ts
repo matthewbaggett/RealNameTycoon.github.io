@@ -18,6 +18,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
+
 import {Component, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -48,7 +49,8 @@ import { UpdatesDialogComponent } from './updates-dialog/updates-dialog.componen
     ReactiveFormsModule,
     FlexLayoutModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSidenavModule
 
   ],
   entryComponents: [

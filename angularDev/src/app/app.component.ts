@@ -23,6 +23,12 @@ export interface VoucherTypesGroup {
 
 export class AppComponent {
 
+    //SIDEBAR
+    opened = true;
+    events = [];
+
+    //END-SIDEBAR
+
 
     voucherGroups: VoucherTypesGroup[] = [
 

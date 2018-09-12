@@ -7,6 +7,10 @@ body{
     background-color: #EEEEEE;
 }
 
+.sideNavCss{
+    width: 70%;
+}
+
 .copyToClipboardMouseOnHove{
     cursor: pointer;
 }
@@ -29,6 +33,17 @@ body{
      margin-right: 10px;
 }
 
+.sidenavImage{
+    background-image: url('assets/img/logo.png');
+    background-size: cover;
+}
+
+.sideNavLinks{
+    padding: 8px;
+}
+.sideNavLinks > button{
+    margin-bottom: 5px;
+}
 
 .fillRemainingSpace {
     flex: 1 1 auto;

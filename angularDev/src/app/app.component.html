@@ -30,16 +30,19 @@
     <mat-sidenav-container fxFlex hasBackdrop fullscreen style="top: 64px !important;" autosize >
         <mat-sidenav #sidenav mode="over" class="sideNavCss">
             <div fxLayout="column" fxFlex>
-                <div fxFlex="8" fxLayout="row" style="margin-top: 15px">
-                    <div fxFlex="50"></div>
-                    <button mat-icon-button (click)="sidenav.toggle()"><div matCardAvatar class="sidenavImage"></div></button>
-                    <div fxFlex="50"></div>
+
+                <div fxFlex="20" style="background: #323232" class="mat-typography">
                 </div>
-                <mat-divider></mat-divider>
-                <div fxFlex="87" class="sideNavLinks" fxLayout="column">
+
+
+
+                <div fxFlex="69" class="sideNavLinks" fxLayout="column">
                     <button mat-flat-button (click)="openUpdateDialog()">CHANGELOG</button>
                 </div>
-                <a href="https://realnametycoon.github.io/old/" style="margin: 8px" fxFlex="5" mat-raised-button>OLD LOOK</a>
+
+                <div fxFlex="5" fxLayout="column">
+                    <a href="https://realnametycoon.github.io/old/" style="margin: 8px" mat-raised-button>OLD LOOK</a>
+                </div>
 
             </div>
         </mat-sidenav>

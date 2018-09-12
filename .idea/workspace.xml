@@ -4,9 +4,6 @@
     <list default="true" id="2fcd0f28-18b9-4908-95e3-2b603f838429" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angularDev/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angularDev/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angularDev/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angularDev/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angularDev/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angularDev/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angularDev/src/app/updates-dialog/updates-dialog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angularDev/src/app/updates-dialog/updates-dialog.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angularDev/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/angularDev/src/styles.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,30 +15,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.component.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="41" column="62" selection-start-line="41" selection-start-column="62" selection-end-line="41" selection-end-column="62" />
+            <state relative-caret-position="265">
+              <caret line="33" column="84" selection-start-line="33" selection-start-column="84" selection-end-line="33" selection-end-column="84" />
               <folding>
                 <element signature="n#style#0;n#mat-toolbar#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#0;n#mat-toolbar#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#mat-toolbar#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#mat-sidenav#0;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#mat-sidenav#0;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#mat-list-item#0;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h3#0;n#mat-list-item#0;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#mat-list-item#1;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h3#0;n#mat-list-item#1;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#mat-list-item#2;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h3#0;n#mat-list-item#2;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#mat-list-item#3;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h3#0;n#mat-list-item#3;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#mat-list-item#4;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h3#0;n#mat-list-item#4;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#mat-sidenav#0;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,7 +34,7 @@
       <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
+            <state relative-caret-position="408">
               <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
@@ -59,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angularDev/src/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="36" column="46" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
+            <state relative-caret-position="187">
+              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -71,8 +55,8 @@
       <file leaf-file-name="updates-dialog.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angularDev/src/app/updates-dialog/updates-dialog.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+            <state relative-caret-position="17">
+              <caret line="1" column="42" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -81,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.module.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="57" lean-forward="true" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+              <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -123,8 +107,8 @@
         <option value="$PROJECT_DIR$/angularDev/src/app/updates-dialog/updates-dialog.component.html" />
         <option value="$PROJECT_DIR$/angularDev/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/angularDev/src/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/angularDev/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/angularDev/src/styles.css" />
+        <option value="$PROJECT_DIR$/angularDev/src/app/app.component.html" />
       </list>
     </option>
   </component>
@@ -142,7 +126,7 @@
       <path value="$PROJECT_DIR$/angularDev/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="837" />
     <option name="height" value="1047" />
@@ -265,15 +249,16 @@
       <workItem from="1536673306915" duration="1832000" />
       <workItem from="1536688214341" duration="2521000" />
       <workItem from="1536711835411" duration="1729000" />
-      <workItem from="1536784667180" duration="4721000" />
+      <workItem from="1536784667180" duration="4864000" />
+      <workItem from="1536789746338" duration="1661000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90511000" />
+    <option name="totallyTimeSpent" value="92315000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="837" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -281,12 +266,12 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4977307" weight="0.27575108" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4977307" weight="0.2752391" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48444444" weight="0.32881" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4809384" weight="0.32864583" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info id="Structure" order="1" sideWeight="0.51555556" side_tool="true" weight="0.32881" />
+      <window_info id="Structure" order="1" sideWeight="0.51906157" side_tool="true" weight="0.32864583" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -303,8 +288,8 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48444444" visible="true" weight="0.32881" />
-      <window_info id="Structure" order="1" sideWeight="0.51555556" side_tool="true" visible="true" weight="0.32881" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4809384" visible="true" weight="0.32864583" />
+      <window_info id="Structure" order="1" sideWeight="0.51906157" side_tool="true" visible="true" weight="0.32864583" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
@@ -312,7 +297,7 @@
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4977307" visible="true" weight="0.27575108" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4977307" visible="true" weight="0.2752391" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50226927" side_tool="true" weight="0.32838285" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="10" />
@@ -410,7 +395,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="408">
           <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
@@ -430,48 +415,35 @@
     <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="57" lean-forward="true" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angularDev/src/app/updates-dialog/updates-dialog.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="41" column="62" selection-start-line="41" selection-start-column="62" selection-end-line="41" selection-end-column="62" />
-          <folding>
-            <element signature="n#style#0;n#mat-toolbar#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#mat-toolbar#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#mat-toolbar#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#mat-sidenav#0;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#mat-sidenav#0;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#mat-list-item#0;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#mat-list-item#0;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#mat-list-item#1;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#mat-list-item#1;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#mat-list-item#2;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#mat-list-item#2;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#mat-list-item#3;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#mat-list-item#3;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#mat-list-item#4;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#mat-list-item#4;n#mat-list#0;n#mat-tab#0;n#mat-tab-group#0;n#div#0;n#mat-expansion-panel#1;n#mat-accordion#0;n#div#1;n#div#0;n#mat-sidenav-content#0;n#mat-sidenav-container#0;n#!!top" expanded="true" />
-          </folding>
+          <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/angularDev/src/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="36" column="46" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
+        <state relative-caret-position="187">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angularDev/src/app/updates-dialog/updates-dialog.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="42" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="33" column="84" selection-start-line="33" selection-start-column="84" selection-end-line="33" selection-end-column="84" />
+          <folding>
+            <element signature="n#style#0;n#mat-toolbar#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#mat-toolbar#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#mat-sidenav#0;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#mat-sidenav#0;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

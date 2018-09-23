@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2fcd0f28-18b9-4908-95e3-2b603f838429" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdpartylicenses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/3rdpartylicenses.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angularDev/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/angularDev/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angularDev/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/angularDev/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angularDev/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angularDev/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angularDev/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/angularDev/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angularDev/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angularDev/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angularDev/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angularDev/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.f2156b5a7760d63780a3.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,17 +21,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.component.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="33" column="84" selection-start-line="33" selection-start-column="84" selection-end-line="33" selection-end-column="84" />
+            <state relative-caret-position="202">
+              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
               <folding>
                 <element signature="n#style#0;n#mat-toolbar#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#mat-toolbar#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#mat-sidenav#0;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#0;n#mat-sidenav#0;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -34,8 +39,8 @@
       <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+            <state relative-caret-position="493">
+              <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -52,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="updates-dialog.component.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="updates-dialog.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/angularDev/src/app/updates-dialog/updates-dialog.component.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="1" column="42" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="42" />
+              <caret line="1" column="42" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -64,8 +69,29 @@
       <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+            <state relative-caret-position="306">
+              <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angularDev/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angularDev/src/main.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+              <folding>
+                <element signature="e#0#47#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -86,6 +112,7 @@
       <find>0.2</find>
       <find>Updated 09/08/2018</find>
       <find>09/08/2018</find>
+      <find>09/11</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -101,13 +128,15 @@
         <option value="$PROJECT_DIR$/angular/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/angularDev/src/assets/img/thumbsup.svg" />
         <option value="$PROJECT_DIR$/testeAngularJs/my-app/src/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/angularDev/src/main.ts" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/angularDev/src/index.html" />
         <option value="$PROJECT_DIR$/angularDev/src/app/updates-dialog/updates-dialog.component.html" />
-        <option value="$PROJECT_DIR$/angularDev/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/angularDev/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/angularDev/src/styles.css" />
+        <option value="$PROJECT_DIR$/angularDev/src/main.ts" />
+        <option value="$PROJECT_DIR$/angularDev/tsconfig.json" />
+        <option value="$PROJECT_DIR$/angularDev/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/angularDev/package.json" />
+        <option value="$PROJECT_DIR$/angularDev/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/angularDev/src/app/app.component.html" />
       </list>
     </option>
@@ -150,6 +179,19 @@
               <item name="RealNameTycoon.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="RealNameTycoon.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="angularDev" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RealNameTycoon.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RealNameTycoon.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="angularDev" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RealNameTycoon.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RealNameTycoon.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="angularDev" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="angular-hammer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RealNameTycoon.github.io" type="b2602c69:ProjectViewProjectNode" />
@@ -250,12 +292,15 @@
       <workItem from="1536688214341" duration="2521000" />
       <workItem from="1536711835411" duration="1729000" />
       <workItem from="1536784667180" duration="4864000" />
-      <workItem from="1536789746338" duration="1661000" />
+      <workItem from="1536789746338" duration="1948000" />
+      <workItem from="1536793742862" duration="1466000" />
+      <workItem from="1537298078108" duration="210000" />
+      <workItem from="1537703697717" duration="678000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92315000" />
+    <option name="totallyTimeSpent" value="94956000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -266,12 +311,12 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4977307" weight="0.2752391" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4977307" visible="true" weight="0.2752391" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4809384" weight="0.32864583" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.47360703" visible="true" weight="0.2015625" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info id="Structure" order="1" sideWeight="0.51906157" side_tool="true" weight="0.32864583" />
+      <window_info id="Structure" order="1" sideWeight="0.52639294" side_tool="true" visible="true" weight="0.2015625" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -282,28 +327,6 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
     </layout>
-    <layout-to-restore>
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4809384" visible="true" weight="0.32864583" />
-      <window_info id="Structure" order="1" sideWeight="0.51906157" side_tool="true" visible="true" weight="0.32864583" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TypeScript" order="11" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.4977307" visible="true" weight="0.2752391" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50226927" side_tool="true" weight="0.32838285" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -312,16 +335,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/angularDev/src/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular/src/app/app.component.html" />
-    <entry file="file://$PROJECT_DIR$/angular/src/index.html" />
-    <entry file="file://$PROJECT_DIR$/angular/src/app/app.component.ts" />
     <entry file="file://$PROJECT_DIR$/angular/src/app/app.component.html" />
     <entry file="file://$PROJECT_DIR$/angular/src/index.html" />
     <entry file="file://$PROJECT_DIR$/angular/src/app/app.component.ts" />
@@ -360,13 +373,6 @@
         <state relative-caret-position="-153" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angularDev/src/main.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.component.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -393,16 +399,6 @@
     <entry file="file://$PROJECT_DIR$/angularDev/node_modules/@angular/material/core/index.metadata.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/angularDev/src/assets/img/discordRealName.gif">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -412,10 +408,20 @@
     <entry file="file://$PROJECT_DIR$/angularDev/src/assets/img/logo.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.module.ts">
+    <entry file="file://$PROJECT_DIR$/angularDev/src/main.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+        <state relative-caret-position="17">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angularDev/tsconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -426,24 +432,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angularDev/src/app/updates-dialog/updates-dialog.component.html">
+    <entry file="file://$PROJECT_DIR$/angularDev/node_modules/angular-hammer/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-102" />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="42" lean-forward="true" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="42" />
+        <state relative-caret-position="306">
+          <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googleanalytics.js" />
+    <entry file="file://$PROJECT_DIR$/angularDev/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="33" column="84" selection-start-line="33" selection-start-column="84" selection-end-line="33" selection-end-column="84" />
+        <state relative-caret-position="202">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
           <folding>
             <element signature="n#style#0;n#mat-toolbar#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#mat-toolbar#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#mat-sidenav#0;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#mat-sidenav#0;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angularDev/src/app/updates-dialog/updates-dialog.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="42" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="42" />
         </state>
       </provider>
     </entry>

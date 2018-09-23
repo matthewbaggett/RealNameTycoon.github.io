@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {MatDialog, MatSnackBar} from "@angular/material";
 import {UpdatesDialogComponent} from "./updates-dialog/updates-dialog.component";
 
-
 export interface Vouchers {
     value: number;
     viewValue: string;
@@ -23,11 +22,11 @@ export interface VoucherTypesGroup {
 
 export class AppComponent {
 
-    //SIDEBAR
-    opened = true;
-    events = [];
+    //HAMMERJS
 
-    //END-SIDEBAR
+
+
+
 
 
     voucherGroups: VoucherTypesGroup[] = [
@@ -37,15 +36,16 @@ export class AppComponent {
             vouchers: [
                 {value: 0.3, viewValue: 'Casino'},
                 {value: 0.8, viewValue: 'Gym'},
-                {value: 0.2, viewValue: 'Heli Pilot'},
-                {value: 2.5, viewValue: 'EMS'}
+                {value: 0.2, viewValue: 'Helipilot'},
+                {value: 2.5, viewValue: 'Medic'}
             ]
         },
         {
-            name: 'Airline',
+            name: 'Piloting',
             vouchers: [
-                {value: 0.2, viewValue: 'Airline: Piloting'},
-                {value: 0.1, viewValue: 'Airline: Player'}
+                {value: 0.2, viewValue: 'Piloting: Airline Pilot'},
+                {value: 0.2, viewValue: 'Piloting: Cargo Pilot'},
+                {value: 0.1, viewValue: 'Piloting: Player'}
             ]
         },
         {
@@ -73,7 +73,7 @@ export class AppComponent {
         {
             name: 'Train',
             vouchers: [
-                {value: 1.2, viewValue: 'Train: Train Conductor'},
+                {value: 1.2, viewValue: 'Train: Conductor'},
                 {value: 0.2, viewValue: 'Train: Strength'},
                 {value: 0.2, viewValue: 'Train: Player'}
             ]

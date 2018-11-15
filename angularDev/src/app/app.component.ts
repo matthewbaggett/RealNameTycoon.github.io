@@ -66,8 +66,8 @@ export class AppComponent {
         {
             name: 'Police',
             vouchers: [
-                {value: 0.2, viewValue: 'Police: Police'},
-                {value: 0.1, viewValue: 'Police: Player'}
+                {value: 0.4, viewValue: 'Police: Police'},
+                {value: 0.4, viewValue: 'Police: Player'}
             ]
         },
         {

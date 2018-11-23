@@ -83,7 +83,7 @@
                                 </mat-select>
                             </mat-form-field>
 
-                            <div class="premiumDiscordCheckboxes">
+                            <div fxLayout="row" fxLayout.xs="column">
                                 <mat-checkbox [(value)]="premiumValue" (change)="onPremiumChange($event)" fxFlex="33">Premium</mat-checkbox>
                                 <mat-checkbox [(value)]="discordValue" (change)="onDiscordChange($event)" fxFlex="33">Discord Link</mat-checkbox>
                                 <mat-checkbox [(value)]="doubleExpValue" (change)="onDoubleExpChange($event)" fxFlex="33">Double Exp</mat-checkbox>

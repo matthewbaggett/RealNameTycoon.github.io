@@ -95,6 +95,7 @@ export class AppComponent {
     defaultVoucherSelected = null;
     premiumValue = 1;
     discordValue = 1;
+    doubleExpValue = 1;
 
     currentLevel = null;
     currentLevelExp = null;
@@ -188,6 +189,15 @@ export class AppComponent {
         this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel, this.vouchersPerRun, this.expPerRun);
     }
 
+    onDoubleExpChange(event){
+        if(event.checked){
+            this.doubleExpValue = 2;
+        }else{
+            this.doubleExpValue = 1;
+        }
+        this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel, this.vouchersPerRun, this.expPerRun);
+    }
+
     calculateFinal(from, fromExp, to, voucherRun, expRun){
 
         this.expNeeded = null;
@@ -219,7 +229,7 @@ export class AppComponent {
 
             expTotal = expTotal - fromExp;
             this.expNeeded = expTotal;
-            let voucherWorth = this.defaultVoucherSelected * this.premiumValue * this.discordValue;
+            let voucherWorth = this.defaultVoucherSelected * this.premiumValue * this.discordValue * this.doubleExpValue;
 
             if(expRun > 0 && expRun != null){
                 let expRunVouchersNeeded = 0;

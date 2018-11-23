@@ -10,7 +10,7 @@
         <a style="margin-right: 15px" mat-raised-button href="https://realnametycoon.github.io/old/">OLD LOOK</a>
         <button mat-stroked-button (click)="openUpdateDialog()">
             <b class="toolBarText">
-            Updated 11/15/2018
+            Updated 11/23/2018
             </b>
         </button>
     </div>
@@ -84,8 +84,9 @@
                             </mat-form-field>
 
                             <div class="premiumDiscordCheckboxes">
-                                <mat-checkbox [(value)]="premiumValue" (change)="onPremiumChange($event)" fxFlex="50">Premium</mat-checkbox>
-                                <mat-checkbox [(value)]="discordValue" (change)="onDiscordChange($event)" fxFlex="50">Discord Link</mat-checkbox>
+                                <mat-checkbox [(value)]="premiumValue" (change)="onPremiumChange($event)" fxFlex="33">Premium</mat-checkbox>
+                                <mat-checkbox [(value)]="discordValue" (change)="onDiscordChange($event)" fxFlex="33">Discord Link</mat-checkbox>
+                                <mat-checkbox [(value)]="doubleExpValue" (change)="onDoubleExpChange($event)" fxFlex="33">Double Exp</mat-checkbox>
                             </div>
 
                         </form>
@@ -117,7 +118,7 @@
                                 </mat-form-field>
 
                                 <mat-form-field>
-                                    <input disabled matInput type="text" placeholder="Voucher Worth" value="{{defaultVoucherSelected * premiumValue * discordValue | number}}">
+                                    <input disabled matInput type="text" placeholder="Voucher Worth" value="{{defaultVoucherSelected * premiumValue * discordValue *doubleExpValue | number}}">
                                 </mat-form-field>
 
 

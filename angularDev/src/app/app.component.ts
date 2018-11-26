@@ -92,6 +92,9 @@ export class AppComponent {
     }
 
 
+    //GLITCH
+    exp_step = 5;
+
     defaultVoucherSelected = null;
     premiumValue = 1;
     discordValue = 1;
@@ -113,12 +116,23 @@ export class AppComponent {
             this.currentLevel = null;
         }else{
             this.currentLevel = event.target.valueAsNumber;
-            if(this.currentLevel >= this.targetLevel){
+            /*if(this.currentLevel >= this.targetLevel){
                 this.targetLevel = this.currentLevel + 1;
-            }
+            }*/
 
         }
         this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel, this.vouchersPerRun, this.expPerRun);
+    }
+
+    currentLevelValueOnFocusOut(event){
+        if(isNaN(event.target.valueAsNumber) || event.target.valueAsNumber > 1000000){
+        }else{
+            var tempCurrentLevelValue = event.target.valueAsNumber;
+            if(tempCurrentLevelValue >= this.targetLevel){
+                this.targetLevel = tempCurrentLevelValue + 1;
+            }
+
+        }
     }
 
     currentLevelExpOnInput(event){
@@ -130,6 +144,15 @@ export class AppComponent {
         this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel, this.vouchersPerRun, this.expPerRun);
     }
 
+    currentLevelExpOnFocusOut(event){
+        if (event.target.valueAsNumber >= 10){
+            this.currentLevel = Math.floor((Math.sqrt(1 + 8 * event.target.valueAsNumber / this.exp_step) - 1) / 2);
+        }else{
+            this.currentLevelExp = 10;
+            this.currentLevel = 1;
+        }
+    }
+
     targetLevelOnInput(event){
         if(isNaN(event.target.valueAsNumber) || event.target.valueAsNumber > 1000000){
             this.targetLevel = null;
@@ -137,13 +160,25 @@ export class AppComponent {
             this.targetLevel = event.target.valueAsNumber;
             if(this.targetLevel <= 2){
                 this.currentLevel = 1;
-            }else if(this.targetLevel <= this.currentLevel){
+            }/*else if(this.targetLevel <= this.currentLevel){
                 this.currentLevel = this.targetLevel -1;
-            }
+            }*/
         }
         this.calculateFinal(this.currentLevel, this.currentLevelExp, this.targetLevel, this.vouchersPerRun, this.expPerRun);
 
 
+    }
+
+    targetLevelOnFocusOut(event){
+        if(isNaN(event.target.valueAsNumber) || event.target.valueAsNumber > 1000000){
+        }else{
+            var tempTargetLevelValue = event.target.valueAsNumber;
+            if(tempTargetLevelValue <= 2){
+                this.currentLevel = 1;
+            }else if(tempTargetLevelValue <= this.currentLevel){
+                this.currentLevel = tempTargetLevelValue -1;
+            }
+        }
     }
 
     vouchersPerRunOnInput(event){
@@ -230,6 +265,7 @@ export class AppComponent {
             expTotal = expTotal - fromExp;
             this.expNeeded = expTotal;
             let voucherWorth = this.defaultVoucherSelected * this.premiumValue * this.discordValue * this.doubleExpValue;
+            //voucherWorth = parseFloat(voucherWorth.toFixed(2));
 
             if(expRun > 0 && expRun != null){
                 let expRunVouchersNeeded = 0;

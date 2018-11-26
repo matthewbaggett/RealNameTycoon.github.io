@@ -53,15 +53,15 @@
                     <mat-card>
                         <form class="calculatorForm">
                             <mat-form-field>
-                                <input (input)="currentLevelValueOnInput($event)" id="currentLevel" [(value)]="currentLevel" autocomplete="off" required matInput type="number" placeholder="Current Level" min="1">
+                                <input (input)="currentLevelValueOnInput($event)" (focusout)="currentLevelValueOnFocusOut($event)" id="currentLevel" [(value)]="currentLevel" autocomplete="off" required matInput type="number" placeholder="Current Level" min="1">
                             </mat-form-field>
 
                             <mat-form-field>
-                                <input (input)="currentLevelExpOnInput($event)" id="currentLevelExp" [(value)]="currentLevelExp" autocomplete="off"  matInput type="number" placeholder="Current Level Exp" min="10">
+                                <input (input)="currentLevelExpOnInput($event)" (focusout)="currentLevelExpOnFocusOut($event)" id="currentLevelExp" [(value)]="currentLevelExp" autocomplete="off"  matInput type="number" placeholder="Current Level Exp" min="10">
                             </mat-form-field>
 
                             <mat-form-field>
-                                <input (input)="targetLevelOnInput($event)" id="targetLevel" [(value)]="targetLevel" autocomplete="off" required matInput type="number" placeholder="Target Level" min="2">
+                                <input (input)="targetLevelOnInput($event)" id="targetLevel" (focusout)="targetLevelOnFocusOut($event)" [(value)]="targetLevel" autocomplete="off" required matInput type="number" placeholder="Target Level" min="2">
                             </mat-form-field>
 
                             <mat-form-field>
@@ -174,7 +174,7 @@
 
                                         <h4>Exp per Run</h4>
                                         <p>All fields required for it to work.</p>
-                                        <p>With this option filled it will calculate, together with Vouchers per Run, how many runs it take to get to the target level, <b>assuming you'll end up consuming the vouchers.</b></p>
+                                        <p>With this option filled it will calculate, together with Vouchers per Run, how many runs it take to get to the target level, <b>assuming you'll end up using the vouchers.</b></p>
 
                                     </mat-tab>
                                 </mat-tab-group>

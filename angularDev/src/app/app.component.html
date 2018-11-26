@@ -10,7 +10,7 @@
         <a style="margin-right: 15px" mat-raised-button href="https://realnametycoon.github.io/old/">OLD LOOK</a>
         <button mat-stroked-button (click)="openUpdateDialog()">
             <b class="toolBarText">
-            Updated 11/23/2018
+            Updated 11/26/2018
             </b>
         </button>
     </div>
@@ -86,7 +86,7 @@
                             <div fxLayout="row" fxLayout.xs="column">
                                 <mat-checkbox [(value)]="premiumValue" (change)="onPremiumChange($event)" fxFlex="33">Premium</mat-checkbox>
                                 <mat-checkbox [(value)]="discordValue" (change)="onDiscordChange($event)" fxFlex="33">Discord Link</mat-checkbox>
-                                <mat-checkbox [(value)]="doubleExpValue" (change)="onDoubleExpChange($event)" fxFlex="33">Double Exp</mat-checkbox>
+                                <mat-checkbox disabled="true" [(value)]="doubleExpValue" (change)="onDoubleExpChange($event)" fxFlex="33">Double Exp</mat-checkbox>
                             </div>
 
                         </form>

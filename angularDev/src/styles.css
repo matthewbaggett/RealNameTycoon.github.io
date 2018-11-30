@@ -30,7 +30,7 @@ body{
 
 .discordImage{
      background-image: url('assets/img/discordRealName.gif');
-     background-size: cover;
+     background-size: auto;
      margin-right: 10px;
 }
 

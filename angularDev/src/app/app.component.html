@@ -7,10 +7,17 @@
 <mat-toolbar color="primary" fxLayout="row" fxShow.xs="false" fxShow.sm="false" fxShow.md="true" fxShow.lg="true" fxShow.xl="true" style="height: 64px !important;">
     <span fxFlex="50" class="toolBarTitle">Tycoon Utilities</span>
     <div fxLayoutAlign="end stretch"  fxFlex="50" >
-        <a style="margin-right: 15px" mat-raised-button href="https://realnametycoon.github.io/old/">OLD LOOK</a>
+
+        <button mat-raised-button [matMenuTriggerFor]="menu" style="margin-right: 15px">TOOLS</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="mainAndTrunkButtonHandler('main')">XP CALCULATOR</button>
+            <button mat-menu-item (click)="mainAndTrunkButtonHandler('trunk')">More To Come</button>
+        </mat-menu>
+
+        <!--<a  style="margin-right: 15px" mat-raised-button href="https://realnametycoon.github.io/old/">OLD LOOK</a>-->
         <button mat-stroked-button (click)="openUpdateDialog()">
             <b class="toolBarText">
-            Updated 11/26/2018
+            Updated 11/30/2018
             </b>
         </button>
     </div>
@@ -35,19 +42,16 @@
                 </div>
 
 
-
                 <div fxFlex="69" class="sideNavLinks" fxLayout="column">
                     <button mat-flat-button (click)="openUpdateDialog()">CHANGELOG</button>
-                </div>
-
-                <div fxFlex="5" fxLayout="column">
-                    <a href="https://realnametycoon.github.io/old/" style="margin: 8px" mat-raised-button>OLD LOOK</a>
+                    <button mat-flat-button (click)="mainAndTrunkButtonHandler('main');sidenav.toggle()">XP CALCULATOR</button>
+                    <button mat-flat-button (click)="mainAndTrunkButtonHandler('trunk');sidenav.toggle()">More To Come</button>
                 </div>
 
             </div>
         </mat-sidenav>
 
-        <mat-sidenav-content>
+        <mat-sidenav-content *ngIf="showHideMain">
             <div fxLayout="row" fxLayout.xs="column">
                 <div fxFlex="100">
                     <mat-card>
@@ -188,6 +192,13 @@
                     </mat-accordion>
                 </div>
             </div>
+        </mat-sidenav-content>
+        <mat-sidenav-content *ngIf="showHideTrunk" style="padding-bottom: 30px">
+            <div fxFlex="25"></div>
+            <div fxFlex="50">
+                <mat-card></mat-card>
+            </div>
+            <div fxFlex="25"></div>
         </mat-sidenav-content>
     </mat-sidenav-container>
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {MatDialog, MatSnackBar} from "@angular/material";
 import {UpdatesDialogComponent} from "./updates-dialog/updates-dialog.component";
+import {FormControl} from "@angular/forms";
 
 export interface Vouchers {
     value: number;
@@ -21,10 +22,6 @@ export interface VoucherTypesGroup {
 
 
 export class AppComponent {
-
-    //HAMMERJS
-
-
 
 
 
@@ -94,6 +91,23 @@ export class AppComponent {
 
     //GLITCH
     exp_step = 5;
+
+
+    //SHOW OR HIDE STUFF
+    showHideMain = true;
+    showHideTrunk = false;
+
+    mainAndTrunkButtonHandler(event){
+        if(event == "trunk"){
+            this.showHideTrunk = true;
+            this.showHideMain = false;
+        }else if(event == "main"){
+            this.showHideTrunk = false;
+            this.showHideMain = true;
+        }
+    }
+
+////////////////////////////////////
 
     defaultVoucherSelected = null;
     premiumValue = 1;

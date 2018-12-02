@@ -11,13 +11,13 @@
         <button mat-raised-button [matMenuTriggerFor]="menu" style="margin-right: 15px">TOOLS</button>
         <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="mainAndTrunkButtonHandler('main')">XP CALCULATOR</button>
-            <button mat-menu-item (click)="mainAndTrunkButtonHandler('trunk')">More To Come</button>
+            <button mat-menu-item (click)="mainAndTrunkButtonHandler('trunk')">TYCOON MAP</button>
         </mat-menu>
 
         <!--<a  style="margin-right: 15px" mat-raised-button href="https://realnametycoon.github.io/old/">OLD LOOK</a>-->
         <button mat-stroked-button (click)="openUpdateDialog()">
             <b class="toolBarText">
-            Updated 11/30/2018
+            Updated 12/02/2018
             </b>
         </button>
     </div>
@@ -45,7 +45,7 @@
                 <div fxFlex="69" class="sideNavLinks" fxLayout="column">
                     <button mat-flat-button (click)="openUpdateDialog()">CHANGELOG</button>
                     <button mat-flat-button (click)="mainAndTrunkButtonHandler('main');sidenav.toggle()">XP CALCULATOR</button>
-                    <button mat-flat-button (click)="mainAndTrunkButtonHandler('trunk');sidenav.toggle()">More To Come</button>
+                    <button mat-flat-button (click)="mainAndTrunkButtonHandler('trunk');sidenav.toggle()">TYCOON MAP</button>
                 </div>
 
             </div>
@@ -193,13 +193,8 @@
                 </div>
             </div>
         </mat-sidenav-content>
-        <mat-sidenav-content *ngIf="showHideTrunk" style="padding-bottom: 30px">
-            <div id="map" style="height: 100%; width: 100%">
-            </div>
-            <script>
-                var map = L.map('map').setView([0,0], 0);
-
-            </script>
+        <mat-sidenav-content style="padding-bottom: 30px">
+            <div id="map" style="height: 100%; width: 100%"></div>
         </mat-sidenav-content>
     </mat-sidenav-container>
 

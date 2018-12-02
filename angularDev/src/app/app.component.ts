@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatSnackBar} from "@angular/material";
 import {UpdatesDialogComponent} from "./updates-dialog/updates-dialog.component";
 import {FormControl} from "@angular/forms";
+import {marker} from "leaflet";
 
 export interface Vouchers {
     value: number;
@@ -24,18 +25,172 @@ declare let L;
 
 
 
-export class AppComponent{
+export class AppComponent implements OnInit{
+
+    mapSW = [0,11008];
+    mapNE = [11008,0];
 
 
-/*
+
     ngOnInit() {
-        const map = L.map('map').setView([0,0], 0);
+        const map = L.map('map').setView([69,-126], 5);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        L.tileLayer('assets/tiles/atlas/{z}-{x}_{y}.png',{
+            minZoom : 2,
+            maxZoom : 7,
+            noWrap : true,
+            crs : L.CRS.Simple
         }).addTo(map);
+        map.setMaxBounds(new L.latLngBounds(
+            map.unproject(this.mapSW, map.getMaxZoom()),
+            map.unproject(this.mapNE, map.getMaxZoom())
+        ));
+
+
+
+        //POINTER MARKER (maybe get help from community?)
+
+        var ic_pointer = L.icon({
+            iconUrl: 'assets/icons/ic_pointer.png',
+            iconSize: [50, 50],
+            iconAnchor: [25, 50],
+            popupAnchor: [0, -55]
+        });
+
+        var pointerMarker = L.marker(map.unproject([4960, 7408], map.getMaxZoom()),{
+            draggable : true,
+            icon : ic_pointer
+        }).bindPopup('<h2>Move me to get coordinates!</h2>').addTo(map).openPopup();
+        pointerMarker.on('dragend', function(e) {
+            //alert(pointerMarker.getLatLng().toString());
+            pointerMarker.getPopup().setContent('<h3>'+ map.project(pointerMarker.getLatLng(), map.getMaxZoom().toString())+'</h3>').openOn(map);
+
+        } );
+
+
+        //CHEAT SHEET START
+
+       /* //ICONS
+        var ic_grand_exchange = L.icon({
+            iconUrl: 'assets/icons/grand_exchange.png',
+            iconSize: [30, 31],
+            iconAnchor: [15, 15],
+            popupAnchor: [0, -20]
+        });
+
+
+        //MARKERS
+
+        var business_bank = L.marker(map.unproject([5264, 7230], map.getMaxZoom())).bindPopup('This is The Bank');
+        var business_lsia = L.marker(map.unproject([4144, 9856], map.getMaxZoom())).bindPopup('L.S.I.A Airport');
+        var business_telecom = L.marker(map.unproject([5912, 6016], map.getMaxZoom())).bindPopup('Telecom business, most expensive yet');
+
+        var mechanic_one = L.marker(map.unproject([4572, 8300], map.getMaxZoom())).bindPopup('Los Santos Mechanic');
+        var mechanic_two = L.marker(map.unproject([3788, 9848], map.getMaxZoom())).bindPopup('L.S.I.A Mechanic');
+        var mechanic_three = L.marker(map.unproject([3168, 7708], map.getMaxZoom())).bindPopup('Gas something mechanic');
+
+        var others_grand_exchange = L.marker(map.unproject([4525, 7497], map.getMaxZoom()),{
+            icon : ic_grand_exchange
+        }).bindPopup('Grand Exchange');
+
+
+        //LAYER GROUPS
+
+        var lg_business = L.layerGroup([business_bank,business_lsia,business_telecom]);
+        var lg_mechanic = L.layerGroup([mechanic_one,mechanic_two,mechanic_three]);
+        var lg_others = L.layerGroup([others_grand_exchange]).addTo(map);
+
+        //OVERLAY MAPS
+
+        var overlayMaps = {
+            'Business' : lg_business,
+            "Mechanics" : lg_mechanic,
+            "Others" : lg_others
+        }
+
+
+        //ADD LAYER CONTROL
+        L.control.layers(null,overlayMaps).addTo(map);
+        */
+
+        //CHEAT SHEET END
+
+
+        //GET MARKERS FROM OBJECT
+
+        var overLayMaps = {};
+
+        var markerinos = this.markersJson;
+
+        for (var key in markerinos) {
+            // skip loop if the property is from prototype
+            if (!markerinos.hasOwnProperty(key)) continue;
+
+            var otherObj = markerinos[key];
+
+            if(key != "other"){
+            var iconUrl = otherObj.icon.url;
+            var iconSize = otherObj.icon.size;
+            var iconAnchor = otherObj.icon.iconAnchor;
+            var iconPopupAnchor = otherObj.icon.popupAnchor;
+            }
+            var layerGroup = otherObj.layerGroup;
+            var overlayMapName = otherObj.overlayMapName;
+
+            var tempLayerGroup = new L.layerGroup(); //New temporary layer to be added after to overLayMaps
+
+
+            var obj = markerinos[key].markers;
+            for (var prop in obj) {
+                // skip loop if the property is from prototype
+                if(!obj.hasOwnProperty(prop)) continue;
+
+                var keyProp = markerinos[key].markers[prop];
+
+                var category = key; //EXAMPLE: business, mechanic, other
+                var varname = prop;
+                var name = keyProp.name;
+                var cordX = keyProp.coordinates.x;
+                var cordY = keyProp.coordinates.y;
+                var description = keyProp.description;
+                //console.log(category,"+",varname,"+",name,"+",cordX,"+",cordY,"+",description);
+
+                if(key != "other"){
+                    var tempMarker = new L.marker(map.unproject([cordX, cordY], map.getMaxZoom())).bindPopup('<h2>'+name+'</h2><br>'+description);
+                }else if(key == "other"){
+
+                    var singleMarkerIconUrl = keyProp.icon.url;
+                    var singleMarkerIconSize = keyProp.icon.size;
+                    var singleMarkerIconAnchor = keyProp.icon.iconAnchor;
+                    var singleMarkerIconPopupAnchor = keyProp.icon.popupAnchor;
+                    console.log(singleMarkerIconUrl,singleMarkerIconSize, singleMarkerIconAnchor, singleMarkerIconPopupAnchor);
+
+                    var singleMarkerIcon = new L.icon({
+                        iconUrl: singleMarkerIconUrl,
+                        iconSize: singleMarkerIconSize,
+                        iconAnchor: singleMarkerIconAnchor,
+                        popupAnchor: singleMarkerIconPopupAnchor
+                    });
+
+                    var tempMarker = new L.marker(map.unproject([cordX, cordY], map.getMaxZoom()),{
+                        icon : singleMarkerIcon
+                    }).bindPopup('<h2>'+name+'</h2>'+description);
+                }
+
+
+                tempLayerGroup.addLayer(tempMarker);
+                if(key == "other"){tempLayerGroup.addTo(map)}
+            }
+            overLayMaps[overlayMapName] = tempLayerGroup;
+        }
+
+        L.control.layers(null,overLayMaps).addTo(map);
+
+
     }
-*/
+
+
+//CALCULATOR START
 
     voucherGroups: VoucherTypesGroup[] = [
 
@@ -110,6 +265,7 @@ export class AppComponent{
 
     mainAndTrunkButtonHandler(event){
         if(event == "trunk"){
+
             this.showHideTrunk = true;
             this.showHideMain = false;
         }else if(event == "main"){
@@ -138,10 +294,6 @@ export class AppComponent{
     vouchersNeeded = null;
     numberOfRuns = null;
 
-//--------------leaflet-----------------------
-
-
-//----------------------------------------
 
 
     currentLevelValueOnInput(event){
@@ -359,5 +511,31 @@ export class AppComponent{
             duration: 1000,
         });
     }
+//CALCULATOR END
 
+
+    //MARKERS JSON LIKE
+
+    markersJson = {
+        other: {
+            layerGroup: 'lg_other',
+            overlayMapName: 'Other',
+            markers: {
+                grandExchange: {
+                    name: 'Grand Exchange',
+                    description: 'Trade your vouchers for experience/money.',
+                    coordinates: {
+                        x: '4525',
+                        y: '7497'
+                    },
+                    icon: {
+                        url: 'assets/icons/grand_exchange.png',
+                        size: [30, 31],
+                        iconAnchor: [15, 15],
+                        popupAnchor: [0, -20]
+                    }
+                }
+            }
+        }
+    };
 }

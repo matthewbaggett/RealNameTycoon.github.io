@@ -1,0 +1,78 @@
+{
+  "business": {
+    "layerGroup": "lg_business",
+    "overlayMapName": "Business",
+    "icon": {
+      "url": "",
+      "size": "",
+      "iconAnchor": "",
+      "popupAnchor": ""
+    },
+    "markers": {
+      "bank": {
+        "name": "Los Santos Bank",
+        "description": "$500,000,000",
+        "coordinates": {
+          "x": "5264",
+          "y": "7230"
+        }
+      },
+      "lsia": {
+        "name": "L.S.I.A Airport",
+        "description": "$120,000,000",
+        "coordinates": {
+          "x": "4144",
+          "y": "9856"
+        }
+      }
+    }
+  },
+  "mechanic": {
+    "layerGroup": "lg_mechanic",
+    "overlayMapName": "Mechanic",
+    "icon": {
+      "url": "",
+      "size": "",
+      "iconAnchor": "",
+      "popupAnchor": ""
+    },
+    "markers": {
+      "one": {
+        "name": "One mechanic",
+        "description": "Los Santos Mechanic",
+        "coordinates": {
+          "x": "4572",
+          "y": "8300"
+        }
+      },
+      "two": {
+        "name": "Two mechanic",
+        "description": "L.S.I.A Mechanic",
+        "coordinates": {
+          "x": "3788",
+          "y": "9848"
+        }
+      }
+    }
+  },
+  "other": {
+    "layerGroup": "lg_other",
+    "overlayMapName": "Other",
+    "markers": {
+      "grandExchange": {
+        "name": "Grand Exchange",
+        "description": "Trade your vouchers for experience/money.",
+        "coordinates": {
+          "x": "4525",
+          "y": "7497"
+        },
+        "icon": {
+          "url": "assets/icons/grand_exchange.png",
+          "size": [30, 31],
+          "iconAnchor": [15, 15],
+          "popupAnchor": [0, -20]
+        }
+      }
+    }
+  }
+}

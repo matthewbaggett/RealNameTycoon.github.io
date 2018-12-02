@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatSnackBar} from "@angular/material";
 import {UpdatesDialogComponent} from "./updates-dialog/updates-dialog.component";
 import {FormControl} from "@angular/forms";
@@ -14,17 +14,28 @@ export interface VoucherTypesGroup {
     vouchers: Vouchers[];
 }
 
+
+declare let L;
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
 
 
-export class AppComponent {
+
+export class AppComponent{
 
 
+/*
+    ngOnInit() {
+        const map = L.map('map').setView([0,0], 0);
 
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    }
+*/
 
     voucherGroups: VoucherTypesGroup[] = [
 
@@ -107,7 +118,10 @@ export class AppComponent {
         }
     }
 
-////////////////////////////////////
+//----------------------------------------
+
+
+
 
     defaultVoucherSelected = null;
     premiumValue = 1;
@@ -123,6 +137,11 @@ export class AppComponent {
     expNeeded = null;
     vouchersNeeded = null;
     numberOfRuns = null;
+
+//--------------leaflet-----------------------
+
+
+//----------------------------------------
 
 
     currentLevelValueOnInput(event){

@@ -194,11 +194,12 @@
             </div>
         </mat-sidenav-content>
         <mat-sidenav-content *ngIf="showHideTrunk" style="padding-bottom: 30px">
-            <div fxFlex="25"></div>
-            <div fxFlex="50">
-                <mat-card></mat-card>
+            <div id="map" style="height: 100%; width: 100%">
             </div>
-            <div fxFlex="25"></div>
+            <script>
+                var map = L.map('map').setView([0,0], 0);
+
+            </script>
         </mat-sidenav-content>
     </mat-sidenav-container>
 

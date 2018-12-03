@@ -48,7 +48,7 @@ export class AppComponent implements OnInit{
 
 
 
-        //POINTER MARKER (maybe get help from community?)
+        //POINTER MARKER (maybe for community help?)
 
         var ic_pointer = L.icon({
             iconUrl: 'assets/icons/ic_pointer.png',
@@ -132,9 +132,11 @@ export class AppComponent implements OnInit{
 
             var otherObj = markerinos[key];
 
-            if(key != "other"){
+            if(key == "business" ||
+               key == "mechanic"){
             var iconClass = otherObj.icon;
-            console.log("iconClass",+iconClass);
+            //console.log("otherObj",otherObj.icon);
+            //console.log(iconClass);
             }
             var layerGroup = otherObj.layerGroup;
             var overlayMapName = otherObj.overlayMapName;
@@ -143,11 +145,13 @@ export class AppComponent implements OnInit{
 
 
             var obj = markerinos[key].markers;
+            //console.log(obj);
             for (var prop in obj) {
                 // skip loop if the property is from prototype
                 if(!obj.hasOwnProperty(prop)) continue;
 
                 var keyProp = markerinos[key].markers[prop];
+                //console.log("keyProp",keyProp); //Each individual marker
 
                 var category = key; //EXAMPLE: business, mechanic, other
                 var varname = prop;
@@ -157,7 +161,8 @@ export class AppComponent implements OnInit{
                 var description = keyProp.description;
                 //console.log(category,"+",varname,"+",name,"+",cordX,"+",cordY,"+",description);
 
-                if(key != "other"){
+                if(key == "business" ||
+                   key == "mechanic"){
                     /*var singleMarkerIcon = new L.icon({
                         iconUrl: iconUrl,
                         iconSize: iconSize,
@@ -169,10 +174,11 @@ export class AppComponent implements OnInit{
                     var tempMarker = new L.marker(map.unproject([cordX, cordY], map.getMaxZoom()),{
                         icon : singleMarkerIcon
                     }).bindPopup('<h2>'+name+'</h2><br>'+description);
-                }else if(key == "other"){
+                }else if(key == "other" ||
+                         key == "vehicles"){
 
                     var singleMarkerIconClass = keyProp.icon;
-                    console.log("singleMarkerIconClass:",singleMarkerIconClass);
+                    //console.log("singleMarkerIconClass:",singleMarkerIconClass);
 
                     /*var singleMarkerIcon = new L.icon({
                         iconUrl: singleMarkerIconUrl,
@@ -191,7 +197,7 @@ export class AppComponent implements OnInit{
                 tempLayerGroup.addLayer(tempMarker);
                 if(key == "other"){tempLayerGroup.addTo(map)}
             }
-            overLayMaps[overlayMapName] = tempLayerGroup;
+            overLayMaps['<b>'+overlayMapName+'</b>'] = tempLayerGroup;
         }
 
         L.control.layers(null,overLayMaps).addTo(map);
@@ -524,7 +530,7 @@ export class AppComponent implements OnInit{
 //CALCULATOR END
 
 
-    //MARKERS JSON LIKE
+    //MARKERS Object
 
     markersJson = {
         business: {
@@ -986,6 +992,309 @@ export class AppComponent implements OnInit{
                     coordinates: {
                         x: 5043,
                         y: 7961
+                    }
+                }
+            }
+        },
+        vehicles: {
+            layerGroup: 'vehicles',
+            overlayMapName: 'Vehicles',
+            markers: {
+                car_garage_1: {
+                    name: 'Mission Row PD Garage',
+                    description: '<b>Type:</b> Car Garage<br/><b>Allows spawning of:</b> Bikes, Cars',
+                    icon: 'ic_garage_vehicle',
+                    coordinates: {
+                        x: 5437,
+                        y: 8323
+                    }
+                },
+                car_garage_2: {
+                    name: 'SSIA Garage',
+                    description: '<b>Type:</b> Car Garage<br/><b>Allows spawning of:</b> Bikes, Cars',
+                    icon: 'ic_garage_vehicle',
+                    coordinates: {
+                        x: 5606,
+                        y: 4205
+                    }
+                },
+                car_garage_3: {
+                    name: 'PIA Garage',
+                    description: '<b>Type:</b> Car Garage<br/><b>Allows spawning of:</b> Bikes, Cars',
+                    icon: 'ic_garage_vehicle',
+                    coordinates: {
+                        x: 5987,
+                        y: 1609
+                    }
+                },
+                car_garage_4: {
+                    name: 'Race Track Garage',
+                    description: '<b>Type:</b> Car Garage<br/><b>Allows spawning of:</b> Bikes, Cars',
+                    icon: 'ic_garage_vehicle',
+                    coordinates: {
+                        x: 8333,
+                        y: 2315
+                    }
+                },
+                car_garage_5: {
+                    name: 'Hospital Parkway',
+                    description: '<b>Type:</b> Car Garage<br/><b>Allows spawning of:</b> Bikes, Cars',
+                    icon: 'ic_garage_vehicle',
+                    coordinates: {
+                        x: 4578,
+                        y: 7710
+                    }
+                },
+                vehicle_garage_1: {
+                    name: 'Parking Garage',
+                    description: '<b>Type:</b> Vehicle Garage<br/><b>Allows spawning of:</b> Bikes, Cars, Trailers',
+                    icon: 'ic_garage_vehicle',
+                    coordinates: {
+                        x: 4743,
+                        y: 8118
+                    }
+                },
+                vehicle_garage_2: {
+                    name: 'Parking Garage',
+                    description: '<b>Type:</b> Vehicle Garage<br/><b>Allows spawning of:</b> Bikes, Cars, Trailers',
+                    icon: 'ic_garage_vehicle',
+                    coordinates: {
+                        x: 3968,
+                        y: 7744
+                    }
+                },
+                vehicle_garage_3: {
+                    name: 'Truck Garage',
+                    description: '<b>Type:</b> Vehicle Garage<br/><b>Allows spawning of:</b> Bikes, Cars, Trailers',
+                    icon: 'ic_garage_vehicle',
+                    coordinates: {
+                        x: 4912,
+                        y: 9556
+                    }
+                },
+                vehicle_garage_4: {
+                    name: 'Legion Square Garage',
+                    description: '<b>Type:</b> Vehicle Garage<br/><b>Allows spawning of:</b> Bikes, Cars, Trailers',
+                    icon: 'ic_garage_vehicle',
+                    coordinates: {
+                        x: 5253,
+                        y: 8119
+                    }
+                },
+                vehicle_garage_5: {
+                    name: 'Sandy Shores Garage',
+                    description: '<b>Type:</b> Vehicle Garage<br/><b>Allows spawning of:</b> Bikes, Cars, Trailers',
+                    icon: 'ic_garage_vehicle',
+                    coordinates: {
+                        x: 6557,
+                        y: 4237
+                    }
+                },
+                vehicle_garage_6: {
+                    name: 'Paleto Garage',
+                    description: '<b>Type:</b> Vehicle Garage<br/><b>Allows spawning of:</b> Bikes, Cars, Trailers',
+                    icon: 'ic_garage_vehicle',
+                    coordinates: {
+                        x: 4840,
+                        y: 1881
+                    }
+                },
+                vehicle_garage_7: {
+                    name: 'Palmer-Taylor Garage',
+                    description: '<b>Type:</b> Vehicle Garage<br/><b>Allows spawning of:</b> Bikes, Cars, Trailers',
+                    icon: 'ic_garage_vehicle',
+                    coordinates: {
+                        x: 7462,
+                        y: 6161
+                    }
+                },
+                vehicle_garage_8: {
+                    name: 'Mansion 08 Home Garage',
+                    description: '<b>Type:</b> Vehicle Garage<br/><b>Allows spawning of:</b> Bikes, Cars, Trailers',
+                    icon: 'ic_garage_vehicle',
+                    coordinates: {
+                        x: 4276,
+                        y: 7483
+                    }
+                },
+                vehicle_garage_9: {
+                    name: 'Business Garage - 4 Integrity Way',
+                    description: '<b>Type:</b> Vehicle Garage<br/><b>Allows spawning of:</b> Bikes, Cars, Trailers',
+                    icon: 'ic_garage_vehicle',
+                    coordinates: {
+                        x: 5046,
+                        y: 7922
+                    }
+                },
+                vehicle_garage_10: {
+                    name: 'Business Garage - Maze Bank Arena',
+                    description: '<b>Type:</b> Vehicle Garage<br/><b>Allows spawning of:</b> Bikes, Cars, Trailers',
+                    icon: 'ic_garage_vehicle',
+                    coordinates: {
+                        x: 4855,
+                        y: 9246
+                    }
+                },
+                vehicle_garage_11: {
+                    name: 'Business Garage - Banner Hotel & Spa',
+                    description: '<b>Type:</b> Vehicle Garage<br/><b>Allows spawning of:</b> Bikes, Cars, Trailers',
+                    icon: 'ic_garage_vehicle',
+                    coordinates: {
+                        x: 4742,
+                        y: 8382
+                    }
+                },
+                aircraft_garage_1: {
+                    name: 'LSIA Main Gate',
+                    description: '<b>Type:</b> Aircraft Garage<br/><b>Allows spawning of:</b> Bikes, Aircraft, Helicopters, Cars',
+                    icon: 'ic_garage_aircraft',
+                    coordinates: {
+                        x: 4010,
+                        y: 9661
+                    }
+                },
+                aircraft_garage_2: {
+                    name: 'LSIA Hangar',
+                    description: '<b>Type:</b> Aircraft Garage<br/><b>Allows spawning of:</b> Helicopters, Aircraft',
+                    icon: 'ic_garage_aircraft',
+                    coordinates: {
+                        x: 4115,
+                        y: 10526
+                    }
+                },
+                aircraft_garage_3: {
+                    name: 'Paleto Airport Hangar',
+                    description: '<b>Type:</b> Aircraft Garage<br/><b>Allows spawning of:</b> Bikes, Aircraft, Helicopters, Cars',
+                    icon: 'ic_garage_aircraft',
+                    coordinates: {
+                        x: 4825,
+                        y: 1600
+                    }
+                },
+                aircraft_garage_4: {
+                    name: 'Pacific Ocean Hangar',
+                    description: '<b>Type:</b> Aircraft Garage<br/><b>Allows spawning of:</b> Bikes, Aircraft, Helicopters, Cars',
+                    icon: 'ic_garage_aircraft',
+                    coordinates: {
+                        x: 7671,
+                        y: 8099
+                    }
+                },
+                aircraft_garage_5: {
+                    name: 'McKenzie Hangar',
+                    description: '<b>Type:</b> Aircraft Garage<br/><b>Allows spawning of:</b> Bikes, Aircraft, Helicopters, Cars',
+                    icon: 'ic_garage_aircraft',
+                    coordinates: {
+                        x: 6934,
+                        y: 3173
+                    }
+                },
+                aircraft_garage_6: {
+                    name: 'Zancudo Hangar',
+                    description: '<b>Type:</b> Aircraft Garage<br/><b>Allows spawning of:</b> Bikes, Aircraft, Helicopters, Cars',
+                    icon: 'ic_garage_aircraft',
+                    coordinates: {
+                        x: 3189,
+                        y: 4782
+                    }
+                },
+                aircraft_garage_7: {
+                    name: 'SSIA Hangar',
+                    description: '<b>Type:</b> Aircraft Garage<br/><b>Allows spawning of:</b> Bikes, Aircraft, Helicopters, Cars',
+                    icon: 'ic_garage_aircraft',
+                    coordinates: {
+                        x: 5997,
+                        y: 4052
+                    }
+                },
+                aircraft_garage_8: {
+                    name: 'PIA Hangar',
+                    description: '<b>Type:</b> Vehicle Garage<br/><b>Allows spawning of:</b> Bikes, Aircraft, Helicopters, Cars',
+                    icon: 'ic_garage_aircraft',
+                    coordinates: {
+                        x: 6080,
+                        y: 1477
+                    }
+                },
+                watercraft_garage_1: {
+                    name: 'Paleto Bay Marina',
+                    description: '<b>Type:</b> Watercraft Garage<br/><b>Allows spawning of:</b> Boats',
+                    icon: 'ic_garage_watercraft',
+                    coordinates: {
+                        x: 4801,
+                        y: 1554
+                    }
+                },
+                watercraft_garage_2: {
+                    name: 'El Gordo Lighthouse',
+                    description: '<b>Type:</b> Watercraft Garage<br/><b>Allows spawning of:</b> Boats',
+                    icon: 'ic_garage_watercraft',
+                    coordinates: {
+                        x: 8029,
+                        y: 2836
+                    }
+                },
+                watercraft_garage_3: {
+                    name: 'LS Marina',
+                    description: '<b>Type:</b> Watercraft Garage<br/><b>Allows spawning of:</b> Boatsp',
+                    icon: 'ic_garage_watercraft',
+                    coordinates: {
+                        x: 4343,
+                        y: 8709
+                    }
+                },
+                watercraft_garage_4: {
+                    name: 'Sandy Shores Marina',
+                    description: '<b>Type:</b> Watercraft Garage<br/><b>Allows spawning of:</b> Boats',
+                    icon: 'ic_garage_watercraft',
+                    coordinates: {
+                        x: 6451,
+                        y: 3971
+                    }
+                },
+                aircraft_dealership_1: {
+                    name: 'Aircraft Shop',
+                    description: '<b>Buy:</b><br/> Passenger Planes<br/>Cargo Planes<br/>Helicopters<br/>Company Aircrafts<br/>Leisure Planes<br/>Leisure Helicopters',
+                    icon: 'ic_dealership_aircraft',
+                    coordinates: {
+                        x: 3931,
+                        y: 9468
+                    }
+                },
+                vehicle_dealership_1: {
+                    name: 'Premium Deluxe Motorsport - Car Dealership',
+                    description: '<b>Buy:</b><br/> Job Vehicles<br/>Vehicles<br/>Motorcycles<br/>Trailers',
+                    icon: 'ic_dealership_vehicle',
+                    coordinates: {
+                        x: 5010,
+                        y: 8393
+                    }
+                },
+                vehicle_dealership_2: {
+                    name: 'Sandy Shores Car Dealership',
+                    description: '<b>Buy:</b><br/>Job Vehicles<br/> Vehicles<br/>Motorcycles<br/>Trailers',
+                    icon: 'ic_dealership_vehicle',
+                    coordinates: {
+                        x: 6241,
+                        y: 4233
+                    }
+                },
+                vehicle_dealership_3: {
+                    name: 'Willie\'s Pharmacy Supermarket - Car Dealership',
+                    description: '<b>Buy:</b><br/> Job Vehicles<br/>Vehicles<br/>Motorcycles<br/>Trailers',
+                    icon: 'ic_dealership_vehicle',
+                    coordinates: {
+                        x: 4990,
+                        y: 1648
+                    }
+                },
+                watercraft_dealership_1: {
+                    name: 'LSMYC - Watercraft Dealership',
+                    description: '<b>Buy:</b><br/> Boats<br/>Jetskis',
+                    icon: 'ic_dealership_watercraft',
+                    coordinates: {
+                        x: 4414,
+                        y: 8570
                     }
                 }
             }

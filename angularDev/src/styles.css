@@ -88,3 +88,22 @@ body{
 .ic_mechanic{
     background-image: url("assets/icons/tile211.png");
 }
+
+.ic_garage_vehicle{
+    background-image: url("assets/icons/tile257.png");
+}
+.ic_garage_watercraft{
+    background-image: url("assets/icons/tile258.png");
+}
+.ic_garage_aircraft{
+    background-image: url("assets/icons/tile259.png");
+}
+.ic_dealership_vehicle{
+    background-image: url("assets/icons/tile140.png");
+}
+.ic_dealership_watercraft{
+    background-image: url("assets/icons/tile147.png");
+}
+.ic_dealership_aircraft{
+    background-image: url("assets/icons/tile150.png");
+}

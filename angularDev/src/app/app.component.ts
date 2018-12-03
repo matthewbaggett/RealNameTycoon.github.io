@@ -121,6 +121,10 @@ export class AppComponent implements OnInit{
         var overLayMaps = {};
 
         var markerinos = this.markersJson;
+        //CONSTANTS SIZES
+        const ICONSIZE = [32,32];
+        const ICONANCHOR = [16,16];
+        const ICONPOPUPANCHOR = [0,-20];
 
         for (var key in markerinos) {
             // skip loop if the property is from prototype
@@ -129,10 +133,8 @@ export class AppComponent implements OnInit{
             var otherObj = markerinos[key];
 
             if(key != "other"){
-            var iconUrl = otherObj.icon.url;
-            var iconSize = otherObj.icon.size;
-            var iconAnchor = otherObj.icon.iconAnchor;
-            var iconPopupAnchor = otherObj.icon.popupAnchor;
+            var iconClass = otherObj.icon;
+            console.log("iconClass",+iconClass);
             }
             var layerGroup = otherObj.layerGroup;
             var overlayMapName = otherObj.overlayMapName;
@@ -156,21 +158,29 @@ export class AppComponent implements OnInit{
                 //console.log(category,"+",varname,"+",name,"+",cordX,"+",cordY,"+",description);
 
                 if(key != "other"){
-                    var tempMarker = new L.marker(map.unproject([cordX, cordY], map.getMaxZoom())).bindPopup('<h2>'+name+'</h2><br>'+description);
+                    /*var singleMarkerIcon = new L.icon({
+                        iconUrl: iconUrl,
+                        iconSize: iconSize,
+                        iconAnchor: iconAnchor,
+                        popupAnchor: iconPopupAnchor
+                    });*/
+                    var singleMarkerIcon = new L.divIcon({className: iconClass, iconSize: null, iconAnchor: ICONANCHOR, popupAnchor:ICONPOPUPANCHOR});
+
+                    var tempMarker = new L.marker(map.unproject([cordX, cordY], map.getMaxZoom()),{
+                        icon : singleMarkerIcon
+                    }).bindPopup('<h2>'+name+'</h2><br>'+description);
                 }else if(key == "other"){
 
-                    var singleMarkerIconUrl = keyProp.icon.url;
-                    var singleMarkerIconSize = keyProp.icon.size;
-                    var singleMarkerIconAnchor = keyProp.icon.iconAnchor;
-                    var singleMarkerIconPopupAnchor = keyProp.icon.popupAnchor;
-                    console.log(singleMarkerIconUrl,singleMarkerIconSize, singleMarkerIconAnchor, singleMarkerIconPopupAnchor);
+                    var singleMarkerIconClass = keyProp.icon;
+                    console.log("singleMarkerIconClass:",singleMarkerIconClass);
 
-                    var singleMarkerIcon = new L.icon({
+                    /*var singleMarkerIcon = new L.icon({
                         iconUrl: singleMarkerIconUrl,
                         iconSize: singleMarkerIconSize,
                         iconAnchor: singleMarkerIconAnchor,
                         popupAnchor: singleMarkerIconPopupAnchor
-                    });
+                    });*/
+                    var singleMarkerIcon = new L.divIcon({className: singleMarkerIconClass, iconSize: null, iconAnchor: ICONANCHOR, popupAnchor:ICONPOPUPANCHOR});
 
                     var tempMarker = new L.marker(map.unproject([cordX, cordY], map.getMaxZoom()),{
                         icon : singleMarkerIcon
@@ -517,6 +527,469 @@ export class AppComponent implements OnInit{
     //MARKERS JSON LIKE
 
     markersJson = {
+        business: {
+            layerGroup: 'lg_business',
+            overlayMapName: 'Business',
+            icon: 'ic_business',
+            markers: {
+                business_1: {
+                    name: 'Jonny Tung',
+                    description: '<b>Price:</b> $25.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 4246,
+                        y: 7617
+                    }
+                },
+                business_2: {
+                    name: 'KO RTZ',
+                    description: '<b>Price:</b> $35.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>ATM</em> x1<br/><em>Spawn Point</em> x1<br/><em>Helicopter Garage</em> x1<br/>',
+                    coordinates: {
+                        x: 3018,
+                        y: 7104
+                    }
+                },
+                business_3: {
+                    name: 'Fort Zancudo',
+                    description: '<b>Price:</b> $35.00M<br/><b>Perks:</b> <br/><em>Job Center</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>Market</em> x1<br/><em>Spawn Point</em> x1<br/><em>Vehicle Spawner</em> x1<br/>',
+                    coordinates: {
+                        x: 2883,
+                        y: 4511
+                    }
+                },
+                business_4: {
+                    name: 'Jetsam Paleto Bay',
+                    description: '<b>Price:</b> $3.50M<br/><b>Perks:</b> <br/><em>Spawn Point</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 4820,
+                        y: 1970
+                    }
+                },
+                business_5: {
+                    name: 'Union Grain Inc Grapeseed',
+                    description: '<b>Price:</b> $4.50M<br/><b>Perks:</b> <br/><em>Spawn Point</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 6830,
+                        y: 3003
+                    }
+                },
+                business_6: {
+                    name: 'Harmony Gas Station',
+                    description: '<b>Price:</b> $2.50M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 5966,
+                        y: 5058
+                    }
+                },
+                business_7: {
+                    name: 'Sisyphus Theater',
+                    description: '<b>Price:</b> $5.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 5246,
+                        y: 6390
+                    }
+                },
+                business_8: {
+                    name: 'Merryweather Port',
+                    description: '<b>Price:</b> $17.50M<br/><b>Perks:</b> <br/><em>Helicopter Garage</em> x1<br/><em>Boat Garage</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 5554,
+                        y: 10153
+                    }
+                },
+                business_9: {
+                    name: 'Alphamail Couriers LSIA',
+                    description: '<b>Price:</b> $6.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 4382,
+                        y: 9630
+                    }
+                },
+                business_10: {
+                    name: 'Venetian',
+                    description: '<b>Price:</b> $7.50M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 3836,
+                        y: 8375
+                    }
+                },
+                business_11: {
+                    name: 'Davis Quartz Quarry',
+                    description: '<b>Price:</b> $18.00M<br/><b>Perks:</b> <br/><em>Job Center</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 7323,
+                        y: 5019
+                    }
+                },
+                business_12: {
+                    name: 'Catfish View',
+                    description: '<b>Price:</b> $4.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 8417,
+                        y: 3469
+                    }
+                },
+                business_13: {
+                    name: 'Medical Center Parking Garage',
+                    description: '<b>Price:</b> $6.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 5404,
+                        y: 8614
+                    }
+                },
+                business_14: {
+                    name: 'LT Weld Supply Co',
+                    description: '<b>Price:</b> $37.00M<br/><b>Perks:</b> <br/><em>Job Center</em> x1<br/><em>Repair Point</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>Self Storage</em> x1<br/>',
+                    coordinates: {
+                        x: 6076,
+                        y: 8613
+                    }
+                },
+                business_15: {
+                    name: 'Lârss & Elboö',
+                    description: '<b>Price:</b> $1.50M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 5145,
+                        y: 7557
+                    }
+                },
+                business_16: {
+                    name: 'Bishops Chicken',
+                    description: '<b>Price:</b> $1.50M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 7330,
+                        y: 7013
+                    }
+                },
+                business_17: {
+                    name: 'Millars Boat Shop',
+                    description: '<b>Price:</b> $12.50M<br/><b>Perks:</b> <br/><em>Unavailable Feature (Type 0x1000)</em> x1<br/><em>Boat Garage</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 6211,
+                        y: 3572
+                    }
+                },
+                business_18: {
+                    name: 'Rebel Radio',
+                    description: '<b>Price:</b> $9.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 5694,
+                        y: 5186
+                    }
+                },
+                business_19: {
+                    name: 'Jetsam Terminal',
+                    description: '<b>Price:</b> $3.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 5768,
+                        y: 10061
+                    }
+                },
+                business_20: {
+                    name: 'Los Santos International Airport',
+                    description: '<b>Price:</b> $125.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>ATM</em> x1<br/><em>Self Storage</em> x2<br/><em>Spawn Point</em> x1<br/><em>Marketplace</em> x1<br/>',
+                    coordinates: {
+                        x: 4116,
+                        y: 9859
+                    }
+                },
+                business_21: {
+                    name: 'Clucking Bell Co.',
+                    description: '<b>Price:</b> $11.00M<br/><b>Perks:</b> <br/><em>Marketplace</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 4922,
+                        y: 1933
+                    }
+                },
+                business_22: {
+                    name: 'Sandy Shores Liquor',
+                    description: '<b>Price:</b> $250.00k<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 6773,
+                        y: 4018
+                    }
+                },
+                business_23: {
+                    name: 'You Tool Sandy Shores',
+                    description: '<b>Price:</b> $500.00k<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 7478,
+                        y: 4352
+                    }
+                },
+                business_24: {
+                    name: 'Opium Nights Hotel',
+                    description: '<b>Price:</b> $17.00M<br/><b>Perks:</b> <br/><em>Spawn Point</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 4424,
+                        y: 9437
+                    }
+                },
+                business_25: {
+                    name: 'Korean Plaza',
+                    description: '<b>Price:</b> $750.00k<br/><b>Perks:</b> <br/><em>Market</em> x2<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 4512,
+                        y: 8423
+                    }
+                },
+                business_26: {
+                    name: 'Los Santos Docks',
+                    description: '<b>Price:</b> $1.50M<br/><b>Perks:</b> <br/><em>Repair Point</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>ATM</em> x1<br/><em>Unavailable Feature (Type 0x0040)</em> x1<br/>',
+                    coordinates: {
+                        x: 4997,
+                        y: 9655
+                    }
+                },
+                business_27: {
+                    name: 'Pala Springs Aerial Tramway',
+                    description: '<b>Price:</b> $250.00k<br/><b>Perks:</b> <br/><em>Market</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 4376,
+                        y: 2488
+                    }
+                },
+                business_28: {
+                    name: 'Vinewood Racetrack',
+                    description: '<b>Price:</b> $60.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>ATM</em> x1<br/><em>Unavailable Feature (Type 0x0001)</em> x1<br/><em>Market</em> x1<br/>',
+                    coordinates: {
+                        x: 5967,
+                        y: 7249
+                    }
+                },
+                business_29: {
+                    name: 'Sandy Shores Airfield',
+                    description: '<b>Price:</b> $47.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>Plane Garage</em> x1<br/><em>Spawn Point</em> x1<br/><em>Market</em> x1<br/>',
+                    coordinates: {
+                        x: 6551,
+                        y: 4506
+                    }
+                },
+                business_30: {
+                    name: 'Aircraft Carrier',
+                    description: '<b>Price:</b> $65.00M<br/><b>Perks:</b> <br/><em>Plane Garage</em> x1<br/><em>Spawn Point</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 8552,
+                        y: 10832
+                    }
+                },
+                business_31: {
+                    name: 'La Vaca Loco',
+                    description: '<b>Price:</b> $150.00k<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 5170,
+                        y: 8766
+                    }
+                },
+                business_32: {
+                    name: 'CollinsCo',
+                    description: '<b>Price:</b> $125.00M<br/><b>Perks:</b> <br/><em>Spawn Point</em> x1<br/><em>Self Storage</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 6556,
+                        y: 8846
+                    }
+                },
+                business_33: {
+                    name: 'Fridgit Co.',
+                    description: '<b>Price:</b> $8.00M<br/><b>Perks:</b> <br/><em>Helicopter Garage</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 5814,
+                        y: 8861
+                    }
+                },
+                business_34: {
+                    name: 'Yellowjack',
+                    description: '<b>Price:</b> $950.00k<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Self Storage</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Market</em> x1<br/>',
+                    coordinates: {
+                        x: 6801,
+                        y: 4742
+                    }
+                },
+                business_35: {
+                    name: 'Bahama Mamas',
+                    description: '<b>Price:</b> $32.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>ATM</em> x1<br/><em>Spawn Point</em> x1<br/><em>Market</em> x1<br/>',
+                    coordinates: {
+                        x: 3819,
+                        y: 7964
+                    }
+                },
+                business_36: {
+                    name: 'San Andreas Telecom Network',
+                    description: '<b>Price:</b> $750.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>Chat Prefix</em> x1<br/><em>Spawn Point</em> x1<br/><em>Permission Set</em> x1<br/>',
+                    coordinates: {
+                        x: 5740,
+                        y: 6282
+                    }
+                },
+                business_37: {
+                    name: 'Ron Alternates Wind Farm',
+                    description: '<b>Price:</b> $350.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 7227,
+                        y: 6027
+                    }
+                },
+                business_38: {
+                    name: 'Wenger Institute',
+                    description: '<b>Price:</b> $15.00k<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 4719,
+                        y: 7637
+                    }
+                },
+                business_39: {
+                    name: 'Vanilla Unicorn',
+                    description: '<b>Price:</b> $30.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>ATM</em> x1<br/><em>Spawn Point</em> x1<br/><em>Unavailable Feature (Type 0x4000)</em> x1<br/>',
+                    coordinates: {
+                        x: 5157,
+                        y: 8557
+                    }
+                },
+                business_40: {
+                    name: 'Parsons Rehabilitation Center',
+                    description: '<b>Price:</b> $4.50M<br/><b>Perks:</b> <br/><em>Market</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 3701,
+                        y: 6668
+                    }
+                },
+                business_41: {
+                    name: 'Grandma\'s House',
+                    description: '<b>Price:</b> $500.00k<br/><b>Perks:</b> <br/><em>Helicopter Garage</em> x1<br/><em>Self Storage</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 7016,
+                        y: 2459
+                    }
+                },
+                business_42: {
+                    name: 'Mt. Chiliad Base',
+                    description: '<b>Price:</b> $200.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Helicopter Garage</em> x3<br/><em>Spawn Point</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 5507,
+                        y: 2475
+                    }
+                },
+                business_43: {
+                    name: 'Oil Platform',
+                    description: '<b>Price:</b> $125.00M<br/><b>Perks:</b> <br/><em>Helicopter Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>ATM</em> x1<br/><em>Boat Garage</em> x1<br/><em>Spawn Point</em> x1<br/><em>Market</em> x1<br/>',
+                    coordinates: {
+                        x: 1368,
+                        y: 816
+                    }
+                },
+                business_44: {
+                    name: 'Hookies',
+                    description: '<b>Price:</b> $300.00k<br/><b>Perks:</b> <br/><em>Market</em> x1<br/><em>Self Storage</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 3091,
+                        y: 3627
+                    }
+                },
+                business_45: {
+                    name: 'Baracuda Cafe',
+                    description: '<b>Price:</b> $750.00k<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/><em>Boat Garage</em> x1<br/>',
+                    coordinates: {
+                        x: 2142,
+                        y: 6572
+                    }
+                },
+                business_46: {
+                    name: 'Pacific Bluffs Country Club',
+                    description: '<b>Price:</b> $18.00M<br/><b>Perks:</b> <br/><em>Market</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 2358,
+                        y: 7354
+                    }
+                },
+                business_47: {
+                    name: 'Del Perro Pier',
+                    description: '<b>Price:</b> $350.00M<br/><b>Perks:</b> <br/><em>Boat Garage</em> x1<br/><em>Repair Point</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 3437,
+                        y: 8489
+                    }
+                },
+                business_48: {
+                    name: 'Vespucci Movie Masks',
+                    description: '<b>Price:</b> $150.00k<br/><b>Perks:</b> <br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 3861,
+                        y: 8549
+                    }
+                },
+                business_49: {
+                    name: 'Mr. Spoke\'s Bike Rental',
+                    description: '<b>Price:</b> $250.00k<br/><b>Perks:</b> <br/><em>ATM</em> x1<br/><em>Vehicle Spawner</em> x2<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 4064,
+                        y: 8920
+                    }
+                },
+                business_50: {
+                    name: 'Horny\'s Burgers',
+                    description: '<b>Price:</b> $300.00k<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 6144,
+                        y: 7745
+                    }
+                },
+                business_51: {
+                    name: 'LT Weld Supply Co',
+                    description: '<b>Price:</b> $37.00M<br/><b>Perks:</b> <br/><em>Job Center</em> x1<br/><em>Repair Point</em> x1<br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>Self Storage</em> x1<br/>',
+                    coordinates: {
+                        x: 5746,
+                        y: 8076
+                    }
+                },
+                business_52: {
+                    name: 'Playboy Mansion',
+                    description: '<b>Price:</b> $550.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>Self Storage</em> x1<br/><em>Spawn Point</em> x1<br/><em>Helicopter Garage</em> x1<br/>',
+                    coordinates: {
+                        x: 3684,
+                        y: 7306
+                    }
+                },
+                business_53: {
+                    name: 'Pacific Standard Bank',
+                    description: '<b>Price:</b> $500.00M<br/><b>Perks:</b> <br/><em>Bonus Collector</em> x1<br/>',
+                    coordinates: {
+                        x: 5274,
+                        y: 7237
+                    }
+                },
+                business_54: {
+                    name: 'Tongva Hills Vineyard',
+                    description: '<b>Price:</b> $600.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/><em>Self Storage</em> x1<br/><em>Spawn Point</em> x1<br/><em>Helicopter Garage</em> x1<br/>',
+                    coordinates: {
+                        x: 3372,
+                        y: 5616
+                    }
+                },
+                business_55: {
+                    name: 'Banner Hotel & Spa',
+                    description: '<b>Price:</b> $4.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Spawn Point</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 4792,
+                        y: 8367
+                    }
+                },
+                business_56: {
+                    name: 'Maze Bank Arena',
+                    description: '<b>Price:</b> $8.00M<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 4817,
+                        y: 9183
+                    }
+                },
+                business_57: {
+                    name: '4 Integrity Way',
+                    description: '<b>Price:</b> $300.00k<br/><b>Perks:</b> <br/><em>Vehicle Garage</em> x1<br/><em>Business Bonus</em> x1<br/>',
+                    coordinates: {
+                        x: 5043,
+                        y: 7961
+                    }
+                }
+            }
+        },
         other: {
             layerGroup: 'lg_other',
             overlayMapName: 'Other',
@@ -525,15 +998,10 @@ export class AppComponent implements OnInit{
                     name: 'Grand Exchange',
                     description: 'Trade your vouchers for experience/money.',
                     coordinates: {
-                        x: '4525',
-                        y: '7497'
+                        x: 4525,
+                        y: 7497
                     },
-                    icon: {
-                        url: 'assets/icons/grand_exchange.png',
-                        size: [30, 31],
-                        iconAnchor: [15, 15],
-                        popupAnchor: [0, -20]
-                    }
+                    icon: 'ic_grand_exchange'
                 }
             }
         }

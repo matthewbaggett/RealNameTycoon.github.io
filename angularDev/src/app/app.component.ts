@@ -355,6 +355,7 @@ export class AppComponent implements OnInit{
                 tempLayerGroup.addLayer(tempMarker);
                 if(key == "other"){tempLayerGroup.addTo(map)}
             }
+            tempLayerGroup.addTo(map);
             overLayMaps['<b>'+overlayMapName+'</b>'] = tempLayerGroup;
         }
 

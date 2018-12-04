@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatSnackBar} from "@angular/material";
 import {UpdatesDialogComponent} from "./updates-dialog/updates-dialog.component";
+import * as firebase from 'firebase';
 import {FormControl} from "@angular/forms";
-import {marker} from "leaflet";
 
 export interface Vouchers {
     value: number;
@@ -30,25 +30,165 @@ export class AppComponent implements OnInit{
     mapSW = [0,11008];
     mapNE = [11008,0];
 
+    testFunction(){
+
+    }
+
 
 
     ngOnInit() {
+
+        firebase.initializeApp({
+            apiKey: "AIzaSyC0vo86-R931I6nGjTHsQMECpFe2861ELg",
+            authDomain: "realnametycoon.firebaseapp.com",
+            databaseURL: "https://realnametycoon.firebaseio.com",
+            projectId: "realnametycoon",
+            storageBucket: "realnametycoon.appspot.com",
+            messagingSenderId: "148163845384"
+
+        });
+        const db = firebase.firestore();
+        db.settings({timestampsInSnapshots : true});
+
+
         const map = L.map('map').setView([69,-126], 5);
 
-        L.tileLayer('assets/tiles/atlas/{z}-{x}_{y}.png',{
+        var atlasTileLayer = L.tileLayer('assets/tiles/atlas/{z}-{x}_{y}.png',{
             minZoom : 2,
             maxZoom : 7,
             noWrap : true,
             crs : L.CRS.Simple
         }).addTo(map);
-        map.setMaxBounds(new L.latLngBounds(
+        var roadTileLayer = L.tileLayer('assets/tiles/road/{z}-{x}_{y}.png',{
+            minZoom : 2,
+            maxZoom : 7,
+            noWrap : true,
+            crs : L.CRS.Simple
+        });
+        var satelliteTileLayer = L.tileLayer('assets/tiles/satellite/{z}-{x}_{y}.png',{
+            minZoom : 2,
+            maxZoom : 7,
+            noWrap : true,
+            crs : L.CRS.Simple
+        });
+
+        var baseMaps = {
+            "Atlas" : atlasTileLayer,
+            "Road"  : roadTileLayer,
+            "Satellite" : satelliteTileLayer
+        };
+        /*map.setMaxBounds(new L.latLngBounds(
             map.unproject(this.mapSW, map.getMaxZoom()),
             map.unproject(this.mapNE, map.getMaxZoom())
-        ));
+        ));*/
 
 
 
         //POINTER MARKER (maybe for community help?)
+
+
+
+        //=================CODE FOR MARKER SHARE===============
+        var suggDiv = document.createElement('div');
+            suggDiv.setAttribute('id','suggDiv');
+        var suggMainTitle = document.createElement('h2');
+            suggMainTitle.innerText = "Suggest a marker";
+        var suggTypeLabel = document.createElement('h3');
+            suggTypeLabel.innerText = "Type of marker";
+            suggTypeLabel.setAttribute('id','suggTypeLabel');
+        var suggNameLabel = document.createElement('h3');
+            suggNameLabel.innerText = "Name";
+            suggNameLabel.setAttribute('id','suggNameLabel');
+        var suggDescLabel = document.createElement('h3');
+            suggDescLabel.innerText = "Description";
+             suggDescLabel.setAttribute('id','suggDescLabel');
+        var suggXLabel = document.createElement('h3');
+            suggXLabel.innerText = "Coords X";
+            suggXLabel.setAttribute('id','suggXLabel');
+        var suggYLabel = document.createElement('h3');
+            suggYLabel.innerText = "Coords Y";
+            suggYLabel.setAttribute('id','suggYLabel');
+        var suggTypeInput = document.createElement('input');
+            suggTypeInput.setAttribute('type','text');
+            suggTypeInput.setAttribute('id','suggType');
+            suggTypeInput.setAttribute('placeholder','Business, Garage,...');
+        var suggNameInput = document.createElement('input');
+            suggNameInput.setAttribute('type','text');
+            suggNameInput.setAttribute('id','suggName');
+            suggNameInput.setAttribute('placeholder','Grand Exchange, L.S.I.A,...');
+        var suggDescInput = document.createElement('textarea');
+            suggDescInput.setAttribute('id','suggDesc');
+            suggDescInput.setAttribute('placeholder','All the important info');
+        var suggXInput = document.createElement('input');
+            suggXInput.setAttribute('disabled','');
+            suggXInput.setAttribute('type','text');
+            suggXInput.setAttribute('id','suggX');
+        var suggYInput = document.createElement('input');
+            suggYInput.setAttribute('disabled','');
+            suggYInput.setAttribute('type','text');
+            suggYInput.setAttribute('id','suggY');
+
+        var suggSubmitButton = document.createElement('button');
+            suggSubmitButton.innerText = 'Submit Suggestion';
+            suggSubmitButton.setAttribute('id','suggSubmitButton')
+            suggSubmitButton.onclick = function () {
+                proccessMarkerSuggestion();
+            };
+
+
+
+
+
+        suggDiv.appendChild(suggMainTitle);
+        suggDiv.appendChild(suggTypeLabel);
+        suggDiv.appendChild(suggTypeInput);
+        suggDiv.appendChild(suggNameLabel);
+        suggDiv.appendChild(suggNameInput);
+        suggDiv.appendChild(suggDescLabel);
+        suggDiv.appendChild(suggDescInput);
+        suggDiv.appendChild(suggXLabel);
+        suggDiv.appendChild(suggXInput);
+        suggDiv.appendChild(suggYLabel);
+        suggDiv.appendChild(suggYInput);
+        suggDiv.appendChild(suggSubmitButton);
+
+
+        function proccessMarkerSuggestion() {
+
+            var finalSuggType = (<HTMLInputElement>document.getElementById('suggType')).value;
+            var finalSuggName = (<HTMLInputElement>document.getElementById('suggName')).value;
+            var finalSuggDesc = (<HTMLInputElement>document.getElementById('suggDesc')).value;
+            var finalSuggX = (<HTMLInputElement>document.getElementById('suggX')).value;
+            var finalSuggY = (<HTMLInputElement>document.getElementById('suggY')).value;
+
+            //UPLOAD SUGGESTION TO DATABASE
+            db.collection('markers').add({
+                type: finalSuggType,
+                name: finalSuggName,
+                desc: finalSuggDesc,
+                coordsX: finalSuggX,
+                coordsY: finalSuggY
+            });
+
+
+
+            //CLEAN ALL FIELDS
+            (<HTMLInputElement>document.getElementById('suggType')).value = "";
+            (<HTMLInputElement>document.getElementById('suggName')).value = "";
+            (<HTMLInputElement>document.getElementById('suggDesc')).value = "";
+
+            var thanksSuggestionDiv = `
+                <h1>Thank you for your suggestion!</h1>
+            `;
+            pointerMarker.getPopup().setContent(thanksSuggestionDiv).openOn(map)
+            setTimeout(function(){
+                pointerMarker.closePopup();
+            }, 2000);
+
+        }
+        //=================END CODE FOR MARKER SHARE===============
+
+
 
         var ic_pointer = L.icon({
             iconUrl: 'assets/icons/ic_pointer.png',
@@ -60,11 +200,29 @@ export class AppComponent implements OnInit{
         var pointerMarker = L.marker(map.unproject([4960, 7408], map.getMaxZoom()),{
             draggable : true,
             icon : ic_pointer
-        }).bindPopup('<h2>Move me to get coordinates!</h2>').addTo(map).openPopup();
+        }).bindPopup('<h2>Move me to make a suggestion!</h2>').addTo(map).openPopup();
         pointerMarker.on('dragend', function(e) {
             //alert(pointerMarker.getLatLng().toString());
-            pointerMarker.getPopup().setContent('<h3>'+ map.project(pointerMarker.getLatLng(), map.getMaxZoom().toString())+'</h3>').openOn(map);
 
+            pointerMarker.getPopup().setContent(suggDiv).openOn(map);
+            //TODO MUDAR O X E O Y
+            var coordsXandY = map.project(pointerMarker.getLatLng(), map.getMaxZoom().toString());
+            var tempCoordsX = coordsXandY.x;
+            var tempCoordsY = coordsXandY.y;
+            if(tempCoordsX.toString().indexOf('.') != -1){
+                var coordsX = tempCoordsX.toString().substring(0, tempCoordsX.toString().indexOf('.'));
+            }else{
+                var coordsX = tempCoordsX.toString();
+            }
+            if(tempCoordsY.toString().indexOf('.') != -1){
+                var coordsY = tempCoordsY.toString().substring(0, tempCoordsY.toString().indexOf('.'));
+            }else{
+                var coordsY = tempCoordsY.toString();
+            }
+
+
+            (<HTMLInputElement>document.getElementById('suggX')).value = coordsX;
+            (<HTMLInputElement>document.getElementById('suggY')).value = coordsY;
         } );
 
 
@@ -200,10 +358,33 @@ export class AppComponent implements OnInit{
             overLayMaps['<b>'+overlayMapName+'</b>'] = tempLayerGroup;
         }
 
-        L.control.layers(null,overLayMaps,{position: 'topleft'}).addTo(map);
+
+
+        L.control.layers(baseMaps,overLayMaps,{position: 'topleft'}).addTo(map);
+
+        map.on('baselayerchange',function (e) {
+
+            var mapBackgroundColor = "";
+
+            switch (e.name) {
+                case "Road" : mapBackgroundColor = "#1862ad"
+                break;
+                case "Satellite" : mapBackgroundColor = "#143d6b"
+                break;
+                case "Atlas" : mapBackgroundColor = "#0fa8d2"
+                break;
+                default : mapBackgroundColor = "#0fa8d2"
+            }
+
+            document.getElementById('map').style.backgroundColor = mapBackgroundColor;
+
+        });
+
+
 
 
     }
+
 
 
 //CALCULATOR START

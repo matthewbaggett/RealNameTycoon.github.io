@@ -24,10 +24,12 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/leaflet/leaflet.css"
+              "src/assets/leaflet/leaflet.css",
+              "src/assets/leaflet/leaflet.rrose.css"
             ],
             "scripts": [
-              "src/assets/leaflet/leaflet.js"
+              "src/assets/leaflet/leaflet.js",
+              "src/assets/leaflet/leaflet.rrose-src.js"
             ]
           },
           "configurations": {

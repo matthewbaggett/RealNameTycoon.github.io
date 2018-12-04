@@ -18,6 +18,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatMenuModule} from '@angular/material/menu';
+import {HttpClientModule} from "@angular/common/http";
 
 
 import {Component, NgModule} from '@angular/core';
@@ -52,7 +53,8 @@ import { UpdatesDialogComponent } from './updates-dialog/updates-dialog.componen
     MatDialogModule,
     MatSnackBarModule,
     MatSidenavModule,
-    MatMenuModule
+    MatMenuModule,
+    HttpClientModule
 
   ],
   entryComponents: [

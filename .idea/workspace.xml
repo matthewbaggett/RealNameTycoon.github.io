@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2fcd0f28-18b9-4908-95e3-2b603f838429" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angularDev/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angularDev/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angularDev/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angularDev/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angularDev/src/app/updates-dialog/updates-dialog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angularDev/src/app/updates-dialog/updates-dialog.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angularDev/src/assets/markers.json" beforeDir="false" afterPath="$PROJECT_DIR$/angularDev/src/assets/markers.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angularDev/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/angularDev/src/styles.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,17 +22,16 @@
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#0;n#mat-toolbar#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#i#0;n#div#0;n#mat-toolbar#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#mat-sidenav-content#1;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="1300" column="10" selection-start-line="1300" selection-start-column="10" selection-end-line="1300" selection-end-column="10" />
+            <state relative-caret-position="51">
+              <caret line="202" column="61" selection-start-line="202" selection-start-column="61" selection-end-line="202" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -44,7 +39,7 @@
       <file leaf-file-name="markers.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angularDev/src/assets/markers.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
+            <state relative-caret-position="1700">
               <caret line="100" column="62" selection-end-line="134" selection-end-column="1" />
             </state>
           </provider>
@@ -53,7 +48,7 @@
       <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angularDev/src/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
+            <state relative-caret-position="1802">
               <caret line="106" column="23" selection-start-line="106" selection-start-column="23" selection-end-line="106" selection-end-column="23" />
             </state>
           </provider>
@@ -68,10 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="updates-dialog.component.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="updates-dialog.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angularDev/src/app/updates-dialog/updates-dialog.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="17">
               <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
             </state>
           </provider>
@@ -111,7 +106,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>full-width</find>
       <find>elementbyid</find>
       <find>defaultVoucherSelected</find>
       <find>endD</find>
@@ -141,6 +135,7 @@
       <find>mechan</find>
       <find>mec</find>
       <find>tool</find>
+      <find>control.la</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -165,9 +160,9 @@
         <option value="$PROJECT_DIR$/angularDev/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/angularDev/src/styles.css" />
         <option value="$PROJECT_DIR$/angularDev/src/assets/markers.json" />
-        <option value="$PROJECT_DIR$/angularDev/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/angularDev/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/angularDev/src/app/updates-dialog/updates-dialog.component.html" />
+        <option value="$PROJECT_DIR$/angularDev/src/app/app.component.ts" />
       </list>
     </option>
   </component>
@@ -185,9 +180,9 @@
       <path value="$PROJECT_DIR$/angularDev/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="487" />
-    <option name="y" value="-26" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1922" />
+    <option name="y" value="461" />
     <option name="width" value="837" />
     <option name="height" value="513" />
   </component>
@@ -199,6 +194,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -243,7 +239,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -326,28 +321,28 @@
       <workItem from="1543787680104" duration="8113000" />
       <workItem from="1543835119185" duration="1420000" />
       <workItem from="1543839639861" duration="599000" />
-      <workItem from="1543851725099" duration="8918000" />
+      <workItem from="1543851725099" duration="9542000" />
+      <workItem from="1543885843341" duration="425000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155828000" />
+    <option name="totallyTimeSpent" value="156877000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="1922" y="461" width="837" height="513" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.0734375" side_tool="true" weight="0.2752391" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32897604" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.9265625" visible="true" weight="0.16013072" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.9265625" visible="true" weight="0.392" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6083009" visible="true" weight="0.15618336" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6052632" visible="true" weight="0.3809524" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info id="Structure" order="1" sideWeight="0.3916991" side_tool="true" visible="true" weight="0.15618336" />
+      <window_info id="Structure" order="1" sideWeight="0.39473686" side_tool="true" visible="true" weight="0.3809524" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -495,22 +490,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/angularDev/src/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
+        <state relative-caret-position="1802">
           <caret line="106" column="23" selection-start-line="106" selection-start-column="23" selection-end-line="106" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/angularDev/src/assets/markers.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
+        <state relative-caret-position="1700">
           <caret line="100" column="62" selection-end-line="134" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="1300" column="10" selection-start-line="1300" selection-start-column="10" selection-end-line="1300" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -521,15 +509,21 @@
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#mat-toolbar#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#0;n#div#0;n#mat-toolbar#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#mat-sidenav-content#1;n#mat-sidenav-container#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/angularDev/src/app/updates-dialog/updates-dialog.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
+        <state relative-caret-position="17">
           <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angularDev/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="202" column="61" selection-start-line="202" selection-start-column="61" selection-end-line="202" selection-end-column="61" />
         </state>
       </provider>
     </entry>

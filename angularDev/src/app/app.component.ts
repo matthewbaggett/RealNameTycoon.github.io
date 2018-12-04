@@ -200,7 +200,7 @@ export class AppComponent implements OnInit{
             overLayMaps['<b>'+overlayMapName+'</b>'] = tempLayerGroup;
         }
 
-        L.control.layers(null,overLayMaps).addTo(map);
+        L.control.layers(null,overLayMaps,{position: 'topleft'}).addTo(map);
 
 
     }

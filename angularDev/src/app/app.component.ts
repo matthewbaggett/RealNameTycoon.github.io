@@ -396,8 +396,10 @@ export class AppComponent implements OnInit{
             name: 'Unique',
             vouchers: [
                 {value: 0.3, viewValue: 'Casino'},
+                {value: 0.005, viewValue: 'Fish Meat'},
                 {value: 0.8, viewValue: 'Gym'},
                 {value: 0.2, viewValue: 'Helipilot'},
+                {value: 0.2, viewValue: 'Hunting'},
                 {value: 2.5, viewValue: 'Medic'}
             ]
         },

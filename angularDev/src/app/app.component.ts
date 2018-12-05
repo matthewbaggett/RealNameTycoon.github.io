@@ -386,8 +386,6 @@ export class AppComponent implements OnInit{
             removeClass(classTileLayerRoad,'mapTypeSelected');
             removeClass(classTileLayerSatellite,'mapTypeSelected');
             removeClass(classTileLayerAtlas,'mapTypeSelected');
-            console.log("IT WORKS");
-            console.log(e.layer._leaflet_id);
 
             if(e.layer._leaflet_id == "298"){
                 mapBackgroundColor = "#1862ad";

@@ -107,14 +107,26 @@
     "overlayMapName": "Mechanic",
     "icon": "ic_mechanic",
     "markers": {
-      "one": {
-        "name": "One mechanic",
-        "description": "Los Santos Mechanic",
-        "coordinates": {
-          "x": 4572,
-          "y": 8300
-        }
-      }
+      "mechanic_1":{"name":"Zancudo Mechanic","description":"Fix your vehicle here","coordinates":{"x":3323,"y":4806}},
+      "mechanic_2":{"name":"PIA Airport Mechanic","description":"Fix your vehicle here","coordinates":{"x":6133,"y":1431}},
+      "mechanic_3":{"name":"Paleto Forest Sawmill Mechanic","description":"Fix your vehicle here","coordinates":{"x":4514,"y":2736}},
+      "mechanic_4":{"name":"Pacific Ocean Airport Mechanic","description":"Fix your vehicle here","coordinates":{"x":7649,"y":7978}},
+      "mechanic_5":{"name":"Scrap Yard Mechanic","description":"Fix your vehicle here","coordinates":{"x":4664,"y":8917}},
+      "mechanic_6":{"name":"PIGS HQ Mechanic","description":"Fix your vehicle here","coordinates":{"x":5913,"y":7536}},
+      "mechanic_7":{"name":"24/7 Gas Station Mechanic","description":"Fix your vehicle here","coordinates":{"x":7417,"y":4532}},
+      "mechanic_8":{"name":"Ltd Gas Station Mechanic","description":"Fix your vehicle here","coordinates":{"x":6545,"y":3050}},
+      "mechanic_9":{"name":"Race Track Mechanic","description":"Fix your vehicle here","coordinates":{"x":8259,"y":2345}},
+      "mechanic_10":{"name":"Glass Heroes Mechanic","description":"Fix your vehicle here","coordinates":{"x":4867,"y":8646}},
+      "mechanic_11":{"name":"Xero Gas Mechanic","description":"Fix your vehicle here","coordinates":{"x":3186,"y":7684}},
+      "mechanic_12":{"name":"24/7 Gas Station Mechanic","description":"Fix your vehicle here","coordinates":{"x":2790,"y":5366}},
+      "mechanic_13":{"name":"Race Track Mechanic","description":"Fix your vehicle here","coordinates":{"x":8186,"y":2474}},
+      "mechanic_14":{"name":"Paleto Bay Mechanic","description":"Fix your vehicle here","coordinates":{"x":5194,"y":1606}},
+      "mechanic_15":{"name":"24/7 Gas Station Mechanic","description":"Fix your vehicle here","coordinates":{"x":7313,"y":7085}},
+      "mechanic_16":{"name":"Pillbox Hill Medical Center Mechanic","description":"Fix your vehicle here","coordinates":{"x":5371,"y":7913}},
+      "mechanic_17":{"name":"L.S.I.A Mechanic","description":"Fix your vehicle here","coordinates":{"x":3849,"y":9806}},
+      "mechanic_18":{"name":"SSIA Airport Mechanic","description":"Fix your vehicle here","coordinates":{"x":5467,"y":4205}},
+      "mechanic_19":{"name":"Sandy Shores Airfield Mechanic","description":"Fix your vehicle here","coordinates":{"x":6620,"y":4470}},
+      "mechanic_20":{"name":"Palmer Taylor Mechanic","description":"Fix your vehicle here","coordinates":{"x":7416,"y":6199}}
     }
   },
   "other": {

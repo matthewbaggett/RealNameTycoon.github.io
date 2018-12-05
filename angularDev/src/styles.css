@@ -129,37 +129,38 @@ body{
 
 [class*="ic_"]{
     background-size: cover;
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
+    background-repeat: no-repeat;
 }
 
 .ic_business{
-    background-image: url("assets/icons/tile256.png"), url("assets/icons/tile163.png");
+    background-image: url("assets/icons/svg/tile260.svg");
 }
 
 .ic_grand_exchange{
-    background-image: url("assets/icons/tile083.png");
+    background-image: url("assets/icons/svg/tile256.svg");
 }
 
 .ic_mechanic{
-    background-image: url("assets/icons/tile211.png");
+    background-image: url("assets/icons/svg/tile211.svg");
 }
 
 .ic_garage_vehicle{
-    background-image: url("assets/icons/tile257.png");
+    background-image: url("assets/icons/svg/tile257.svg");
 }
 .ic_garage_watercraft{
-    background-image: url("assets/icons/tile258.png");
+    background-image: url("assets/icons/svg/tile258.svg");
 }
 .ic_garage_aircraft{
-    background-image: url("assets/icons/tile259.png");
+    background-image: url("assets/icons/svg/tile259.svg");
 }
 .ic_dealership_vehicle{
-    background-image: url("assets/icons/tile140.png");
+    background-image: url("assets/icons/svg/tile140.svg");
 }
 .ic_dealership_watercraft{
-    background-image: url("assets/icons/tile147.png");
+    background-image: url("assets/icons/svg/tile147.svg");
 }
 .ic_dealership_aircraft{
-    background-image: url("assets/icons/tile150.png");
+    background-image: url("assets/icons/svg/tile150.svg");
 }

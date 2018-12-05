@@ -158,6 +158,9 @@ body{
 .mapTypeSelected{
     box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.76);
 }
+.mapTypeSelected:-webkit-autofill {
+    -webkit-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.76);
+}
 
 .map_atlas{
     background-image: url("assets/icons/svg/atlas.svg");

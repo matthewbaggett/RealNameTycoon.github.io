@@ -132,6 +132,57 @@ body{
     width: 34px;
     height: 34px;
     background-repeat: no-repeat;
+    cursor: pointer;
+}
+[class*="ic_"]:hover{
+    background-size: cover;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+}
+
+.leaflet-control-layers-overlays > label > div > span{
+    float: left;
+}
+.leaflet-control-layers-base{
+    height: 48px;
+;
+}
+.leaflet-control-layers-base > label{
+    float: left;
+}
+.leaflet-control-layers-base > label:hover{
+    cursor: pointer;
+}
+
+.mapTypeSelected{
+    box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.76);
+}
+
+.map_atlas{
+    background-image: url("assets/icons/svg/atlas.svg");
+    background-size: cover;
+    height: 46px;
+    width:46px;
+    display: inline-block !important;
+    margin-right: 5px;
+}
+
+.map_road{
+    background-image: url("assets/icons/svg/road.svg");
+    background-size: cover;
+    height: 46px;
+    width:46px; display:
+        inline-block !important;
+    margin-right: 5px;
+}
+
+.map_satellite{
+    background-image: url("assets/icons/svg/satellite.svg");
+    background-size: cover;
+    height: 46px;
+    width:46px;
+    display: inline-block !important;
 }
 
 .ic_business{
@@ -163,4 +214,8 @@ body{
 }
 .ic_dealership_aircraft{
     background-image: url("assets/icons/svg/tile150.svg");
+}
+
+.leaflet-control-layers-selector{
+    display: none;
 }

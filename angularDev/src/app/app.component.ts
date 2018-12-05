@@ -73,9 +73,9 @@ export class AppComponent implements OnInit{
         });
 
         var baseMaps = {
-            "Atlas" : atlasTileLayer,
-            "Road"  : roadTileLayer,
-            "Satellite" : satelliteTileLayer
+            '<div id="tileLayerAtlas" class="map_atlas mapTypeSelected"></div>' : atlasTileLayer,
+            '<div id="tileLayerRoad" class="map_road"></div>'   : roadTileLayer,
+            '<div id="tileLayerSatellite" class="map_satellite"></div>'  : satelliteTileLayer
         };
         /*map.setMaxBounds(new L.latLngBounds(
             map.unproject(this.mapSW, map.getMaxZoom()),
@@ -277,6 +277,7 @@ export class AppComponent implements OnInit{
         //GET MARKERS FROM OBJECT
 
         var overLayMaps = {};
+        var allMarkersLayer = new L.layerGroup();
 
         var markerinos = this.markersJson;
         //CONSTANTS SIZES
@@ -285,6 +286,7 @@ export class AppComponent implements OnInit{
         const ICONPOPUPANCHOR = [0,-20];
 
         for (var key in markerinos) {
+            var controlLayerIcon = "";
             // skip loop if the property is from prototype
             if (!markerinos.hasOwnProperty(key)) continue;
 
@@ -293,6 +295,7 @@ export class AppComponent implements OnInit{
             if(key == "business" ||
                key == "mechanic"){
             var iconClass = otherObj.icon;
+            controlLayerIcon = iconClass;
             //console.log("otherObj",otherObj.icon);
             //console.log(iconClass);
             }
@@ -333,9 +336,14 @@ export class AppComponent implements OnInit{
                         icon : singleMarkerIcon
                     }).bindPopup('<h2>'+name+'</h2><br>'+description);
                 }else if(key == "other" ||
-                         key == "vehicles"){
+                         key == "vehicles") {
 
                     var singleMarkerIconClass = keyProp.icon;
+                    if (key == "vehicles") {
+                        controlLayerIcon = "ic_dealership_vehicle";
+                    } else {
+                    controlLayerIcon = singleMarkerIconClass;
+                    };
                     //console.log("singleMarkerIconClass:",singleMarkerIconClass);
 
                     /*var singleMarkerIcon = new L.icon({
@@ -353,13 +361,16 @@ export class AppComponent implements OnInit{
 
 
                 tempLayerGroup.addLayer(tempMarker);
+                allMarkersLayer.addLayer(tempMarker);
                 if(key == "other"){tempLayerGroup.addTo(map)}
             }
             tempLayerGroup.addTo(map);
-            overLayMaps['<b>'+overlayMapName+'</b>'] = tempLayerGroup;
+            overLayMaps['<div style="height: 36px; width:36px; display: inline-block !important;" class="'+controlLayerIcon+' controlLayerIcons"></div>'] = tempLayerGroup;
         }
-
+        //TODO MAKE IT WORK => allMarkersLayer.addTo(map);
+        //TODO overLayMaps['<b>Hide all markers</b>'] = allMarkersLayer;
         overLayMaps['<b>Suggestion Marker</b>'] = pointerMarker;
+
 
 
         L.control.layers(baseMaps,overLayMaps,{position: 'topleft'}).addTo(map);
@@ -368,18 +379,64 @@ export class AppComponent implements OnInit{
 
             var mapBackgroundColor = "";
 
-            switch (e.name) {
-                case "Road" : mapBackgroundColor = "#1862ad"
-                break;
-                case "Satellite" : mapBackgroundColor = "#143d6b"
-                break;
-                case "Atlas" : mapBackgroundColor = "#0fa8d2"
-                break;
-                default : mapBackgroundColor = "#0fa8d2"
+            var classTileLayerRoad = document.getElementById('tileLayerRoad');
+            var classTileLayerSatellite =document.getElementById('tileLayerSatellite');
+            var classTileLayerAtlas = document.getElementById('tileLayerAtlas');
+
+            removeClass(classTileLayerRoad,'mapTypeSelected');
+            removeClass(classTileLayerSatellite,'mapTypeSelected');
+            removeClass(classTileLayerAtlas,'mapTypeSelected');
+            console.log("IT WORKS");
+            console.log(e.layer._leaflet_id);
+
+            if(e.layer._leaflet_id == "298"){
+                mapBackgroundColor = "#1862ad";
+                addClass(classTileLayerRoad,'mapTypeSelected');
+            }
+            if(e.layer._leaflet_id == "299"){
+                mapBackgroundColor = "#143d6b" ;
+                addClass(classTileLayerSatellite,'mapTypeSelected');
+            }
+            if(e.layer._leaflet_id == "26"){
+                mapBackgroundColor = "#0fa8d2"
+                addClass(classTileLayerAtlas,'mapTypeSelected');
             }
 
             document.getElementById('map').style.backgroundColor = mapBackgroundColor;
 
+        });
+
+        function hasClass(el, className)
+        {
+            if (el.classList)
+                return el.classList.contains(className);
+            return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
+        }
+
+        function addClass(el, className)
+        {
+            if (el.classList)
+                el.classList.add(className)
+            else if (!hasClass(el, className))
+                el.className += " " + className;
+        }
+
+        function removeClass(el, className)
+        {
+            if (el.classList)
+                el.classList.remove(className)
+            else if (hasClass(el, className))
+            {
+                var reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
+                el.className = el.className.replace(reg, ' ');
+            }
+        }
+
+        map.on('overlayremove',function (e) {
+            //TODO MAKE IT WORK
+        });
+        map.on('overlayadd',function (e) {
+            //TODO MAKE IT WORK
         });
 
 
